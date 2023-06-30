@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="ModuloDisciplina\" />
+    <Folder Include="ModuloMateria\" />
+    <Folder Include="ModuloQuestao\" />
+    <Folder Include="ModuloTeste\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ListaExerciciosMariana.Dominio\ListaExerciciosMariana.Dominio.csproj" />
+  </ItemGroup>
+
+</Project>

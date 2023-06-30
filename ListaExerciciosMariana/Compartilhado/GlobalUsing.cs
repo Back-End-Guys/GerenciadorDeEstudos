@@ -1,0 +1,1 @@
+﻿global using ListaExerciciosMariana.WinForm.Compartilhado;
