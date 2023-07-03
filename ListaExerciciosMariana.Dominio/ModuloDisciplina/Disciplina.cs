@@ -16,12 +16,18 @@ namespace ListaExerciciosMariana.Dominio.ModuloDisciplina
 
         public override void AtualizarInformacoes(Disciplina registroAtualizado)
         {
-            throw new NotImplementedException();
+            this.Nome = registroAtualizado.Nome;
+            this.ListMaterias = registroAtualizado.ListMaterias;
         }
 
         public override string[] Validar()
         {
-            throw new NotImplementedException();
+            List<string> erros = new List<string>();
+
+            if (string.IsNullOrEmpty(Nome))
+                erros.Add("O campo \"Nome\" é obrigatório");
+
+            return erros.ToArray();
         }
     }
 }

@@ -29,11 +29,15 @@ namespace ListaExerciciosMariana.Dominio.ModuloMateria
             List<string> erros = new List<string>();
 
             if (string.IsNullOrEmpty(Nome))
-                erros.Add("O campo 'Nome' é obrigatório");
+                erros.Add("O campo \"Nome\" é obrigatório");
 
             if (Nome.Length < 3)
-                erros.Add("O campo 'Nome' deve conter no mínimo 3 caracteres");
+                erros.Add("O campo \"Nome\" deve conter no mínimo 3 caracteres");
+
+            if (Disciplina == null)
+                erros.Add("O campo \"Disciplina\" é obrigatório");
 
             return erros.ToArray();
         }
+    }
 }
