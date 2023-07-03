@@ -28,10 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            gridQuestao = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)gridQuestao).BeginInit();
+            SuspendLayout();
+            // 
+            // gridQuestao
+            // 
+            gridQuestao.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            gridQuestao.Dock = DockStyle.Fill;
+            gridQuestao.Location = new Point(0, 0);
+            gridQuestao.Name = "gridQuestao";
+            gridQuestao.RowTemplate.Height = 25;
+            gridQuestao.Size = new Size(300, 308);
+            gridQuestao.TabIndex = 0;
+            // 
+            // TabelaQuestaoControl
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(gridQuestao);
+            Name = "TabelaQuestaoControl";
+            Size = new Size(300, 308);
+            ((System.ComponentModel.ISupportInitialize)gridQuestao).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private DataGridView gridQuestao;
     }
 }
