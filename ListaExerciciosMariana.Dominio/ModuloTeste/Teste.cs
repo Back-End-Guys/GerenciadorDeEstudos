@@ -25,12 +25,28 @@ namespace ListaExerciciosMariana.Dominio.ModuloTeste
 
         public override void AtualizarInformacoes(Teste registroAtualizado)
         {
-            throw new NotImplementedException();
+            this.Titulo = registroAtualizado.Titulo;
+            this.Disciplina = registroAtualizado.Disciplina;
+            this.Materia = registroAtualizado .Materia;
+            this.QuantidadeQuestoes = registroAtualizado.QuantidadeQuestoes;
+            this.ProvaRecuperacao = registroAtualizado.ProvaRecuperacao;
+            this.ListQuestoes = registroAtualizado.ListQuestoes;
         }
 
         public override string[] Validar()
         {
-            throw new NotImplementedException();
+            List<string> erros = new List<string>();
+
+            if (string.IsNullOrEmpty(Titulo))
+                erros.Add("O campo \"Título\" é obrigatório");
+
+            if (Disciplina == null)
+                erros.Add("O campo \"Disciplina\" é obrigatório");
+
+            if (Materia == null)
+                erros.Add("O campo \"Título\" é obrigatório");
+
+            return erros.ToArray();
         }
     }
 }

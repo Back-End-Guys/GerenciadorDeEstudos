@@ -27,17 +27,21 @@ namespace ListaExerciciosMariana.Dominio.ModuloQuestao
 
         public override string[] Validar()
         {
-            throw new NotImplementedException();
-        }
-    }
-    public class Alternativa
-    {
-        public string AlternativaResposta { get; set; }
-        public bool Verdadeiro { get; set; }
+            List<string> erros = new List<string>();
 
-        public override string ToString()
-        {
-            return AlternativaResposta;
+            if (string.IsNullOrEmpty(Enunciado))
+                erros.Add("O campo \"Enunciado\" é obrigatório");
+
+            if (Materia == null)
+                erros.Add("O campo \"Matéria\" é obrigatório");
+
+            if (ListAlternativas.Count < 2)
+                erros.Add("Mínimo 2 \"Altenativas\"");
+
+            if (ListAlternativas.Count > 5)
+                erros.Add("Máximo 5 \"Alternativas\"");
+
+            return erros.ToArray();
         }
     }
 }
