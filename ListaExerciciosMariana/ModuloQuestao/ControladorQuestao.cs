@@ -31,7 +31,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
 
         public override void Editar()
         {
-            Questoes questaoSelecionada = ObterQuestaoSelecionada();
+            Questao questaoSelecionada = ObterQuestaoSelecionada();
 
             if (questaoSelecionada == null)
             {
@@ -40,7 +40,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
                 return;
             }
 
-            TelaQuestoesForm telaQuestao = new TelaQuestoesForm();
+            TelaQuestaoForm telaQuestao = new TelaQuestaoForm();
             telaQuestao.Text = "Editar questão existente";
 
             telaQuestao.ConfigurarTela(questaoSelecionada);
@@ -49,9 +49,9 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                Questoes questao = telaQuestao.ObterQuestao();
+                Questao questao = telaQuestao.ObterQuestao();
 
-                repositorioQuestoes.Editar(questao.id, questao);
+                repositorioQuestao.Editar(questao.id, questao);
             }
 
             CarregarQuestoes();
@@ -59,39 +59,39 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
 
         public override void Excluir()
         {
-            Questoes questao = ObterQuestaoSelecionada();
+            Questao questao = ObterQuestaoSelecionada();
 
             if (questao == null)
             {
-                MessageBox.Show($"Selecione uma questao primeiro!",
+                MessageBox.Show($"Selecione uma questão primeiro!",
                     "Exclusão de Questões",
                     MessageBoxButtons.OK,
                 MessageBoxIcon.Exclamation);
                 return;
             }
 
-            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir a questão?", "Exclusão de Questões",
+            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir a questão '{questao.id}'?", "Exclusão de Questões",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                repositorioQuestoes.Excluir(questao);
+                repositorioQuestao.Excluir(questao);
             }
 
             CarregarQuestoes();
         }
 
-        private Questoes ObterQuestaoSelecionada()
+        private Questao ObterQuestaoSelecionada()
         {
             int id = tabelaQuestao.ObterIdSelecionado();
 
-            return repositorioQuestoes.SelecionarPorId(id);
+            return repositorioQuestao.SelecionarPorId(id);
         }
 
 
         private void CarregarQuestoes()
         {
-            List<Questoes> listaQuestoes = repositorioQuestoes.SelecionarTodos();
+            List<Questao> listaQuestoes = repositorioQuestao.SelecionarTodos();
 
             tabelaQuestao.AtualizarRegistros(listaQuestoes);
         }
@@ -99,7 +99,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
         public override UserControl ObterListagem()
         {
             if (tabelaQuestao == null)
-                tabelaQuestao = new TabelaQuestoesControl();
+                tabelaQuestao = new TabelaQuestaoControl();
 
             CarregarQuestoes();
 

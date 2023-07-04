@@ -56,20 +56,19 @@
             statusStrip1.BackColor = Color.FromArgb(230, 235, 239);
             statusStrip1.ImageScalingSize = new Size(20, 20);
             statusStrip1.Items.AddRange(new ToolStripItem[] { labelRodape });
-            statusStrip1.Location = new Point(0, 468);
+            statusStrip1.Location = new Point(0, 477);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Padding = new Padding(1, 0, 16, 0);
-            statusStrip1.Size = new Size(876, 31);
+            statusStrip1.Size = new Size(876, 22);
             statusStrip1.TabIndex = 9;
             statusStrip1.Text = "[rodape]";
             // 
             // labelRodape
             // 
             labelRodape.Font = new Font("Nirmala UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            labelRodape.Margin = new Padding(16, 4, 0, 2);
+            labelRodape.Margin = new Padding(19, 4, 0, 2);
             labelRodape.Name = "labelRodape";
-            labelRodape.Size = new Size(72, 25);
-            labelRodape.Text = "rodape";
+            labelRodape.Size = new Size(0, 16);
             // 
             // panelRegistros
             // 
@@ -194,28 +193,28 @@
             // displinaMenuItem
             // 
             displinaMenuItem.Name = "displinaMenuItem";
-            displinaMenuItem.Size = new Size(182, 32);
+            displinaMenuItem.Size = new Size(224, 32);
             displinaMenuItem.Text = "Disciplina";
             displinaMenuItem.Click += displinaMenuItem_Click;
             // 
             // materiaMenuItem
             // 
             materiaMenuItem.Name = "materiaMenuItem";
-            materiaMenuItem.Size = new Size(182, 32);
+            materiaMenuItem.Size = new Size(224, 32);
             materiaMenuItem.Text = "Materia";
             materiaMenuItem.Click += materiaMenuItem_Click;
             // 
             // questaoMenuItem
             // 
             questaoMenuItem.Name = "questaoMenuItem";
-            questaoMenuItem.Size = new Size(182, 32);
+            questaoMenuItem.Size = new Size(224, 32);
             questaoMenuItem.Text = "Questão";
             questaoMenuItem.Click += questaoMenuItem_Click;
             // 
             // testeToolStripMenuItem
             // 
             testeToolStripMenuItem.Name = "testeToolStripMenuItem";
-            testeToolStripMenuItem.Size = new Size(182, 32);
+            testeToolStripMenuItem.Size = new Size(224, 32);
             testeToolStripMenuItem.Text = "Teste";
             testeToolStripMenuItem.Click += testeToolStripMenuItem_Click;
             // 

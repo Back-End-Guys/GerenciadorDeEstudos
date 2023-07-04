@@ -1,3 +1,12 @@
+using ListaExerciciosMariana.Dominio.ModuloDisciplina;
+using ListaExerciciosMariana.Dominio.ModuloMateria;
+using ListaExerciciosMariana.Dominio.ModuloQuestao;
+using ListaExerciciosMariana.Dominio.ModuloTeste;
+using ListaExerciciosMariana.Infra.Compartilhado;
+using ListaExerciciosMariana.Infra.ModuloDisciplina;
+using ListaExerciciosMariana.Infra.ModuloMateria;
+using ListaExerciciosMariana.Infra.ModuloQuestao;
+using ListaExerciciosMariana.Infra.ModuloTeste;
 using ListaExerciciosMariana.WinForm.ModuloDisciplina;
 
 namespace ListaExerciciosMariana
@@ -10,10 +19,10 @@ namespace ListaExerciciosMariana
 
         //static ContextoDados contexto = new ContextoDados(carregarDados: true);
 
-        //private IRepositorioDisciplina repositorioDisciplina = new RepositorioDisciplinaEmArquivo(contexto);
-        //private IRepositorioMateria repositorioMateria = new RepositorioMateriaEmArquivo(contexto);
-        //private IRepositorioQuestao repositorioQuestao = new RepositorioQuestaoEmArquivo(contexto);
-        //private IRepositorioTeste repositorioTeste = new RepositorioTesteEmArquivo(contexto);
+        //private IRepositorioDisciplina _repositorioDisciplina = new RepositorioDisciplinaEmSql();
+        //private IRepositorioMateria _repositorioMateria = new RepositorioMateriaEmSql(contexto);
+        //private IRepositorioQuestao _repositorioQuestao = new RepositorioQuestaoEmSql(contexto);
+        //private IRepositorioTeste _repositorioTeste = new RepositorioTesteEmSql(contexto);
 
         public TelaPrincipalForm()
         {
@@ -83,6 +92,8 @@ namespace ListaExerciciosMariana
             ConfigurarBotoesHabilitados(controlador);
         }
 
+        // Menu Items ---------------------------------------------------------------------------------------
+
         private void displinaMenuItem_Click(object sender, EventArgs e)
         {
             controlador = new ControladorDisciplina();
@@ -109,6 +120,8 @@ namespace ListaExerciciosMariana
         {
             controlador.Inserir();
         }
+
+        // Botões -------------------------------------------------------------------------------------------
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
