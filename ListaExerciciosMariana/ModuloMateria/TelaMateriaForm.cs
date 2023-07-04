@@ -1,14 +1,5 @@
 ﻿using ListaExerciciosMariana.Dominio.ModuloDisciplina;
 using ListaExerciciosMariana.Dominio.ModuloMateria;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace ListaExerciciosMariana.WinForm.ModuloMateria
 {
@@ -36,18 +27,18 @@ namespace ListaExerciciosMariana.WinForm.ModuloMateria
             int id = Convert.ToInt32(txtId.Text);
             string nome = txtNome.Text;
             Disciplina disciplina = (Disciplina)cbDisciplina.SelectedItem;
-            int serie = 0;
+            int ano = 0;
 
             if (rdbPrimeiro.Checked)
             {
-                serie = 1;
+                ano = 1;
             }
             if (rdbSegundo.Checked)
             {
-                serie = 2;
+                ano = 2;
             }
 
-            return new Materia(id, nome, disciplina, serie);
+            return new Materia(id, nome, disciplina, ano);
         }
 
         public void ConfigurarTela(Materia materiaSelecionada)
