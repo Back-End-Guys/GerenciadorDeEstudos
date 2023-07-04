@@ -27,7 +27,15 @@ namespace ListaExerciciosMariana.Dominio.ModuloDisciplina
             if (string.IsNullOrEmpty(Nome))
                 erros.Add("O campo \"Nome\" é obrigatório");
 
+            if (Nome.Length < 3)
+                erros.Add("O campo \"Nome\" deve ter no mínimo 3 caracteres");
+
             return erros.ToArray();
+        }
+
+        public override string ToString()
+        {
+            return Nome;
         }
     }
 }
