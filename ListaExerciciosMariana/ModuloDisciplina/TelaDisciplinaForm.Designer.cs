@@ -72,6 +72,7 @@
             // 
             btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnCancelar.BackColor = Color.LightSteelBlue;
+            btnCancelar.Cursor = Cursors.Hand;
             btnCancelar.DialogResult = DialogResult.Cancel;
             btnCancelar.FlatAppearance.BorderSize = 0;
             btnCancelar.FlatAppearance.MouseDownBackColor = Color.Lavender;
@@ -88,6 +89,7 @@
             // 
             btnGravar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnGravar.BackColor = Color.LightSteelBlue;
+            btnGravar.Cursor = Cursors.Hand;
             btnGravar.DialogResult = DialogResult.OK;
             btnGravar.FlatAppearance.BorderSize = 0;
             btnGravar.FlatAppearance.MouseDownBackColor = Color.Lavender;

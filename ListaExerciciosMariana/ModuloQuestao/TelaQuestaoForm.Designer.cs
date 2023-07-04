@@ -28,11 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            groupBox1 = new GroupBox();
-            btnRemover = new Button();
             chListAlternativas = new CheckedListBox();
-            btnAdicionar = new Button();
-            txtResposta = new TextBox();
             label4 = new Label();
             txtEnunciado = new TextBox();
             label3 = new Label();
@@ -40,146 +36,229 @@
             label2 = new Label();
             txtId = new TextBox();
             label1 = new Label();
-            btnGravar = new Button();
             btnCancelar = new Button();
-            groupBox1.SuspendLayout();
+            btnGravar = new Button();
+            label5 = new Label();
+            btnRemover = new Button();
+            btnAdicionar = new Button();
+            txtResposta = new TextBox();
+            txtAno = new TextBox();
             SuspendLayout();
-            // 
-            // groupBox1
-            // 
-            groupBox1.Controls.Add(btnRemover);
-            groupBox1.Controls.Add(chListAlternativas);
-            groupBox1.Location = new Point(12, 140);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(289, 183);
-            groupBox1.TabIndex = 28;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Alternativas";
-            // 
-            // btnRemover
-            // 
-            btnRemover.Location = new Point(9, 22);
-            btnRemover.Name = "btnRemover";
-            btnRemover.Size = new Size(75, 23);
-            btnRemover.TabIndex = 17;
-            btnRemover.Text = "Remover";
-            btnRemover.UseVisualStyleBackColor = true;
             // 
             // chListAlternativas
             // 
+            chListAlternativas.BackColor = Color.Snow;
+            chListAlternativas.Cursor = Cursors.Hand;
             chListAlternativas.FormattingEnabled = true;
-            chListAlternativas.Location = new Point(6, 51);
+            chListAlternativas.Location = new Point(139, 377);
+            chListAlternativas.Margin = new Padding(4, 5, 4, 5);
             chListAlternativas.Name = "chListAlternativas";
-            chListAlternativas.Size = new Size(274, 112);
+            chListAlternativas.Size = new Size(503, 247);
             chListAlternativas.TabIndex = 0;
-            // 
-            // btnAdicionar
-            // 
-            btnAdicionar.Location = new Point(226, 91);
-            btnAdicionar.Name = "btnAdicionar";
-            btnAdicionar.Size = new Size(75, 23);
-            btnAdicionar.TabIndex = 27;
-            btnAdicionar.Text = "Adicionar";
-            btnAdicionar.UseVisualStyleBackColor = true;
-            // 
-            // txtResposta
-            // 
-            txtResposta.Location = new Point(81, 91);
-            txtResposta.Name = "txtResposta";
-            txtResposta.Size = new Size(139, 23);
-            txtResposta.TabIndex = 26;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(21, 94);
+            label4.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Location = new Point(36, 251);
+            label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(54, 15);
+            label4.Size = new Size(95, 25);
             label4.TabIndex = 25;
-            label4.Text = "Resposta";
+            label4.Text = "Resposta :";
             // 
             // txtEnunciado
             // 
-            txtEnunciado.Location = new Point(81, 52);
+            txtEnunciado.BackColor = Color.Snow;
+            txtEnunciado.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            txtEnunciado.Location = new Point(139, 123);
+            txtEnunciado.Margin = new Padding(4, 5, 4, 5);
+            txtEnunciado.Multiline = true;
             txtEnunciado.Name = "txtEnunciado";
-            txtEnunciado.Size = new Size(220, 23);
+            txtEnunciado.PlaceholderText = "Inserir enunciado";
+            txtEnunciado.ScrollBars = ScrollBars.Vertical;
+            txtEnunciado.Size = new Size(507, 87);
             txtEnunciado.TabIndex = 24;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(12, 55);
+            label3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Location = new Point(21, 154);
+            label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(63, 15);
+            label3.Size = new Size(110, 25);
             label3.TabIndex = 23;
-            label3.Text = "Enunciado";
+            label3.Text = "Enunciado :";
             // 
             // cbMateria
             // 
+            cbMateria.BackColor = Color.Snow;
+            cbMateria.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             cbMateria.FormattingEnabled = true;
-            cbMateria.Location = new Point(81, 13);
+            cbMateria.Location = new Point(139, 73);
+            cbMateria.Margin = new Padding(4, 5, 4, 5);
             cbMateria.Name = "cbMateria";
-            cbMateria.Size = new Size(129, 23);
+            cbMateria.Size = new Size(245, 33);
             cbMateria.TabIndex = 22;
+            cbMateria.SelectedValueChanged += cbMateria_SelectedValueChanged;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(28, 16);
+            label2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(45, 77);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(47, 15);
+            label2.Size = new Size(86, 25);
             label2.TabIndex = 21;
-            label2.Text = "Materia";
+            label2.Text = "Materia :";
             // 
             // txtId
             // 
+            txtId.BackColor = SystemColors.GradientActiveCaption;
             txtId.Enabled = false;
-            txtId.Location = new Point(282, 13);
+            txtId.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            txtId.Location = new Point(139, 24);
+            txtId.Margin = new Padding(4, 5, 4, 5);
             txtId.Name = "txtId";
             txtId.ReadOnly = true;
-            txtId.Size = new Size(19, 23);
+            txtId.Size = new Size(506, 32);
             txtId.TabIndex = 20;
             txtId.Text = "0";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(259, 16);
+            label1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(92, 27);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(17, 15);
+            label1.Size = new Size(39, 25);
             label1.TabIndex = 19;
-            label1.Text = "id";
-            // 
-            // btnGravar
-            // 
-            btnGravar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnGravar.DialogResult = DialogResult.OK;
-            btnGravar.Location = new Point(121, 329);
-            btnGravar.Name = "btnGravar";
-            btnGravar.Size = new Size(87, 37);
-            btnGravar.TabIndex = 18;
-            btnGravar.Text = "Gravar";
-            btnGravar.UseVisualStyleBackColor = true;
+            label1.Text = "ID :";
             // 
             // btnCancelar
             // 
-            btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnCancelar.Anchor = AnchorStyles.None;
+            btnCancelar.BackColor = Color.LightSteelBlue;
+            btnCancelar.Cursor = Cursors.Hand;
             btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(214, 329);
+            btnCancelar.FlatAppearance.BorderSize = 0;
+            btnCancelar.FlatAppearance.MouseDownBackColor = Color.Lavender;
+            btnCancelar.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCancelar.Location = new Point(400, 642);
+            btnCancelar.Margin = new Padding(3, 4, 3, 4);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(87, 37);
-            btnCancelar.TabIndex = 17;
+            btnCancelar.Size = new Size(112, 56);
+            btnCancelar.TabIndex = 30;
             btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.UseVisualStyleBackColor = false;
+            // 
+            // btnGravar
+            // 
+            btnGravar.Anchor = AnchorStyles.None;
+            btnGravar.BackColor = Color.LightSteelBlue;
+            btnGravar.Cursor = Cursors.Hand;
+            btnGravar.DialogResult = DialogResult.OK;
+            btnGravar.FlatAppearance.BorderSize = 0;
+            btnGravar.FlatAppearance.MouseDownBackColor = Color.Lavender;
+            btnGravar.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            btnGravar.Location = new Point(273, 642);
+            btnGravar.Margin = new Padding(3, 4, 3, 4);
+            btnGravar.Name = "btnGravar";
+            btnGravar.Size = new Size(112, 56);
+            btnGravar.TabIndex = 29;
+            btnGravar.Text = "Gravar";
+            btnGravar.UseVisualStyleBackColor = false;
+            btnGravar.Click += btnGravar_Click;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Location = new Point(393, 76);
+            label5.Margin = new Padding(4, 0, 4, 0);
+            label5.Name = "label5";
+            label5.Size = new Size(55, 25);
+            label5.TabIndex = 31;
+            label5.Text = "Ano :";
+            // 
+            // btnRemover
+            // 
+            btnRemover.Anchor = AnchorStyles.None;
+            btnRemover.BackColor = SystemColors.GradientInactiveCaption;
+            btnRemover.Cursor = Cursors.Hand;
+            btnRemover.DialogResult = DialogResult.Cancel;
+            btnRemover.FlatAppearance.BorderSize = 0;
+            btnRemover.FlatAppearance.MouseDownBackColor = Color.Lavender;
+            btnRemover.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            btnRemover.Location = new Point(400, 320);
+            btnRemover.Margin = new Padding(3, 4, 3, 4);
+            btnRemover.Name = "btnRemover";
+            btnRemover.Size = new Size(245, 44);
+            btnRemover.TabIndex = 34;
+            btnRemover.Text = "Remover";
+            btnRemover.UseVisualStyleBackColor = false;
+            btnRemover.Click += btnRemover_Click;
+            // 
+            // btnAdicionar
+            // 
+            btnAdicionar.Anchor = AnchorStyles.None;
+            btnAdicionar.BackColor = SystemColors.GradientInactiveCaption;
+            btnAdicionar.Cursor = Cursors.Hand;
+            btnAdicionar.DialogResult = DialogResult.OK;
+            btnAdicionar.FlatAppearance.BorderSize = 0;
+            btnAdicionar.FlatAppearance.MouseDownBackColor = Color.Lavender;
+            btnAdicionar.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            btnAdicionar.Location = new Point(139, 320);
+            btnAdicionar.Margin = new Padding(3, 4, 3, 4);
+            btnAdicionar.Name = "btnAdicionar";
+            btnAdicionar.Size = new Size(245, 44);
+            btnAdicionar.TabIndex = 33;
+            btnAdicionar.Text = "Adicionar";
+            btnAdicionar.UseVisualStyleBackColor = false;
+            btnAdicionar.Click += btnAdicionar_Click;
+            // 
+            // txtResposta
+            // 
+            txtResposta.BackColor = Color.Snow;
+            txtResposta.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            txtResposta.Location = new Point(139, 220);
+            txtResposta.Margin = new Padding(4, 5, 4, 5);
+            txtResposta.Multiline = true;
+            txtResposta.Name = "txtResposta";
+            txtResposta.PlaceholderText = "Inserir alternativas";
+            txtResposta.ScrollBars = ScrollBars.Vertical;
+            txtResposta.Size = new Size(507, 87);
+            txtResposta.TabIndex = 35;
+            // 
+            // txtAno
+            // 
+            txtAno.BackColor = SystemColors.GradientActiveCaption;
+            txtAno.Enabled = false;
+            txtAno.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            txtAno.Location = new Point(456, 73);
+            txtAno.Margin = new Padding(4, 5, 4, 5);
+            txtAno.Name = "txtAno";
+            txtAno.ReadOnly = true;
+            txtAno.Size = new Size(189, 32);
+            txtAno.TabIndex = 36;
             // 
             // TelaQuestaoForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(317, 380);
-            Controls.Add(groupBox1);
-            Controls.Add(btnAdicionar);
+            BackColor = Color.AliceBlue;
+            ClientSize = new Size(704, 720);
+            Controls.Add(txtAno);
+            Controls.Add(chListAlternativas);
             Controls.Add(txtResposta);
+            Controls.Add(btnRemover);
+            Controls.Add(btnAdicionar);
+            Controls.Add(label5);
+            Controls.Add(btnCancelar);
+            Controls.Add(btnGravar);
             Controls.Add(label4);
             Controls.Add(txtEnunciado);
             Controls.Add(label3);
@@ -187,22 +266,17 @@
             Controls.Add(label2);
             Controls.Add(txtId);
             Controls.Add(label1);
-            Controls.Add(btnGravar);
-            Controls.Add(btnCancelar);
+            Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            Margin = new Padding(4, 5, 4, 5);
             Name = "TelaQuestaoForm";
-            Text = "TelaQuestaoForm";
-            groupBox1.ResumeLayout(false);
+            ShowIcon = false;
+            StartPosition = FormStartPosition.CenterScreen;
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private GroupBox groupBox1;
-        private Button btnRemover;
         private CheckedListBox chListAlternativas;
-        private Button btnAdicionar;
-        private TextBox txtResposta;
         private Label label4;
         private TextBox txtEnunciado;
         private Label label3;
@@ -210,7 +284,12 @@
         private Label label2;
         private TextBox txtId;
         private Label label1;
-        private Button btnGravar;
         private Button btnCancelar;
+        private Button btnGravar;
+        private Label label5;
+        private Button btnRemover;
+        private Button btnAdicionar;
+        private TextBox txtResposta;
+        private TextBox txtAno;
     }
 }

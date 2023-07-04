@@ -6,14 +6,14 @@ namespace ListaExerciciosMariana.Dominio.ModuloMateria
     {
         public string Nome { get; set; }
         public Disciplina Disciplina { get; set; }
-        public SerieEnum Serie { get; set; }
+        public AnoEnum Ano { get; set; }
 
-        public Materia(int id, string nome, Disciplina disciplina, SerieEnum serie)
+        public Materia(int id, string nome, Disciplina disciplina, AnoEnum ano)
         {
             this.id = id;
             Nome = nome;
             Disciplina = disciplina;
-            Serie = serie;
+            Ano = ano;
         }
 
         public override void AtualizarInformacoes(Materia registroAtualizado)
@@ -21,7 +21,7 @@ namespace ListaExerciciosMariana.Dominio.ModuloMateria
             this.id += registroAtualizado.id;
             this.Nome = registroAtualizado.Nome;
             this.Disciplina = registroAtualizado.Disciplina;
-            this.Serie = registroAtualizado.Serie;
+            this.Ano = registroAtualizado.Ano;
         }
 
         public override string[] Validar()
@@ -36,6 +36,9 @@ namespace ListaExerciciosMariana.Dominio.ModuloMateria
 
             if (Disciplina == null)
                 erros.Add("O campo \"Disciplina\" é obrigatório");
+
+            if (Ano == null)
+                erros.Add("O campo \"Ano\" é obrigatório");
 
             return erros.ToArray();
         }

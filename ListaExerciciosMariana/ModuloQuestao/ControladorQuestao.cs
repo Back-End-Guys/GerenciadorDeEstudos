@@ -1,11 +1,13 @@
-﻿using ListaExerciciosMariana.Dominio.ModuloQuestao;
+﻿using ListaExerciciosMariana.Dominio.ModuloMateria;
+using ListaExerciciosMariana.Dominio.ModuloQuestao;
 
 namespace ListaExerciciosMariana.WinForm.ModuloQuestao
 {
     public class ControladorQuestao : ControladorBase
     {
         TabelaQuestaoControl tabelaQuestao;
-        private IRepositorioQuestao repositorioQuestao;
+        private IRepositorioQuestao _repositorioQuestao;
+        private IRepositorioMateria _repositorioMateria;
 
         public override string ToolTipInserir => "Inserir nova questão";
 
@@ -15,7 +17,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
 
         public override void Inserir()
         {
-            TelaQuestaoForm telaQuestao = new TelaQuestaoForm();
+            TelaQuestaoForm telaQuestao = new TelaQuestaoForm(_repositorioMateria.SelecionarTodos());
 
             DialogResult opcaoEscolhida = telaQuestao.ShowDialog();
 
@@ -23,7 +25,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
             {
                 Questao questao = telaQuestao.ObterQuestao();
 
-                repositorioQuestao.Inserir(questao);
+                _repositorioQuestao.Inserir(questao);
             }
             CarregarQuestoes();
         }
@@ -40,7 +42,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
                 return;
             }
 
-            TelaQuestaoForm telaQuestao = new TelaQuestaoForm();
+            TelaQuestaoForm telaQuestao = new TelaQuestaoForm(_repositorioMateria.SelecionarTodos());
             telaQuestao.Text = "Editar questão existente";
 
             telaQuestao.ConfigurarTela(questaoSelecionada);
@@ -51,7 +53,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
             {
                 Questao questao = telaQuestao.ObterQuestao();
 
-                repositorioQuestao.Editar(questao.id, questao);
+                _repositorioQuestao.Editar(questao.id, questao);
             }
 
             CarregarQuestoes();
@@ -75,7 +77,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                repositorioQuestao.Excluir(questao);
+                _repositorioQuestao.Excluir(questao);
             }
 
             CarregarQuestoes();
@@ -84,15 +86,13 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
         private Questao ObterQuestaoSelecionada()
         {
             int id = tabelaQuestao.ObterIdSelecionado();
-
-            return repositorioQuestao.SelecionarPorId(id);
+            return _repositorioQuestao.SelecionarPorId(id);
         }
 
 
         private void CarregarQuestoes()
         {
-            List<Questao> listaQuestoes = repositorioQuestao.SelecionarTodos();
-
+            List<Questao> listaQuestoes = _repositorioQuestao.SelecionarTodos();
             tabelaQuestao.AtualizarRegistros(listaQuestoes);
         }
 

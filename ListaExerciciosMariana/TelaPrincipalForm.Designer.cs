@@ -53,7 +53,7 @@
             // 
             // statusStrip1
             // 
-            statusStrip1.BackColor = Color.FromArgb(230, 235, 239);
+            statusStrip1.BackColor = Color.AliceBlue;
             statusStrip1.ImageScalingSize = new Size(20, 20);
             statusStrip1.Items.AddRange(new ToolStripItem[] { labelRodape });
             statusStrip1.Location = new Point(0, 477);
@@ -72,6 +72,7 @@
             // 
             // panelRegistros
             // 
+            panelRegistros.BackColor = Color.Snow;
             panelRegistros.BorderStyle = BorderStyle.FixedSingle;
             panelRegistros.Dock = DockStyle.Fill;
             panelRegistros.Font = new Font("Nirmala UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
@@ -83,7 +84,7 @@
             // 
             // toolBar
             // 
-            toolBar.BackColor = Color.FromArgb(230, 235, 239);
+            toolBar.BackColor = Color.AliceBlue;
             toolBar.Enabled = false;
             toolBar.GripStyle = ToolStripGripStyle.Hidden;
             toolBar.ImageScalingSize = new Size(20, 20);
@@ -170,7 +171,7 @@
             // 
             // menuBar
             // 
-            menuBar.BackColor = Color.FromArgb(230, 235, 239);
+            menuBar.BackColor = Color.AliceBlue;
             menuBar.ImageScalingSize = new Size(20, 20);
             menuBar.Items.AddRange(new ToolStripItem[] { cadastrosToolStripMenuItem });
             menuBar.Location = new Point(0, 0);
@@ -193,28 +194,28 @@
             // displinaMenuItem
             // 
             displinaMenuItem.Name = "displinaMenuItem";
-            displinaMenuItem.Size = new Size(224, 32);
+            displinaMenuItem.Size = new Size(182, 32);
             displinaMenuItem.Text = "Disciplina";
             displinaMenuItem.Click += displinaMenuItem_Click;
             // 
             // materiaMenuItem
             // 
             materiaMenuItem.Name = "materiaMenuItem";
-            materiaMenuItem.Size = new Size(224, 32);
+            materiaMenuItem.Size = new Size(182, 32);
             materiaMenuItem.Text = "Materia";
             materiaMenuItem.Click += materiaMenuItem_Click;
             // 
             // questaoMenuItem
             // 
             questaoMenuItem.Name = "questaoMenuItem";
-            questaoMenuItem.Size = new Size(224, 32);
+            questaoMenuItem.Size = new Size(182, 32);
             questaoMenuItem.Text = "Questão";
             questaoMenuItem.Click += questaoMenuItem_Click;
             // 
             // testeToolStripMenuItem
             // 
             testeToolStripMenuItem.Name = "testeToolStripMenuItem";
-            testeToolStripMenuItem.Size = new Size(224, 32);
+            testeToolStripMenuItem.Size = new Size(182, 32);
             testeToolStripMenuItem.Text = "Teste";
             testeToolStripMenuItem.Click += testeToolStripMenuItem_Click;
             // 

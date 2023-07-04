@@ -1,22 +1,16 @@
 ﻿using ListaExerciciosMariana.Dominio.ModuloMateria;
 using ListaExerciciosMariana.Dominio.ModuloQuestao;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace ListaExerciciosMariana.WinForm.ModuloQuestao
 {
     public partial class TelaQuestaoForm : Form
     {
-        public TelaQuestaoForm()
+
+        public TelaQuestaoForm(List<Materia> materias)
         {
             InitializeComponent();
+
+            ConfigurarCbMateria(materias);
         }
 
         public Questao ObterQuestao()
@@ -46,6 +40,9 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
 
             txtId.Text = questao.id.ToString();
             txtEnunciado.Text = questao.Enunciado;
+            txtAno.Text = questao.Materia.Ano >= AnoEnum.PrimeiroAnoEm && questao.Materia.Ano <= AnoEnum.TerceiroAnoEm
+                ? $"{questao.Materia.Ano}º ano EM"
+                : $"{questao.Materia.Ano}º ano";       
 
             cbMateria.SelectedItem = questao.Materia.ToString();
 
@@ -64,6 +61,17 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
             }
         }
 
+        public void ConfigurarCbMateria(List<Materia> materias)
+        {
+            materias.ForEach(m => cbMateria.Items.Add(m.Nome));
+        }
+
+        private void cbMateria_SelectedValueChanged(object sender, EventArgs e)
+        {
+            Materia materiaSelecionada = (Materia)cbMateria.SelectedItem;
+            txtAno.Text = materiaSelecionada.Ano.ToString();
+        }
+
         public void ConfigurarListBoxAlternativa(List<Alternativa> aternativas)
         {
             chListAlternativas.Items.Clear();
@@ -77,6 +85,16 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
             Alternativa.AlternativaResposta = txtResposta.Text;
 
             chListAlternativas.Items.Add(Alternativa);
+        }
+
+        private void btnRemover_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnGravar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
