@@ -19,7 +19,7 @@ namespace ListaExerciciosMariana
 
         //static ContextoDados contexto = new ContextoDados(carregarDados: true);
 
-        //private IRepositorioDisciplina _repositorioDisciplina = new RepositorioDisciplinaEmSql();
+        private IRepositorioDisciplina _repositorioDisciplina = new RepositorioDisciplinaEmSql();
         //private IRepositorioMateria _repositorioMateria = new RepositorioMateriaEmSql(contexto);
         //private IRepositorioQuestao _repositorioQuestao = new RepositorioQuestaoEmSql(contexto);
         //private IRepositorioTeste _repositorioTeste = new RepositorioTesteEmSql(contexto);
@@ -96,7 +96,7 @@ namespace ListaExerciciosMariana
 
         private void displinaMenuItem_Click(object sender, EventArgs e)
         {
-            controlador = new ControladorDisciplina();
+            controlador = new ControladorDisciplina(_repositorioDisciplina);
 
             ConfigurarTelaPrincipal(controlador);
         }
