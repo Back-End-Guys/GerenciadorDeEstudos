@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListaExerciciosMariana.WinForm", "ListaExerciciosMariana\ListaExerciciosMariana.WinForm.csproj", "{D88D8215-ED34-4D47-8B11-B169E55219F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListaExerciciosMariana.WinForm", "ListaExerciciosMariana\ListaExerciciosMariana.WinForm.csproj", "{D88D8215-ED34-4D47-8B11-B169E55219F1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Apresentação", "1 - Apresentação", "{40EE24E3-4887-4944-96E1-CF9636098CF2}"
 EndProject
@@ -11,9 +11,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Domínio", "2 - Domíni
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Infra", "3 - Infra", "{20DFC97F-8550-4AFB-9D20-4A5F45E46F75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListaExerciciosMariana.Dominio", "ListaExerciciosMariana.Dominio\ListaExerciciosMariana.Dominio.csproj", "{47F0BAD5-7C0A-4B3F-8A55-7F427F9B2C2B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListaExerciciosMariana.Dominio", "ListaExerciciosMariana.Dominio\ListaExerciciosMariana.Dominio.csproj", "{47F0BAD5-7C0A-4B3F-8A55-7F427F9B2C2B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListaExerciciosMariana.Infra", "ListaExerciciosMariana.Infra\ListaExerciciosMariana.Infra.csproj", "{C83E9FC1-8BCA-4145-84A1-7CC596A9CE16}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListaExerciciosMariana.Infra", "ListaExerciciosMariana.Infra\ListaExerciciosMariana.Infra.csproj", "{C83E9FC1-8BCA-4145-84A1-7CC596A9CE16}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - BancoDeDados", "4 - BancoDeDados", "{7290AA20-020E-4792-BFD3-1F733C276D9A}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "GeradorDeTestes.Infra.Dados.Sql.ProjetoDatabase", "GeradorDeTestes.Infra.Dados.Sql.ProjetoDatabase\GeradorDeTestes.Infra.Dados.Sql.ProjetoDatabase.sqlproj", "{16C3E648-B323-4A7F-88BA-71DEB095F9FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,12 @@ Global
 		{C83E9FC1-8BCA-4145-84A1-7CC596A9CE16}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C83E9FC1-8BCA-4145-84A1-7CC596A9CE16}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C83E9FC1-8BCA-4145-84A1-7CC596A9CE16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16C3E648-B323-4A7F-88BA-71DEB095F9FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16C3E648-B323-4A7F-88BA-71DEB095F9FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16C3E648-B323-4A7F-88BA-71DEB095F9FA}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{16C3E648-B323-4A7F-88BA-71DEB095F9FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16C3E648-B323-4A7F-88BA-71DEB095F9FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16C3E648-B323-4A7F-88BA-71DEB095F9FA}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,6 +51,7 @@ Global
 		{D88D8215-ED34-4D47-8B11-B169E55219F1} = {40EE24E3-4887-4944-96E1-CF9636098CF2}
 		{47F0BAD5-7C0A-4B3F-8A55-7F427F9B2C2B} = {3D9DDE3A-E37C-424A-8A7A-E4C0620E3B3C}
 		{C83E9FC1-8BCA-4145-84A1-7CC596A9CE16} = {20DFC97F-8550-4AFB-9D20-4A5F45E46F75}
+		{16C3E648-B323-4A7F-88BA-71DEB095F9FA} = {7290AA20-020E-4792-BFD3-1F733C276D9A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C0922651-FBC4-47BB-A689-A0B9F4079F5D}
