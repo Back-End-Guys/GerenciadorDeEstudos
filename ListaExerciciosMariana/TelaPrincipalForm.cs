@@ -74,6 +74,7 @@ namespace ListaExerciciosMariana
             btnEditar.ToolTipText = controlador.ToolTipEditar;
             btnExcluir.ToolTipText = controlador.ToolTipExcluir;
             btnTeste.ToolTipText = controlador.ToolTipTeste;
+            btnListagem.ToolTipText = controlador.ToolTipListagem;
         }
 
         private void ConfigurarBotoesHabilitados(ControladorBase controlador)
@@ -82,6 +83,7 @@ namespace ListaExerciciosMariana
             btnEditar.Enabled = controlador.EditarHabilitado;
             btnEditar.Enabled = controlador.ExcluirHabilitado;
             btnTeste.Enabled = controlador.TesteHabilitado;
+            btnListagem.Enabled = controlador.ListagemHabilitado;
         }
         private void ConfigurarBarraFerramentas(ControladorBase controlador)
         {

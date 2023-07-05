@@ -72,7 +72,7 @@
             // 
             // panelRegistros
             // 
-            panelRegistros.BackColor = Color.Snow;
+            panelRegistros.BackColor = Color.AliceBlue;
             panelRegistros.BorderStyle = BorderStyle.FixedSingle;
             panelRegistros.Dock = DockStyle.Fill;
             panelRegistros.Font = new Font("Nirmala UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
