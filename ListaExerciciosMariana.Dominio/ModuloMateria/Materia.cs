@@ -7,9 +7,9 @@ namespace ListaExerciciosMariana.Dominio.ModuloMateria
     {
         public string Nome { get; set; }
         public Disciplina Disciplina { get; set; }
-        public AnosEnum Ano { get; set; }
+        public int Ano { get; set; }
 
-        public Materia(int id, string nome, Disciplina disciplina, AnosEnum ano)
+        public Materia(int id, string nome, Disciplina disciplina, int ano)
         {
             this.id = id;
             Nome = nome;

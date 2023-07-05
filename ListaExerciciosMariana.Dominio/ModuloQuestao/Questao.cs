@@ -9,12 +9,13 @@ namespace ListaExerciciosMariana.Dominio.ModuloQuestao
         public string RespostaCerta { get; set; }
         public List<Alternativa> ListAlternativas { get; set; }
 
-        public Questao(Materia materia, string enunciado, string respostaCerta, List<Alternativa> listAlternativas)
+        public Questao(int id, Materia materia, string enunciado, string respostaCerta)
         {
+            this.id = id;
             Materia = materia;
             Enunciado = enunciado;
             RespostaCerta = respostaCerta;
-            ListAlternativas = listAlternativas;
+            ListAlternativas = new List<Alternativa>();
         }
 
         public override void AtualizarInformacoes(Questao registroAtualizado)
@@ -42,6 +43,24 @@ namespace ListaExerciciosMariana.Dominio.ModuloQuestao
                 erros.Add("Máximo 5 \"Alternativas\"");
 
             return erros.ToArray();
+        }
+
+        public void AdicionarAlternativa(Alternativa alternativa)
+        {
+            ListAlternativas.Add(alternativa);
+        }
+
+        public bool Contem(Alternativa alternativaParaAdicionar)
+        {
+            if (ListAlternativas.Contains(alternativaParaAdicionar))
+                return true;
+
+            return false;
+        }
+
+        public void RemoverAlternativa(Alternativa alternaticaParaRemover)
+        {
+            ListAlternativas.Remove(alternaticaParaRemover);
         }
     }
 }

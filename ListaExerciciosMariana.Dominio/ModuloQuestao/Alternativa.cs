@@ -5,7 +5,16 @@
         public string AlternativaResposta { get; set; }
         public bool Verdadeiro { get; set; }
 
+        public Questao Questao { get; set; }
+
         public Alternativa() { }
+
+        public Alternativa(Questao questao, string resposta)
+        {
+            Verdadeiro = false;
+            Questao = questao;
+            AlternativaResposta = resposta;
+        }
 
         public override void AtualizarInformacoes(Alternativa registroAtualizado)
         {
