@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - BancoDeDados", "4 - Ban
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "GeradorDeTestes.Infra.Dados.Sql.ProjetoDatabase", "GeradorDeTestes.Infra.Dados.Sql.ProjetoDatabase\GeradorDeTestes.Infra.Dados.Sql.ProjetoDatabase.sqlproj", "{16C3E648-B323-4A7F-88BA-71DEB095F9FA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListaExercicioMariana.Infra.Memoria", "ListaExercicioMariana.Infra.Memoria\ListaExercicioMariana.Infra.Memoria.csproj", "{4D230B56-029C-4FAA-A2AE-841AAC7E95FE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{16C3E648-B323-4A7F-88BA-71DEB095F9FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16C3E648-B323-4A7F-88BA-71DEB095F9FA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{16C3E648-B323-4A7F-88BA-71DEB095F9FA}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{4D230B56-029C-4FAA-A2AE-841AAC7E95FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D230B56-029C-4FAA-A2AE-841AAC7E95FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D230B56-029C-4FAA-A2AE-841AAC7E95FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D230B56-029C-4FAA-A2AE-841AAC7E95FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -52,6 +58,7 @@ Global
 		{47F0BAD5-7C0A-4B3F-8A55-7F427F9B2C2B} = {3D9DDE3A-E37C-424A-8A7A-E4C0620E3B3C}
 		{C83E9FC1-8BCA-4145-84A1-7CC596A9CE16} = {20DFC97F-8550-4AFB-9D20-4A5F45E46F75}
 		{16C3E648-B323-4A7F-88BA-71DEB095F9FA} = {7290AA20-020E-4792-BFD3-1F733C276D9A}
+		{4D230B56-029C-4FAA-A2AE-841AAC7E95FE} = {20DFC97F-8550-4AFB-9D20-4A5F45E46F75}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C0922651-FBC4-47BB-A689-A0B9F4079F5D}

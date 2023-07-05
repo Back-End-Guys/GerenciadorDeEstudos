@@ -1,0 +1,1 @@
+﻿global using ListaExercicioMariana.Infra.Memoria.Compartilhado;

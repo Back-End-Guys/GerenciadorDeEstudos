@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             tableLayoutPanel1 = new TableLayoutPanel();
-            tableLayoutPanel2 = new TableLayoutPanel();
             lblEnunciado = new Label();
-            lblProgresso = new Label();
-            progressBar = new ProgressBar();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            rb5 = new RadioButton();
             rb1 = new RadioButton();
             rb2 = new RadioButton();
             rb3 = new RadioButton();
             rb4 = new RadioButton();
-            rb5 = new RadioButton();
+            lblProgresso = new Label();
+            progressBar = new ProgressBar();
             btnContinue = new Button();
             tableLayoutPanel3 = new TableLayoutPanel();
             tableLayoutPanel1.SuspendLayout();
@@ -56,6 +56,19 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.Size = new Size(805, 126);
             tableLayoutPanel1.TabIndex = 0;
+            // 
+            // lblEnunciado
+            // 
+            lblEnunciado.AutoSize = true;
+            lblEnunciado.BackColor = SystemColors.GradientInactiveCaption;
+            lblEnunciado.Dock = DockStyle.Fill;
+            lblEnunciado.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            lblEnunciado.Location = new Point(3, 0);
+            lblEnunciado.Name = "lblEnunciado";
+            lblEnunciado.Size = new Size(799, 126);
+            lblEnunciado.TabIndex = 0;
+            lblEnunciado.Text = "Enunciado";
+            lblEnunciado.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel2
             // 
@@ -77,39 +90,18 @@
             tableLayoutPanel2.Size = new Size(805, 302);
             tableLayoutPanel2.TabIndex = 1;
             // 
-            // lblEnunciado
+            // rb5
             // 
-            lblEnunciado.AutoSize = true;
-            lblEnunciado.BackColor = SystemColors.GradientInactiveCaption;
-            lblEnunciado.Dock = DockStyle.Fill;
-            lblEnunciado.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            lblEnunciado.Location = new Point(3, 0);
-            lblEnunciado.Name = "lblEnunciado";
-            lblEnunciado.Size = new Size(799, 126);
-            lblEnunciado.TabIndex = 0;
-            lblEnunciado.Text = "Enunciado";
-            lblEnunciado.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // lblProgresso
-            // 
-            lblProgresso.AutoSize = true;
-            lblProgresso.Dock = DockStyle.Fill;
-            lblProgresso.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            lblProgresso.Location = new Point(3, 0);
-            lblProgresso.Name = "lblProgresso";
-            lblProgresso.Size = new Size(96, 65);
-            lblProgresso.TabIndex = 0;
-            lblProgresso.Text = "  ";
-            lblProgresso.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // progressBar
-            // 
-            progressBar.Anchor = AnchorStyles.None;
-            progressBar.ForeColor = Color.SteelBlue;
-            progressBar.Location = new Point(105, 14);
-            progressBar.Name = "progressBar";
-            progressBar.Size = new Size(249, 37);
-            progressBar.TabIndex = 2;
+            rb5.AutoSize = true;
+            rb5.Dock = DockStyle.Fill;
+            rb5.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            rb5.Location = new Point(3, 243);
+            rb5.Name = "rb5";
+            rb5.Size = new Size(799, 56);
+            rb5.TabIndex = 4;
+            rb5.TabStop = true;
+            rb5.TextAlign = ContentAlignment.TopLeft;
+            rb5.UseVisualStyleBackColor = true;
             // 
             // rb1
             // 
@@ -163,18 +155,26 @@
             rb4.TextAlign = ContentAlignment.TopLeft;
             rb4.UseVisualStyleBackColor = true;
             // 
-            // rb5
+            // lblProgresso
             // 
-            rb5.AutoSize = true;
-            rb5.Dock = DockStyle.Fill;
-            rb5.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            rb5.Location = new Point(3, 243);
-            rb5.Name = "rb5";
-            rb5.Size = new Size(799, 56);
-            rb5.TabIndex = 4;
-            rb5.TabStop = true;
-            rb5.TextAlign = ContentAlignment.TopLeft;
-            rb5.UseVisualStyleBackColor = true;
+            lblProgresso.AutoSize = true;
+            lblProgresso.Dock = DockStyle.Fill;
+            lblProgresso.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            lblProgresso.Location = new Point(3, 0);
+            lblProgresso.Name = "lblProgresso";
+            lblProgresso.Size = new Size(96, 65);
+            lblProgresso.TabIndex = 0;
+            lblProgresso.Text = "  ";
+            lblProgresso.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // progressBar
+            // 
+            progressBar.Anchor = AnchorStyles.None;
+            progressBar.ForeColor = Color.SteelBlue;
+            progressBar.Location = new Point(105, 14);
+            progressBar.Name = "progressBar";
+            progressBar.Size = new Size(249, 37);
+            progressBar.TabIndex = 2;
             // 
             // btnContinue
             // 
@@ -192,6 +192,7 @@
             btnContinue.TabIndex = 6;
             btnContinue.Text = "Próximo";
             btnContinue.UseVisualStyleBackColor = false;
+            btnContinue.Click += btnContinue_Click;
             // 
             // tableLayoutPanel3
             // 
