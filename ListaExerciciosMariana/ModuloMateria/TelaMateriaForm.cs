@@ -28,7 +28,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloMateria
             int id = Convert.ToInt32(txtId.Text);
             string nome = txtNome.Text;
             Disciplina disciplina = (Disciplina)cbDisciplina.SelectedItem;
-            AnosEnum ano = (AnosEnum)cbAno.SelectedItem;
+            int ano = (int)cbAno.SelectedItem;
 
             return new Materia(id, nome, disciplina, ano);
         }

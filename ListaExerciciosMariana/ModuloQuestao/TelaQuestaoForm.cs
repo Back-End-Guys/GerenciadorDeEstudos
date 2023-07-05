@@ -40,9 +40,9 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
 
             txtId.Text = questao.id.ToString();
             txtEnunciado.Text = questao.Enunciado;
-            txtAno.Text = questao.Materia.Ano >= AnosEnum.PrimeiroAnoEm && questao.Materia.Ano <= AnosEnum.TerceiroAnoEm
-                ? $"{questao.Materia.Ano}º ano EM"
-                : $"{questao.Materia.Ano}º ano";
+            txtAno.Text = questao.Materia.Ano.ToString();/*questao.Materia.Ano >= AnosEnum.PrimeiroAnoEm && questao.Materia.Ano <= AnosEnum.TerceiroAnoEm*/
+                //? $"{questao.Materia.Ano}º ano EM"
+                //: $"{questao.Materia.Ano}º ano";
 
             cbMateria.SelectedItem = questao.Materia.ToString();
 
