@@ -88,6 +88,8 @@ namespace ListaExerciciosMariana.WinForm.ModuloDisciplina
 
                 _repositorioDisciplina.Excluir(disciplinaSelecionada);
             }
+
+            CarregarDisciplina();
         }
 
         public override void Listagem()
@@ -140,7 +142,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloDisciplina
 
         public override string ObterTipoCadastro()
         {
-            return "Cadastro de disciplina";
+            return "Cadastro de Disciplina";
         }
     }
 }

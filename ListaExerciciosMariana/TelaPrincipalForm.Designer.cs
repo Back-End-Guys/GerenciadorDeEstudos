@@ -56,10 +56,10 @@
             statusStrip1.BackColor = Color.AliceBlue;
             statusStrip1.ImageScalingSize = new Size(20, 20);
             statusStrip1.Items.AddRange(new ToolStripItem[] { labelRodape });
-            statusStrip1.Location = new Point(0, 477);
+            statusStrip1.Location = new Point(0, 599);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Padding = new Padding(1, 0, 16, 0);
-            statusStrip1.Size = new Size(876, 22);
+            statusStrip1.Size = new Size(1028, 22);
             statusStrip1.TabIndex = 9;
             statusStrip1.Text = "[rodape]";
             // 
@@ -72,14 +72,14 @@
             // 
             // panelRegistros
             // 
-            panelRegistros.BackColor = Color.Snow;
+            panelRegistros.BackColor = Color.AliceBlue;
             panelRegistros.BorderStyle = BorderStyle.FixedSingle;
             panelRegistros.Dock = DockStyle.Fill;
             panelRegistros.Font = new Font("Nirmala UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             panelRegistros.Location = new Point(0, 91);
             panelRegistros.Margin = new Padding(3, 4, 3, 4);
             panelRegistros.Name = "panelRegistros";
-            panelRegistros.Size = new Size(876, 408);
+            panelRegistros.Size = new Size(1028, 530);
             panelRegistros.TabIndex = 8;
             // 
             // toolBar
@@ -92,7 +92,7 @@
             toolBar.Location = new Point(0, 38);
             toolBar.Name = "toolBar";
             toolBar.RenderMode = ToolStripRenderMode.System;
-            toolBar.Size = new Size(876, 53);
+            toolBar.Size = new Size(1028, 53);
             toolBar.TabIndex = 7;
             toolBar.Text = "toolStrip1";
             // 
@@ -177,7 +177,7 @@
             menuBar.Location = new Point(0, 0);
             menuBar.Name = "menuBar";
             menuBar.Padding = new Padding(7, 3, 0, 3);
-            menuBar.Size = new Size(876, 38);
+            menuBar.Size = new Size(1028, 38);
             menuBar.TabIndex = 6;
             menuBar.Text = "menuStrip1";
             // 
@@ -223,7 +223,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(876, 499);
+            ClientSize = new Size(1028, 621);
             Controls.Add(statusStrip1);
             Controls.Add(panelRegistros);
             Controls.Add(toolBar);

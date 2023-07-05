@@ -112,7 +112,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
 
         public override string ObterTipoCadastro()
         {
-            return "Registro de Questão";
+            return "Cadastro de Questão";
         }
     }
 }

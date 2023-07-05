@@ -8,11 +8,11 @@
 
             DataGridViewCellStyle linhas = new DataGridViewCellStyle
             {
-                BackColor = Color.LightGray,
+                BackColor = Color.Snow,
                 Font = font,
                 ForeColor = Color.Black,
-                SelectionBackColor = Color.FromArgb(45, 45, 45),
-                SelectionForeColor = Color.White
+                SelectionBackColor = Color.LightSteelBlue,
+                SelectionForeColor = Color.Black
             };
 
             grid.RowsDefaultCellStyle = linhas;
@@ -23,6 +23,7 @@
             grid.AllowUserToAddRows = false;
             grid.AllowUserToDeleteRows = false;
 
+            grid.BackgroundColor = Color.AliceBlue;
             grid.BorderStyle = BorderStyle.None;
             grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             grid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
