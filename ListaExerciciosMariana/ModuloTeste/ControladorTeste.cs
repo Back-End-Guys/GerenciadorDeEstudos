@@ -91,7 +91,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
 
         public override string ObterTipoCadastro()
         {
-            return "Cadastro de teste";
+            return "Cadastro de Teste";
         }
     }
 }

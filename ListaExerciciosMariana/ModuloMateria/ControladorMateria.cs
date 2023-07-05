@@ -99,7 +99,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloMateria
 
         public override string ObterTipoCadastro()
         {
-            return "Cadastro de Matérias";
+            return "Cadastro de Matéria";
         }
     }
 }

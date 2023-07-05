@@ -8,6 +8,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloMateria
         public TelaMateriaForm(List<Disciplina> disciplinas)
         {
             InitializeComponent();
+            this.ConfigurarDialog();
             CarregarDisciplinas(disciplinas);
         }
 
