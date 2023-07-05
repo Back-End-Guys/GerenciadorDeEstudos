@@ -1,11 +1,11 @@
+using ListaExercicioMariana.Infra.Memoria.ModuloDisciplina;
+using ListaExercicioMariana.Infra.Memoria.ModuloMateria;
+using ListaExercicioMariana.Infra.Memoria.ModuloQuestao;
+using ListaExercicioMariana.Infra.Memoria.ModuloTeste;
 using ListaExerciciosMariana.Dominio.ModuloDisciplina;
 using ListaExerciciosMariana.Dominio.ModuloMateria;
 using ListaExerciciosMariana.Dominio.ModuloQuestao;
 using ListaExerciciosMariana.Dominio.ModuloTeste;
-using ListaExerciciosMariana.Infra.ModuloDisciplina;
-using ListaExerciciosMariana.Infra.ModuloMateria;
-using ListaExerciciosMariana.Infra.ModuloQuestao;
-using ListaExerciciosMariana.Infra.ModuloTeste;
 using ListaExerciciosMariana.WinForm.ModuloDisciplina;
 using ListaExerciciosMariana.WinForm.ModuloMateria;
 using ListaExerciciosMariana.WinForm.ModuloQuestao;
@@ -19,10 +19,10 @@ namespace ListaExerciciosMariana
 
         private ControladorBase _controlador;
 
-        private IRepositorioDisciplina _repositorioDisciplina = new RepositorioDisciplinaEmSql();
-        private IRepositorioMateria _repositorioMateria = new RepositorioMateriaEmSql();
-        private IRepositorioQuestao _repositorioQuestao = new RepositorioQuestaoEmSql();
-        private IRepositorioTeste _repositorioTeste = new RepositorioTesteEmSql();
+        private IRepositorioDisciplina _repositorioDisciplina = new RepositorioDisciplinaEmMemoria(new List<Disciplina>());
+        private IRepositorioMateria _repositorioMateria = new RepositorioMateriaEmMemoria(new List<Materia>());
+        private IRepositorioQuestao _repositorioQuestao = new RepositorioQuestaoEmMemoria(new List<Questao>());
+        private IRepositorioTeste _repositorioTeste = new RepositorioTesteEmMemoria(new List<Teste>());
 
         public TelaPrincipalForm()
         {
