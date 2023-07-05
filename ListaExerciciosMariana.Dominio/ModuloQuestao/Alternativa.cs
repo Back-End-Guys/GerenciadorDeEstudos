@@ -3,14 +3,14 @@
     public class Alternativa : EntidadeBase<Alternativa>
     {
         public string AlternativaResposta { get; set; }
-        public bool RespostaCerta { get; set; }
+        public bool Verdadeiro { get; set; }
 
         public Alternativa() { }
 
         public override void AtualizarInformacoes(Alternativa registroAtualizado)
         {
             this.AlternativaResposta = registroAtualizado.AlternativaResposta;
-            this.RespostaCerta = registroAtualizado.RespostaCerta;
+            this.Verdadeiro = registroAtualizado.Verdadeiro;
         }
 
         public override string ToString()
