@@ -1,6 +1,6 @@
-﻿namespace ListaExerciciosMariana.WinForm.ModuloDisciplina
+﻿namespace ListaExerciciosMariana.WinForm.ModuloTeste
 {
-    partial class TabelaDisciplinaControl
+    partial class TabelaTesteControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,36 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            gridDisciplina = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)gridDisciplina).BeginInit();
+            gridTeste = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)gridTeste).BeginInit();
             SuspendLayout();
             // 
-            // grid
+            // gridTeste
             // 
-            gridDisciplina.BackgroundColor = Color.Snow;
-            gridDisciplina.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            gridDisciplina.Dock = DockStyle.Fill;
-            gridDisciplina.GridColor = Color.AliceBlue;
-            gridDisciplina.Location = new Point(0, 0);
-            gridDisciplina.Name = "grid";
-            gridDisciplina.RowHeadersWidth = 51;
-            gridDisciplina.RowTemplate.Height = 29;
-            gridDisciplina.Size = new Size(650, 388);
-            gridDisciplina.TabIndex = 0;
+            gridTeste.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            gridTeste.Dock = DockStyle.Fill;
+            gridTeste.GridColor = Color.Snow;
+            gridTeste.Location = new Point(0, 0);
+            gridTeste.Name = "gridTeste";
+            gridTeste.RowHeadersWidth = 51;
+            gridTeste.RowTemplate.Height = 29;
+            gridTeste.Size = new Size(675, 420);
+            gridTeste.TabIndex = 0;
             // 
-            // TabelaDisciplinaControl
+            // TabelaTesteControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(gridDisciplina);
-            Name = "TabelaDisciplinaControl";
-            Size = new Size(650, 388);
-            ((System.ComponentModel.ISupportInitialize)gridDisciplina).EndInit();
+            Controls.Add(gridTeste);
+            Name = "TabelaTesteControl";
+            Size = new Size(675, 420);
+            ((System.ComponentModel.ISupportInitialize)gridTeste).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private DataGridView gridDisciplina;
+        private DataGridView gridTeste;
     }
 }

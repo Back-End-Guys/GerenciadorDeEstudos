@@ -5,9 +5,15 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
 {
     public class ControladorQuestao : ControladorBase
     {
-        TabelaQuestaoControl tabelaQuestao;
+        private TabelaQuestaoControl _tabelaQuestao;
         private IRepositorioQuestao _repositorioQuestao;
         private IRepositorioMateria _repositorioMateria;
+
+        public ControladorQuestao(IRepositorioQuestao repositorio, IRepositorioMateria repositorioMateria)
+        {
+            this._repositorioQuestao = repositorio;
+            this._repositorioMateria = repositorioMateria;
+        }
 
         public override string ToolTipInserir => "Inserir nova questão";
 
@@ -29,7 +35,6 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
             }
             CarregarQuestoes();
         }
-
 
         public override void Editar()
         {
@@ -85,25 +90,24 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
 
         private Questao ObterQuestaoSelecionada()
         {
-            int id = tabelaQuestao.ObterIdSelecionado();
+            int id = _tabelaQuestao.ObterIdSelecionado();
             return _repositorioQuestao.SelecionarPorId(id);
         }
-
 
         private void CarregarQuestoes()
         {
             List<Questao> listaQuestoes = _repositorioQuestao.SelecionarTodos();
-            tabelaQuestao.AtualizarRegistros(listaQuestoes);
+            _tabelaQuestao.AtualizarRegistros(listaQuestoes);
         }
 
         public override UserControl ObterListagem()
         {
-            if (tabelaQuestao == null)
-                tabelaQuestao = new TabelaQuestaoControl();
+            if (_tabelaQuestao == null)
+                _tabelaQuestao = new TabelaQuestaoControl();
 
             CarregarQuestoes();
 
-            return tabelaQuestao;
+            return _tabelaQuestao;
         }
 
         public override string ObterTipoCadastro()

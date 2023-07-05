@@ -28,44 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            checkBox1 = new CheckBox();
-            cbDisciplina = new ComboBox();
+            chbRecuperacao = new CheckBox();
             label6 = new Label();
             txtQnt = new TextBox();
             label4 = new Label();
-            txtTítulo = new TextBox();
+            txtTitulo = new TextBox();
             label3 = new Label();
             txtAno = new TextBox();
             label5 = new Label();
-            cbMateria = new ComboBox();
             label2 = new Label();
             txtId = new TextBox();
             label1 = new Label();
             btnOK = new Button();
+            txtDisciplina = new TextBox();
+            txtMateria = new TextBox();
+            btnGabarito = new Button();
             SuspendLayout();
             // 
-            // checkBox1
+            // chbRecuperacao
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.BackColor = SystemColors.GradientInactiveCaption;
-            checkBox1.Location = new Point(387, 33);
-            checkBox1.Name = "checkBox1";
-            checkBox1.RightToLeft = RightToLeft.Yes;
-            checkBox1.Size = new Size(242, 29);
-            checkBox1.TabIndex = 73;
-            checkBox1.Text = "?É prova de recuperação";
-            checkBox1.UseVisualStyleBackColor = false;
-            // 
-            // cbDisciplina
-            // 
-            cbDisciplina.BackColor = Color.Snow;
-            cbDisciplina.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            cbDisciplina.FormattingEnabled = true;
-            cbDisciplina.Location = new Point(124, 140);
-            cbDisciplina.Margin = new Padding(4, 5, 4, 5);
-            cbDisciplina.Name = "cbDisciplina";
-            cbDisciplina.Size = new Size(196, 33);
-            cbDisciplina.TabIndex = 72;
+            chbRecuperacao.AutoSize = true;
+            chbRecuperacao.BackColor = SystemColors.GradientInactiveCaption;
+            chbRecuperacao.Location = new Point(387, 33);
+            chbRecuperacao.Name = "chbRecuperacao";
+            chbRecuperacao.RightToLeft = RightToLeft.Yes;
+            chbRecuperacao.Size = new Size(242, 29);
+            chbRecuperacao.TabIndex = 73;
+            chbRecuperacao.Text = "?É prova de recuperação";
+            chbRecuperacao.UseVisualStyleBackColor = false;
             // 
             // label6
             // 
@@ -80,7 +70,7 @@
             // 
             // txtQnt
             // 
-            txtQnt.BackColor = Color.Snow;
+            txtQnt.BackColor = SystemColors.GradientInactiveCaption;
             txtQnt.Enabled = false;
             txtQnt.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             txtQnt.Location = new Point(422, 200);
@@ -102,17 +92,17 @@
             label4.TabIndex = 69;
             label4.Text = "Quantidade :";
             // 
-            // txtTítulo
+            // txtTitulo
             // 
-            txtTítulo.BackColor = Color.Snow;
-            txtTítulo.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            txtTítulo.Location = new Point(124, 81);
-            txtTítulo.Margin = new Padding(3, 4, 3, 4);
-            txtTítulo.Name = "txtTítulo";
-            txtTítulo.PlaceholderText = "Teste de...";
-            txtTítulo.ReadOnly = true;
-            txtTítulo.Size = new Size(508, 32);
-            txtTítulo.TabIndex = 68;
+            txtTitulo.BackColor = SystemColors.GradientInactiveCaption;
+            txtTitulo.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            txtTitulo.Location = new Point(124, 81);
+            txtTitulo.Margin = new Padding(3, 4, 3, 4);
+            txtTitulo.Name = "txtTitulo";
+            txtTitulo.PlaceholderText = "Teste de...";
+            txtTitulo.ReadOnly = true;
+            txtTitulo.Size = new Size(508, 32);
+            txtTitulo.TabIndex = 68;
             // 
             // label3
             // 
@@ -126,7 +116,7 @@
             // 
             // txtAno
             // 
-            txtAno.BackColor = SystemColors.GradientActiveCaption;
+            txtAno.BackColor = SystemColors.GradientInactiveCaption;
             txtAno.Enabled = false;
             txtAno.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             txtAno.Location = new Point(125, 200);
@@ -147,17 +137,6 @@
             label5.TabIndex = 65;
             label5.Text = "Ano :";
             // 
-            // cbMateria
-            // 
-            cbMateria.BackColor = Color.Snow;
-            cbMateria.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            cbMateria.FormattingEnabled = true;
-            cbMateria.Location = new Point(422, 140);
-            cbMateria.Margin = new Padding(4, 5, 4, 5);
-            cbMateria.Name = "cbMateria";
-            cbMateria.Size = new Size(210, 33);
-            cbMateria.TabIndex = 64;
-            // 
             // label2
             // 
             label2.AutoSize = true;
@@ -171,7 +150,7 @@
             // 
             // txtId
             // 
-            txtId.BackColor = SystemColors.GradientActiveCaption;
+            txtId.BackColor = SystemColors.GradientInactiveCaption;
             txtId.Enabled = false;
             txtId.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             txtId.Location = new Point(124, 30);
@@ -202,7 +181,7 @@
             btnOK.FlatAppearance.BorderSize = 0;
             btnOK.FlatAppearance.MouseDownBackColor = Color.Lavender;
             btnOK.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            btnOK.Location = new Point(128, 262);
+            btnOK.Location = new Point(128, 334);
             btnOK.Margin = new Padding(3, 4, 3, 4);
             btnOK.Name = "btnOK";
             btnOK.Size = new Size(504, 50);
@@ -210,28 +189,71 @@
             btnOK.Text = "OK";
             btnOK.UseVisualStyleBackColor = false;
             // 
+            // txtDisciplina
+            // 
+            txtDisciplina.BackColor = SystemColors.GradientInactiveCaption;
+            txtDisciplina.Enabled = false;
+            txtDisciplina.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            txtDisciplina.Location = new Point(128, 141);
+            txtDisciplina.Margin = new Padding(4, 5, 4, 5);
+            txtDisciplina.Name = "txtDisciplina";
+            txtDisciplina.ReadOnly = true;
+            txtDisciplina.Size = new Size(192, 32);
+            txtDisciplina.TabIndex = 75;
+            // 
+            // txtMateria
+            // 
+            txtMateria.BackColor = SystemColors.GradientInactiveCaption;
+            txtMateria.Enabled = false;
+            txtMateria.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            txtMateria.Location = new Point(422, 141);
+            txtMateria.Margin = new Padding(4, 5, 4, 5);
+            txtMateria.Name = "txtMateria";
+            txtMateria.ReadOnly = true;
+            txtMateria.Size = new Size(210, 32);
+            txtMateria.TabIndex = 76;
+            // 
+            // btnGabarito
+            // 
+            btnGabarito.Anchor = AnchorStyles.None;
+            btnGabarito.BackColor = SystemColors.GradientInactiveCaption;
+            btnGabarito.Cursor = Cursors.Hand;
+            btnGabarito.DialogResult = DialogResult.OK;
+            btnGabarito.FlatAppearance.BorderSize = 0;
+            btnGabarito.FlatAppearance.MouseDownBackColor = Color.Lavender;
+            btnGabarito.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            btnGabarito.Location = new Point(128, 258);
+            btnGabarito.Margin = new Padding(3, 4, 3, 4);
+            btnGabarito.Name = "btnGabarito";
+            btnGabarito.Size = new Size(504, 50);
+            btnGabarito.TabIndex = 77;
+            btnGabarito.Text = "Gabarito";
+            btnGabarito.UseVisualStyleBackColor = false;
+            btnGabarito.Click += btnGabarito_Click;
+            // 
             // TelaDetalhesForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
-            ClientSize = new Size(687, 336);
+            ClientSize = new Size(687, 407);
+            Controls.Add(btnGabarito);
+            Controls.Add(txtMateria);
+            Controls.Add(txtDisciplina);
             Controls.Add(btnOK);
-            Controls.Add(checkBox1);
-            Controls.Add(cbDisciplina);
+            Controls.Add(chbRecuperacao);
             Controls.Add(label6);
             Controls.Add(txtQnt);
             Controls.Add(label4);
-            Controls.Add(txtTítulo);
+            Controls.Add(txtTitulo);
             Controls.Add(label3);
             Controls.Add(txtAno);
             Controls.Add(label5);
-            Controls.Add(cbMateria);
             Controls.Add(label2);
             Controls.Add(txtId);
             Controls.Add(label1);
             Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "TelaDetalhesForm";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
@@ -241,19 +263,20 @@
 
         #endregion
 
-        private CheckBox checkBox1;
-        private ComboBox cbDisciplina;
+        private CheckBox chbRecuperacao;
         private Label label6;
         private TextBox txtQnt;
         private Label label4;
-        private TextBox txtTítulo;
+        private TextBox txtTitulo;
         private Label label3;
         private TextBox txtAno;
         private Label label5;
-        private ComboBox cbMateria;
         private Label label2;
         private TextBox txtId;
         private Label label1;
         private Button btnOK;
+        private TextBox txtDisciplina;
+        private TextBox txtMateria;
+        private Button btnGabarito;
     }
 }

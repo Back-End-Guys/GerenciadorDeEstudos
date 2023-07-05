@@ -8,18 +8,19 @@ namespace ListaExerciciosMariana.WinForm.ModuloMateria
         public TelaMateriaForm(List<Disciplina> disciplinas)
         {
             InitializeComponent();
-
             CarregarDisciplinas(disciplinas);
         }
 
         private void CarregarDisciplinas(List<Disciplina> disciplinas)
         {
             cbDisciplina.Items.Clear();
+            disciplinas.ForEach(d => cbDisciplina.Items.Add(d));
+        }
 
-            foreach (Disciplina disciplina in disciplinas)
-            {
-                cbDisciplina.Items.Add(disciplina);
-            }
+        private void CarregarAnos(List<AnosEnum> anos)
+        {
+            cbAno.Items.Clear();
+            anos.ForEach(a => cbAno.Items.Add(a));
         }
 
         public Materia ObterMateria()
@@ -27,16 +28,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloMateria
             int id = Convert.ToInt32(txtId.Text);
             string nome = txtNome.Text;
             Disciplina disciplina = (Disciplina)cbDisciplina.SelectedItem;
-            int ano = 0;
-
-            if (rdbPrimeiro.Checked)
-            {
-                ano = 1;
-            }
-            if (rdbSegundo.Checked)
-            {
-                ano = 2;
-            }
+            AnosEnum ano = (AnosEnum)cbAno.SelectedItem;
 
             return new Materia(id, nome, disciplina, ano);
         }
@@ -46,11 +38,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloMateria
             txtId.Text = materiaSelecionada.id.ToString();
             txtNome.Text = materiaSelecionada.Nome;
             cbDisciplina.SelectedItem = materiaSelecionada.Disciplina;
-
-            if (materiaSelecionada.Serie == 1)
-                rdbPrimeiro.Checked = true;
-            if (materiaSelecionada.Serie == 2)
-                rdbSegundo.Checked = true;
+            cbAno.SelectedItem = materiaSelecionada.Ano;
         }
     }
 }

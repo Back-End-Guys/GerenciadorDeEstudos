@@ -28,33 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            grid = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)grid).BeginInit();
+            gridMateria = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)gridMateria).BeginInit();
             SuspendLayout();
             // 
             // grid
             // 
-            grid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            grid.Dock = DockStyle.Fill;
-            grid.Location = new Point(0, 0);
-            grid.Name = "grid";
-            grid.RowTemplate.Height = 25;
-            grid.Size = new Size(280, 260);
-            grid.TabIndex = 0;
+            gridMateria.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            gridMateria.Dock = DockStyle.Fill;
+            gridMateria.Location = new Point(0, 0);
+            gridMateria.Name = "grid";
+            gridMateria.RowTemplate.Height = 25;
+            gridMateria.Size = new Size(280, 260);
+            gridMateria.TabIndex = 0;
             // 
             // TabelaMateriaControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(grid);
+            Controls.Add(gridMateria);
             Name = "TabelaMateriaControl";
             Size = new Size(280, 260);
-            ((System.ComponentModel.ISupportInitialize)grid).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gridMateria).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private DataGridView grid;
+        private DataGridView gridMateria;
     }
 }

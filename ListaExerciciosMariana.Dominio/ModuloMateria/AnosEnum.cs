@@ -1,6 +1,6 @@
 ﻿namespace ListaExerciciosMariana.Dominio.ModuloMateria
 {
-    public enum AnoEnum
+    public enum AnosEnum
     {
         PrimeiroAnoFundamental = 1, SegundoAnoFundamental = 2, TerceiroAnoFundamental = 3,
         QuartoAnoFundamental = 4, QuintoAnoFundamental = 5, SextoAnoFundamental = 6,

@@ -1,6 +1,6 @@
-﻿namespace ListaExerciciosMariana.WinForm.ModuloDisciplina
+﻿namespace ListaExerciciosMariana.WinForm.ModuloTeste
 {
-    partial class TabelaDisciplinaControl
+    partial class ListagemGabaritoControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,36 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            gridDisciplina = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)gridDisciplina).BeginInit();
+            lista = new ListView();
             SuspendLayout();
             // 
-            // grid
+            // lista
             // 
-            gridDisciplina.BackgroundColor = Color.Snow;
-            gridDisciplina.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            gridDisciplina.Dock = DockStyle.Fill;
-            gridDisciplina.GridColor = Color.AliceBlue;
-            gridDisciplina.Location = new Point(0, 0);
-            gridDisciplina.Name = "grid";
-            gridDisciplina.RowHeadersWidth = 51;
-            gridDisciplina.RowTemplate.Height = 29;
-            gridDisciplina.Size = new Size(650, 388);
-            gridDisciplina.TabIndex = 0;
+            lista.BackColor = Color.Snow;
+            lista.Dock = DockStyle.Fill;
+            lista.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            lista.Location = new Point(0, 0);
+            lista.Name = "lista";
+            lista.Size = new Size(828, 466);
+            lista.TabIndex = 0;
+            lista.UseCompatibleStateImageBehavior = false;
             // 
-            // TabelaDisciplinaControl
+            // ListagemGabaritoControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(gridDisciplina);
-            Name = "TabelaDisciplinaControl";
-            Size = new Size(650, 388);
-            ((System.ComponentModel.ISupportInitialize)gridDisciplina).EndInit();
+            Controls.Add(lista);
+            Name = "ListagemGabaritoControl";
+            Size = new Size(828, 466);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private DataGridView gridDisciplina;
+        private ListView lista;
     }
 }

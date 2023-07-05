@@ -39,7 +39,6 @@ namespace ListaExerciciosMariana.WinForm.ModuloDisciplina
             CarregarDisciplina();
         }
 
-
         public override void Editar()
         {
             Disciplina disciplinaSelecionada = ObterDisciplinaSelecionada();
@@ -65,7 +64,6 @@ namespace ListaExerciciosMariana.WinForm.ModuloDisciplina
 
             CarregarDisciplina();
         }
-
 
         public override void Excluir()
         {

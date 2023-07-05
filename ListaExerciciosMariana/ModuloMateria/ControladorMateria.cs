@@ -5,14 +5,14 @@ namespace ListaExerciciosMariana.WinForm.ModuloMateria
 {
     public class ControladorMateria : ControladorBase
     {
-        private IRepositorioDisciplina repositorioDisciplina;
-        private IRepositorioMateria repositorioMateria;
-        private TabelaMateriaControl tabelaMateria;
+        private IRepositorioDisciplina _repositorioDisciplina;
+        private IRepositorioMateria _repositorioMateria;
+        private TabelaMateriaControl _tabelaMateria;
 
         public ControladorMateria(IRepositorioDisciplina repositorioDisciplina, IRepositorioMateria repositorioMateria)
         {
-            this.repositorioDisciplina = repositorioDisciplina;
-            this.repositorioMateria = repositorioMateria;
+            this._repositorioDisciplina = repositorioDisciplina;
+            this._repositorioMateria = repositorioMateria;
         }
 
         public override string ToolTipInserir => "Inserir Matéria";
@@ -23,7 +23,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloMateria
 
         public override void Inserir()
         {
-            TelaMateriaForm telaMateria = new TelaMateriaForm(repositorioDisciplina.SelecionarTodos());
+            TelaMateriaForm telaMateria = new TelaMateriaForm(_repositorioDisciplina.SelecionarTodos());
 
             DialogResult opcaoEscolhida = telaMateria.ShowDialog();
 
@@ -31,7 +31,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloMateria
             {
                 Materia materia = telaMateria.ObterMateria();
 
-                repositorioMateria.Inserir(materia);
+                _repositorioMateria.Inserir(materia);
             }
 
             CarregarMaterias();
@@ -39,7 +39,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloMateria
 
         public override void Editar()
         {
-            TelaMateriaForm telaMateriaForm = new TelaMateriaForm(repositorioDisciplina.SelecionarTodos());
+            TelaMateriaForm telaMateriaForm = new TelaMateriaForm(_repositorioDisciplina.SelecionarTodos());
 
             Materia materiaSelecionada = ObterMateriaSelecionada();
 
@@ -51,7 +51,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloMateria
             {
                 Materia materia = telaMateriaForm.ObterMateria();
 
-                repositorioMateria.Editar(materia.id, materia);
+                _repositorioMateria.Editar(materia.id, materia);
             }
 
             CarregarMaterias();
@@ -67,7 +67,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloMateria
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                repositorioMateria.Excluir(materiaSelecionada);
+                _repositorioMateria.Excluir(materiaSelecionada);
             }
 
             CarregarMaterias();
@@ -75,26 +75,26 @@ namespace ListaExerciciosMariana.WinForm.ModuloMateria
 
         private void CarregarMaterias()
         {
-            List<Materia> materias = repositorioMateria.SelecionarTodos();
+            List<Materia> materias = _repositorioMateria.SelecionarTodos();
 
-            tabelaMateria.AtualizarRegistros(materias);
+            _tabelaMateria.AtualizarRegistros(materias);
         }
 
         public override UserControl ObterListagem()
         {
-            if (tabelaMateria == null)
-                tabelaMateria = new TabelaMateriaControl();
+            if (_tabelaMateria == null)
+                _tabelaMateria = new TabelaMateriaControl();
 
             CarregarMaterias();
 
-            return tabelaMateria;
+            return _tabelaMateria;
         }
 
         private Materia ObterMateriaSelecionada()
         {
-            int id = tabelaMateria.ObterIdSelecionado();
+            int id = _tabelaMateria.ObterIdSelecionado();
 
-            return repositorioMateria.SelecionarPorId(id);
+            return _repositorioMateria.SelecionarPorId(id);
         }
 
         public override string ObterTipoCadastro()

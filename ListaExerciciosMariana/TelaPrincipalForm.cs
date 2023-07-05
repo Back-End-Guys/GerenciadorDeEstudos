@@ -2,42 +2,42 @@ using ListaExerciciosMariana.Dominio.ModuloDisciplina;
 using ListaExerciciosMariana.Dominio.ModuloMateria;
 using ListaExerciciosMariana.Dominio.ModuloQuestao;
 using ListaExerciciosMariana.Dominio.ModuloTeste;
-using ListaExerciciosMariana.Infra.Compartilhado;
 using ListaExerciciosMariana.Infra.ModuloDisciplina;
 using ListaExerciciosMariana.Infra.ModuloMateria;
 using ListaExerciciosMariana.Infra.ModuloQuestao;
 using ListaExerciciosMariana.Infra.ModuloTeste;
 using ListaExerciciosMariana.WinForm.ModuloDisciplina;
+using ListaExerciciosMariana.WinForm.ModuloMateria;
+using ListaExerciciosMariana.WinForm.ModuloQuestao;
+using ListaExerciciosMariana.WinForm.ModuloTeste;
 
 namespace ListaExerciciosMariana
 {
     public partial class TelaPrincipalForm : Form
     {
-        private static TelaPrincipalForm telaPrincipal;
+        private static TelaPrincipalForm _telaPrincipal;
 
-        private ControladorBase controlador;
-
-        //static ContextoDados contexto = new ContextoDados(carregarDados: true);
+        private ControladorBase _controlador;
 
         private IRepositorioDisciplina _repositorioDisciplina = new RepositorioDisciplinaEmSql();
-        //private IRepositorioMateria _repositorioMateria = new RepositorioMateriaEmSql(contexto);
-        //private IRepositorioQuestao _repositorioQuestao = new RepositorioQuestaoEmSql(contexto);
-        //private IRepositorioTeste _repositorioTeste = new RepositorioTesteEmSql(contexto);
+        private IRepositorioMateria _repositorioMateria = new RepositorioMateriaEmSql();
+        private IRepositorioQuestao _repositorioQuestao = new RepositorioQuestaoEmSql();
+        private IRepositorioTeste _repositorioTeste = new RepositorioTesteEmSql();
 
         public TelaPrincipalForm()
         {
             InitializeComponent();
-            telaPrincipal = this;
+            _telaPrincipal = this;
         }
 
         public static TelaPrincipalForm Instancia
         {
             get
             {
-                if (telaPrincipal == null)
-                    telaPrincipal = new TelaPrincipalForm();
+                if (_telaPrincipal == null)
+                    _telaPrincipal = new TelaPrincipalForm();
 
-                return telaPrincipal;
+                return _telaPrincipal;
             }
         }
 
@@ -52,9 +52,9 @@ namespace ListaExerciciosMariana
 
             labelTipoCadastro.Text = controladorBase.ObterTipoCadastro();
 
-            ConfigurarBarraFerramentas(controlador);
+            ConfigurarBarraFerramentas(_controlador);
 
-            ConfigurarListagem(controlador);
+            ConfigurarListagem(_controlador);
         }
 
         private void ConfigurarListagem(ControladorBase controladorBase)
@@ -96,51 +96,57 @@ namespace ListaExerciciosMariana
 
         private void displinaMenuItem_Click(object sender, EventArgs e)
         {
-            controlador = new ControladorDisciplina(_repositorioDisciplina);
+            _controlador = new ControladorDisciplina(_repositorioDisciplina);
 
-            ConfigurarTelaPrincipal(controlador);
+            ConfigurarTelaPrincipal(_controlador);
         }
 
         private void materiaMenuItem_Click(object sender, EventArgs e)
         {
-            ConfigurarTelaPrincipal(controlador);
+            _controlador = new ControladorMateria(_repositorioDisciplina, _repositorioMateria);
+
+            ConfigurarTelaPrincipal(_controlador);
         }
 
         private void questaoMenuItem_Click(object sender, EventArgs e)
         {
-            ConfigurarTelaPrincipal(controlador);
+            _controlador = new ControladorQuestao(_repositorioQuestao, _repositorioMateria);
+
+            ConfigurarTelaPrincipal(_controlador);
         }
 
         private void testeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConfigurarTelaPrincipal(controlador);
+            _controlador = new ControladorTeste(_repositorioTeste, _repositorioDisciplina, _repositorioQuestao);
+
+            ConfigurarTelaPrincipal(_controlador);
         }
 
         private void btnInserir_Click(object sender, EventArgs e)
         {
-            controlador.Inserir();
+            _controlador.Inserir();
         }
 
         // Botões -------------------------------------------------------------------------------------------
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            controlador.Editar();
+            _controlador.Editar();
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            controlador.Excluir();
+            _controlador.Excluir();
         }
 
         private void btnTeste_Click(object sender, EventArgs e)
         {
-            controlador.Teste();
+            _controlador.Teste();
         }
 
         private void btnListagem_Click(object sender, EventArgs e)
         {
-            controlador.Listagem();
+            _controlador.Listagem();
         }
     }
 }

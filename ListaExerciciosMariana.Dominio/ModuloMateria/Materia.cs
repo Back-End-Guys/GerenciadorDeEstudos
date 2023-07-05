@@ -1,4 +1,5 @@
 ﻿using ListaExerciciosMariana.Dominio.ModuloDisciplina;
+using ListaExerciciosMariana.Dominio.ModuloQuestao;
 
 namespace ListaExerciciosMariana.Dominio.ModuloMateria
 {
@@ -6,9 +7,9 @@ namespace ListaExerciciosMariana.Dominio.ModuloMateria
     {
         public string Nome { get; set; }
         public Disciplina Disciplina { get; set; }
-        public AnoEnum Ano { get; set; }
+        public AnosEnum Ano { get; set; }
 
-        public Materia(int id, string nome, Disciplina disciplina, AnoEnum ano)
+        public Materia(int id, string nome, Disciplina disciplina, AnosEnum ano)
         {
             this.id = id;
             Nome = nome;

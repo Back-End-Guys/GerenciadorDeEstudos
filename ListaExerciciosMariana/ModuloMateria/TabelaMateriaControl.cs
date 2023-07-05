@@ -1,13 +1,4 @@
 ﻿using ListaExerciciosMariana.Dominio.ModuloMateria;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace ListaExerciciosMariana.WinForm.ModuloMateria
 {
@@ -19,9 +10,15 @@ namespace ListaExerciciosMariana.WinForm.ModuloMateria
 
             ConfigurarColunas();
 
-            grid.ConfigurarGridLinhas();
+            gridMateria.ConfigurarGridLinhas();
 
-            grid.ConfigurarGridSomenteLeitura();
+            gridMateria.ConfigurarGridSomenteLeitura();
+        }
+
+        public void AtualizarRegistros(List<Materia> materias)
+        {
+            gridMateria.Rows.Clear();
+            materias.ForEach(m => gridMateria.Rows.Add(m.id, m.Nome, m.Disciplina, m.Ano));            
         }
 
         private void ConfigurarColunas()
@@ -31,36 +28,26 @@ namespace ListaExerciciosMariana.WinForm.ModuloMateria
                 new DataGridViewTextBoxColumn
                 {
                     Name = "id",
-                    HeaderText = "Id"
+                    HeaderText = "ID"
                 },
                 new DataGridViewTextBoxColumn
                 {
                     Name = "nome",
-                    HeaderText = "Nome"
+                    HeaderText = "NOME"
                 },
                 new DataGridViewTextBoxColumn
                 {
                     Name = "disciplina",
-                    HeaderText = "Disciplina"
+                    HeaderText = "DISCIPLINA"
                 },
                 new DataGridViewTextBoxColumn
                 {
-                    Name = "serie",
-                    HeaderText = "Série"
+                    Name = "ano",
+                    HeaderText = "ANO"
                 }
             };
 
-            grid.Columns.AddRange(colunas);
-        }
-
-        public void AtualizarRegistros(List<Materia> materias)
-        {
-            grid.Rows.Clear();
-
-            foreach (Materia materia in materias)
-            {
-                grid.Rows.Add(materia.id, materia.Nome, materia.Disciplina, materia.Serie);
-            }
+            gridMateria.Columns.AddRange(colunas);
         }
 
         public int ObterIdSelecionado()
@@ -69,7 +56,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloMateria
 
             try
             {
-                id = Convert.ToInt32(grid.SelectedRows[0].Cells["id"].Value);
+                id = Convert.ToInt32(gridMateria.SelectedRows[0].Cells["id"].Value);
             }
             catch
             {

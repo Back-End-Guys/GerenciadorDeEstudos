@@ -35,8 +35,9 @@
             disciplina = new Label();
             cbDisciplina = new ComboBox();
             label3 = new Label();
-            rdbPrimeiro = new RadioButton();
-            rdbSegundo = new RadioButton();
+            cbAno = new ComboBox();
+            btnCancelar = new Button();
+            btnGravar = new Button();
             SuspendLayout();
             // 
             // txtNome
@@ -45,7 +46,7 @@
             txtNome.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             txtNome.Location = new Point(118, 76);
             txtNome.Name = "txtNome";
-            txtNome.Size = new Size(196, 32);
+            txtNome.Size = new Size(206, 32);
             txtNome.TabIndex = 11;
             // 
             // txtId
@@ -55,7 +56,7 @@
             txtId.Location = new Point(118, 25);
             txtId.Name = "txtId";
             txtId.ReadOnly = true;
-            txtId.Size = new Size(196, 32);
+            txtId.Size = new Size(206, 32);
             txtId.TabIndex = 10;
             txtId.Text = "0";
             // 
@@ -95,7 +96,7 @@
             cbDisciplina.FormattingEnabled = true;
             cbDisciplina.Location = new Point(118, 129);
             cbDisciplina.Name = "cbDisciplina";
-            cbDisciplina.Size = new Size(196, 33);
+            cbDisciplina.Size = new Size(206, 33);
             cbDisciplina.TabIndex = 15;
             // 
             // label3
@@ -108,35 +109,57 @@
             label3.TabIndex = 16;
             label3.Text = "Ano :";
             // 
-            // rdbPrimeiro
+            // cbAno
             // 
-            rdbPrimeiro.AutoSize = true;
-            rdbPrimeiro.Location = new Point(118, 188);
-            rdbPrimeiro.Name = "rdbPrimeiro";
-            rdbPrimeiro.Size = new Size(50, 29);
-            rdbPrimeiro.TabIndex = 17;
-            rdbPrimeiro.TabStop = true;
-            rdbPrimeiro.Text = "1°";
-            rdbPrimeiro.UseVisualStyleBackColor = true;
+            cbAno.BackColor = Color.Snow;
+            cbAno.FormattingEnabled = true;
+            cbAno.Location = new Point(118, 185);
+            cbAno.Name = "cbAno";
+            cbAno.Size = new Size(206, 33);
+            cbAno.TabIndex = 17;
             // 
-            // rdbSegundo
+            // btnCancelar
             // 
-            rdbSegundo.AutoSize = true;
-            rdbSegundo.Location = new Point(195, 188);
-            rdbSegundo.Name = "rdbSegundo";
-            rdbSegundo.Size = new Size(50, 29);
-            rdbSegundo.TabIndex = 18;
-            rdbSegundo.TabStop = true;
-            rdbSegundo.Text = "2°";
-            rdbSegundo.UseVisualStyleBackColor = true;
+            btnCancelar.Anchor = AnchorStyles.None;
+            btnCancelar.BackColor = Color.LightSteelBlue;
+            btnCancelar.Cursor = Cursors.Hand;
+            btnCancelar.DialogResult = DialogResult.Cancel;
+            btnCancelar.FlatAppearance.BorderSize = 0;
+            btnCancelar.FlatAppearance.MouseDownBackColor = Color.Lavender;
+            btnCancelar.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCancelar.Location = new Point(224, 243);
+            btnCancelar.Margin = new Padding(3, 4, 3, 4);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(100, 49);
+            btnCancelar.TabIndex = 48;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = false;
+            // 
+            // btnGravar
+            // 
+            btnGravar.Anchor = AnchorStyles.None;
+            btnGravar.BackColor = Color.LightSteelBlue;
+            btnGravar.Cursor = Cursors.Hand;
+            btnGravar.DialogResult = DialogResult.OK;
+            btnGravar.FlatAppearance.BorderSize = 0;
+            btnGravar.FlatAppearance.MouseDownBackColor = Color.Lavender;
+            btnGravar.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            btnGravar.Location = new Point(118, 243);
+            btnGravar.Margin = new Padding(3, 4, 3, 4);
+            btnGravar.Name = "btnGravar";
+            btnGravar.Size = new Size(100, 49);
+            btnGravar.TabIndex = 47;
+            btnGravar.Text = "Gravar";
+            btnGravar.UseVisualStyleBackColor = false;
             // 
             // TelaMateriaForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(350, 328);
-            Controls.Add(rdbSegundo);
-            Controls.Add(rdbPrimeiro);
+            ClientSize = new Size(372, 328);
+            Controls.Add(btnCancelar);
+            Controls.Add(btnGravar);
+            Controls.Add(cbAno);
             Controls.Add(label3);
             Controls.Add(cbDisciplina);
             Controls.Add(disciplina);
@@ -163,7 +186,6 @@
         private Label disciplina;
         private ComboBox cbDisciplina;
         private Label label3;
-        private RadioButton rdbPrimeiro;
-        private RadioButton rdbSegundo;
+        private ComboBox cbAno;
     }
 }

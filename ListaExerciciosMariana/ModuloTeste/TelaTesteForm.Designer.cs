@@ -45,7 +45,7 @@
             groupBox1 = new GroupBox();
             cbDisciplina = new ComboBox();
             label6 = new Label();
-            checkBox1 = new CheckBox();
+            chbRecuperacao = new CheckBox();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -77,6 +77,7 @@
             btnSortearQuestoes.TabIndex = 48;
             btnSortearQuestoes.Text = "Sortear Questões";
             btnSortearQuestoes.UseVisualStyleBackColor = false;
+            btnSortearQuestoes.Click += btnSortearQuestoes_Click;
             // 
             // label5
             // 
@@ -134,6 +135,7 @@
             cbMateria.Name = "cbMateria";
             cbMateria.Size = new Size(210, 33);
             cbMateria.TabIndex = 41;
+            cbMateria.SelectedValueChanged += cbMateria_SelectedValueChanged;
             // 
             // label2
             // 
@@ -244,6 +246,7 @@
             cbDisciplina.Name = "cbDisciplina";
             cbDisciplina.Size = new Size(196, 33);
             cbDisciplina.TabIndex = 59;
+            cbDisciplina.SelectedValueChanged += cbDisciplina_SelectedValueChanged;
             // 
             // label6
             // 
@@ -256,17 +259,17 @@
             label6.TabIndex = 58;
             label6.Text = "Disciplina :";
             // 
-            // checkBox1
+            // chbRecuperacao
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.BackColor = SystemColors.GradientInactiveCaption;
-            checkBox1.Location = new Point(396, 24);
-            checkBox1.Name = "checkBox1";
-            checkBox1.RightToLeft = RightToLeft.Yes;
-            checkBox1.Size = new Size(242, 29);
-            checkBox1.TabIndex = 60;
-            checkBox1.Text = "?É prova de recuperação";
-            checkBox1.UseVisualStyleBackColor = false;
+            chbRecuperacao.AutoSize = true;
+            chbRecuperacao.BackColor = SystemColors.GradientInactiveCaption;
+            chbRecuperacao.Location = new Point(396, 24);
+            chbRecuperacao.Name = "chbRecuperacao";
+            chbRecuperacao.RightToLeft = RightToLeft.Yes;
+            chbRecuperacao.Size = new Size(242, 29);
+            chbRecuperacao.TabIndex = 60;
+            chbRecuperacao.Text = "?É prova de recuperação";
+            chbRecuperacao.UseVisualStyleBackColor = false;
             // 
             // TelaTesteForm
             // 
@@ -274,7 +277,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(713, 687);
-            Controls.Add(checkBox1);
+            Controls.Add(chbRecuperacao);
             Controls.Add(cbDisciplina);
             Controls.Add(label6);
             Controls.Add(groupBox1);
@@ -320,6 +323,6 @@
         private GroupBox groupBox1;
         private ComboBox cbDisciplina;
         private Label label6;
-        private CheckBox checkBox1;
+        private CheckBox chbRecuperacao;
     }
 }

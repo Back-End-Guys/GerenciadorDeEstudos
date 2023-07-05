@@ -7,17 +7,15 @@ namespace ListaExerciciosMariana.WinForm.ModuloDisciplina
         public TabelaDisciplinaControl()
         {
             InitializeComponent();
-            grid.ConfigurarGridLinhas();
-            grid.ConfigurarGridSomenteLeitura();
-
+            gridDisciplina.ConfigurarGridLinhas();
+            gridDisciplina.ConfigurarGridSomenteLeitura();
             ConfigurarColunas();
         }
 
         public void AtualizarRegistros(List<Disciplina> disciplinas)
         {
-            grid.Rows.Clear();
-
-            disciplinas.ForEach(d => grid.Rows.Add(d.id, d.Nome, d.ListMaterias.Count + " matérias"));
+            gridDisciplina.Rows.Clear();
+            disciplinas.ForEach(d => gridDisciplina.Rows.Add(d.id, d.Nome, d.ListMaterias.Count + " matérias"));
         }
 
         private void ConfigurarColunas()
@@ -41,7 +39,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloDisciplina
                 }
            };
 
-            grid.Columns.AddRange(colunas);
+            gridDisciplina.Columns.AddRange(colunas);
         }
 
         public int ObterIdSelecionado()
@@ -50,7 +48,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloDisciplina
 
             try
             {
-                id = Convert.ToInt32(grid.SelectedRows[0].Cells["id"].Value);
+                id = Convert.ToInt32(gridDisciplina.SelectedRows[0].Cells["ID"].Value);
             }
             catch
             {

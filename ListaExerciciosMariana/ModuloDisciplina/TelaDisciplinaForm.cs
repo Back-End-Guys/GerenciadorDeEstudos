@@ -4,7 +4,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloDisciplina
 {
     public partial class TelaDisciplinaForm : Form
     {
-        private Disciplina disciplina;
+        private Disciplina _disciplina;
         private List<Disciplina> _disciplinas;
 
         public TelaDisciplinaForm(List<Disciplina> disciplinas)
@@ -18,10 +18,10 @@ namespace ListaExerciciosMariana.WinForm.ModuloDisciplina
             int id = int.Parse(txtId.Text);
             string nome = txtNome.Text;
 
-            disciplina = new Disciplina(id, nome);
-            disciplina.id = id;
+            _disciplina = new Disciplina(id, nome);
+            _disciplina.id = id;
 
-            return disciplina;
+            return _disciplina;
         }
 
         public void ConfigurarTela(Disciplina disciplinaSelecionada)
