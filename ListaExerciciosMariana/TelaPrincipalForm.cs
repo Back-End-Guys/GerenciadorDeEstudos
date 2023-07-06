@@ -73,8 +73,10 @@ namespace ListaExerciciosMariana
             btnInserir.ToolTipText = controlador.ToolTipInserir;
             btnEditar.ToolTipText = controlador.ToolTipEditar;
             btnExcluir.ToolTipText = controlador.ToolTipExcluir;
-            btnTeste.ToolTipText = controlador.ToolTipTeste;
             btnListagem.ToolTipText = controlador.ToolTipListagem;
+            btnPDF.ToolTipText = controlador.ToolTipPDF;
+            btnDuplicar.ToolTipText= controlador.ToolTipDuplicar;
+            btnTeste.ToolTipText = controlador.ToolTipTeste;
         }
 
         private void ConfigurarBotoesHabilitados(ControladorBase controlador)
@@ -82,8 +84,10 @@ namespace ListaExerciciosMariana
             btnInserir.Enabled = controlador.InserirHabilitado;
             btnEditar.Enabled = controlador.EditarHabilitado;
             btnExcluir.Enabled = controlador.ExcluirHabilitado;
-            btnTeste.Enabled = controlador.TesteHabilitado;
             btnListagem.Enabled = controlador.ListagemHabilitado;
+            btnPDF.Enabled = controlador.PDFHabilitado;
+            btnDuplicar.Enabled = controlador.DuplicarHabilitado;
+            btnTeste.Enabled = controlador.TesteHabilitado;
         }
         private void ConfigurarBarraFerramentas(ControladorBase controlador)
         {
@@ -124,12 +128,12 @@ namespace ListaExerciciosMariana
             ConfigurarTelaPrincipal(_controlador);
         }
 
+        // Botões -------------------------------------------------------------------------------------------
+       
         private void btnInserir_Click(object sender, EventArgs e)
         {
             _controlador.Inserir();
         }
-
-        // Botões -------------------------------------------------------------------------------------------
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
@@ -149,6 +153,16 @@ namespace ListaExerciciosMariana
         private void btnListagem_Click(object sender, EventArgs e)
         {
             _controlador.Listagem();
+        }
+
+        private void btnDuplicar_Click(object sender, EventArgs e)
+        {
+            _controlador.Duplicar();
+        }
+
+        private void btnPDF_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

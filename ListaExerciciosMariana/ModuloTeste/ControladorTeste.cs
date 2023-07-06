@@ -27,9 +27,14 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
 
         public override bool EditarHabilitado => false;
 
+        public override bool ListagemHabilitado => true;
+
+        public override bool PDFHabilitado => true;
+
+        public override bool DuplicarHabilitado => true;
+
         public override bool TesteHabilitado => true;
 
-        public override bool ListagemHabilitado => true;
 
         public override void Inserir()
         {

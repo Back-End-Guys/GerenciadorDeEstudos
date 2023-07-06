@@ -12,6 +12,10 @@
 
         public virtual string ToolTipListagem { get; }
 
+        public virtual string ToolTipPDF { get; }
+
+        public virtual string ToolTipDuplicar { get; }
+
         public virtual bool InserirHabilitado { get { return true; } }
 
         public virtual bool EditarHabilitado { get { return true; } }
@@ -22,15 +26,21 @@
 
         public virtual bool ListagemHabilitado { get { return false ; } }
 
+        public virtual bool PDFHabilitado { get { return false ; } }
+
+        public virtual bool DuplicarHabilitado { get { return false ; } }
+
         public abstract void Inserir();
 
         public abstract void Editar();
 
         public abstract void Excluir();
 
-        public virtual void Teste() { }
-
         public virtual void Listagem() { }
+
+        public virtual void Duplicar() { }
+
+        public virtual void Teste() { }
 
         public abstract UserControl ObterListagem();
 
