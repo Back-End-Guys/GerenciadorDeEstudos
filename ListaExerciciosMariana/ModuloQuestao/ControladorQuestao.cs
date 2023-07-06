@@ -15,11 +15,11 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
             this._repositorioMateria = repositorioMateria;
         }
 
-        public override string ToolTipInserir => "Inserir nova questão";
+        public override string ToolTipInserir => "Inserir Questão";
 
-        public override string ToolTipEditar => "Editar questão existente";
+        public override string ToolTipEditar => "Editar Questão";
 
-        public override string ToolTipExcluir => "Excluir questão existente";
+        public override string ToolTipExcluir => "Excluir Questão";
 
         public override void Inserir()
         {

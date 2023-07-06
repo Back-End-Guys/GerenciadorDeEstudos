@@ -19,11 +19,19 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
             this._repositorioQuestao = repositorioQuestao;
         }
 
-        public override string ToolTipInserir => "Inserir novo Teste";
+        public override string ToolTipInserir => "Inserir Teste";
 
-        public override string ToolTipEditar => "Editar teste existente";
+        public override string ToolTipEditar => "";
 
-        public override string ToolTipExcluir => "Excluir teste existente";
+        public override string ToolTipExcluir => "Excluir Teste";
+
+        public override string ToolTipListagem => "Listagem detalhes Teste";
+
+        public override string ToolTipPDF => "Fazer PDF Teste";
+
+        public override string ToolTipDuplicar => "Duplicar Teste";
+
+        public override string ToolTipTeste => "Fazer Teste";
 
         public override bool EditarHabilitado => false;
 
@@ -39,26 +47,105 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
         public override void Inserir()
         {
             TelaTesteForm telaTeste = new TelaTesteForm(_repositorioTeste.SelecionarTodos(), _repositorioDisciplina.SelecionarTodos(), _repositorioQuestao.SelecionarTodos());
+            telaTeste.Text = "Cadastrar novo teste";
+
+            DialogResult opcaoEscolhida = telaTeste.ShowDialog();
+
+            if (opcaoEscolhida == DialogResult.OK)
+            {
+                Teste teste = telaTeste.ObterTeste();
+                _repositorioTeste.Inserir(teste);
+            }
+
+            CarregarTeste();
         }
 
-        public override void Editar()
-        {
-            throw new NotImplementedException();
-        }
+        public override void Editar() { }
 
         public override void Excluir()
         {
-            throw new NotImplementedException();
+            Teste testeSelecionado = ObterTesteSelecionado();
+
+            if (testeSelecionado == null)
+            {
+                MessageBox.Show("Selecione um teste primeiro!", "Exclução de teste", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir o teste \"{testeSelecionado.Titulo}\"?", "Exclusão de teste",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (opcaoEscolhida == DialogResult.Yes)
+            {
+                if (testeSelecionado.ListQuestoes.Count > 0)
+                {
+                    MessageBox.Show("Exclusão inválida! Teste possui questões cadastradas.", "Exclusão de teste", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    return;
+                }
+
+                _repositorioTeste.Excluir(testeSelecionado);
+            }
+
+            CarregarTeste();
         }
 
         public override void Listagem()
         {
+            Teste testeSelecionado = ObterTesteSelecionado();
 
+            if (testeSelecionado == null)
+            {
+                MessageBox.Show("Selecione um teste primeiro!", "Listagem detalhes teste", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            TelaDetalhesForm telaDetalhes = new TelaDetalhesForm(this);
+            telaDetalhes.Text = "Exibir detalhes do teste";
+
+            telaDetalhes.ConfigurarTelaDetalhes(testeSelecionado);
+            telaDetalhes.ShowDialog();
+        }
+
+        public override void Duplicar()
+        {
+            Teste testeSelecionado = ObterTesteSelecionado();
+
+            if (testeSelecionado == null)
+            {
+                MessageBox.Show("Selecione um teste primeiro!", "Duplicar teste", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            TelaTesteForm telaTeste = new TelaTesteForm(_repositorioTeste.SelecionarTodos(), _repositorioDisciplina.SelecionarTodos(), _repositorioQuestao.SelecionarTodos());
+            telaTeste.Text = "Duplicar teste existente";
+
+            telaTeste.ConfigurarTela(testeSelecionado);
+
+            DialogResult opcaoEscolhida = telaTeste.ShowDialog();
+
+            if (opcaoEscolhida == DialogResult.OK)
+            {
+                Teste teste = telaTeste.ObterTeste();
+                _repositorioTeste.Inserir(teste);
+            }
+
+            CarregarTeste();
         }
 
         public override void Teste()
         {
+            Teste testeSelecionado = ObterTesteSelecionado();
 
+            if (testeSelecionado == null)
+            {
+                MessageBox.Show("Selecione um teste primeiro!", "Fazer Teste", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            FazerTesteForm fazerTeste = new FazerTesteForm(testeSelecionado);
+            fazerTeste.Text = $"Fazer teste: {testeSelecionado.Titulo}";
+
+            fazerTeste.ShowDialog();
         }
 
         public void ExibirGabarito()

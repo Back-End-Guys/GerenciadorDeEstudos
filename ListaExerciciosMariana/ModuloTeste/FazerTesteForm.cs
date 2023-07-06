@@ -23,15 +23,9 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
             lblEnunciado.Text = questaoSelecionada[_questaoAtual].Enunciado;
             rb1.Text = $"A) {questaoSelecionada[_questaoAtual].ListAlternativas[0]}";
             rb2.Text = $"B) {questaoSelecionada[_questaoAtual].ListAlternativas[1]}";
-
-            if (questaoSelecionada[_questaoAtual].ListAlternativas.Count == 3)
-                rb3.Text = $"C) {questaoSelecionada[_questaoAtual].ListAlternativas[2]}";
-            
-            if (questaoSelecionada[_questaoAtual].ListAlternativas.Count == 4)
-                rb4.Text = $"D) {questaoSelecionada[_questaoAtual].ListAlternativas[3]}";
-            
-            if (questaoSelecionada[_questaoAtual].ListAlternativas.Count == 5)
-                rb5.Text = $"E) {questaoSelecionada[_questaoAtual].ListAlternativas[4]}";
+            rb3.Text = $"C) {questaoSelecionada[_questaoAtual].ListAlternativas[2]}";
+            rb4.Text = $"D) {questaoSelecionada[_questaoAtual].ListAlternativas[3]}";
+            rb5.Text = $"E) {questaoSelecionada[_questaoAtual].ListAlternativas[4]}";
         }
 
         private void ConfigurarProgressBar(Teste testeSelecionado)

@@ -13,13 +13,13 @@ namespace ListaExerciciosMariana.WinForm.ModuloDisciplina
             this._repositorioDisciplina = repositorio;
         }
 
-        public override string ToolTipInserir => "Inserir nova disciplina";
+        public override string ToolTipInserir => "Inserir Disciplina";
 
-        public override string ToolTipEditar => "Editar disciplina existente";
+        public override string ToolTipEditar => "Editar Disciplina";
 
-        public override string ToolTipExcluir => "Excluir disciplina existente";
+        public override string ToolTipExcluir => "Excluir Disciplina";
 
-        public override string ToolTipListagem => "Listagem de matérias";
+        public override string ToolTipListagem => "Listagem de Matérias";
 
         public override bool ListagemHabilitado => true;
 
@@ -98,7 +98,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloDisciplina
 
             if (disciplinaSelecionada == null)
             {
-                MessageBox.Show("Selecione uma disciplina primeiro!", "Exclusão de disciplina", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Selecione uma disciplina primeiro!", "listagem de matéria", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 

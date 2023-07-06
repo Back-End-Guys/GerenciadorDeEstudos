@@ -13,6 +13,11 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
             this._controlador = controlador;    
         }
 
+        private void btnGabarito_Click(object sender, EventArgs e)
+        {
+            _controlador.ExibirGabarito();
+        }
+
         public void ConfigurarTelaDetalhes(Teste testeSelecionado)
         {
             txtId.Text = testeSelecionado.id.ToString();
@@ -22,11 +27,6 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
             txtMateria.Text = testeSelecionado.Materia.ToString();
             txtAno.Text = testeSelecionado.Materia.Ano.ToString();
             txtQnt.Text = testeSelecionado.QuantidadeQuestoes.ToString();
-        }
-
-        private void btnGabarito_Click(object sender, EventArgs e)
-        {
-            _controlador.ExibirGabarito();
         }
     }
 }
