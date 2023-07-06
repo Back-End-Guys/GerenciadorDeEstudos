@@ -37,8 +37,8 @@
             btnExcluir = new ToolStripButton();
             btnListagem = new ToolStripButton();
             toolStripSeparator2 = new ToolStripSeparator();
-            btnPDF = new ToolStripButton();
             btnDuplicar = new ToolStripButton();
+            btnPDF = new ToolStripButton();
             toolStripSeparator1 = new ToolStripSeparator();
             labelTipoCadastro = new ToolStripLabel();
             menuBar = new MenuStrip();
@@ -54,13 +54,13 @@
             // 
             // statusStrip1
             // 
-            statusStrip1.BackColor = SystemColors.GradientInactiveCaption;
+            statusStrip1.BackColor = Color.AliceBlue;
             statusStrip1.ImageScalingSize = new Size(20, 20);
             statusStrip1.Items.AddRange(new ToolStripItem[] { labelRodape });
-            statusStrip1.Location = new Point(0, 599);
+            statusStrip1.Location = new Point(0, 597);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Padding = new Padding(1, 0, 16, 0);
-            statusStrip1.Size = new Size(1028, 22);
+            statusStrip1.Size = new Size(1028, 24);
             statusStrip1.TabIndex = 9;
             statusStrip1.Text = "[rodape]";
             // 
@@ -69,11 +69,11 @@
             labelRodape.Font = new Font("Nirmala UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             labelRodape.Margin = new Padding(19, 4, 0, 3);
             labelRodape.Name = "labelRodape";
-            labelRodape.Size = new Size(0, 15);
+            labelRodape.Size = new Size(0, 17);
             // 
             // panelRegistros
             // 
-            panelRegistros.BackColor = Color.AliceBlue;
+            panelRegistros.BackColor = Color.Snow;
             panelRegistros.BorderStyle = BorderStyle.FixedSingle;
             panelRegistros.Dock = DockStyle.Fill;
             panelRegistros.Font = new Font("Nirmala UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
@@ -148,17 +148,6 @@
             toolStripSeparator2.Name = "toolStripSeparator2";
             toolStripSeparator2.Size = new Size(6, 53);
             // 
-            // btnPDF
-            // 
-            btnPDF.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnPDF.Image = WinForm.Properties.Resources.pdfIcon;
-            btnPDF.ImageScaling = ToolStripItemImageScaling.None;
-            btnPDF.ImageTransparentColor = Color.Magenta;
-            btnPDF.Name = "btnPDF";
-            btnPDF.Padding = new Padding(7);
-            btnPDF.Size = new Size(50, 50);
-            btnPDF.Click += btnPDF_Click;
-            // 
             // btnDuplicar
             // 
             btnDuplicar.DisplayStyle = ToolStripItemDisplayStyle.Image;
@@ -170,6 +159,17 @@
             btnDuplicar.Padding = new Padding(7);
             btnDuplicar.Size = new Size(50, 53);
             btnDuplicar.Click += btnDuplicar_Click;
+            // 
+            // btnPDF
+            // 
+            btnPDF.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnPDF.Image = WinForm.Properties.Resources.pdfIcon;
+            btnPDF.ImageScaling = ToolStripItemImageScaling.None;
+            btnPDF.ImageTransparentColor = Color.Magenta;
+            btnPDF.Name = "btnPDF";
+            btnPDF.Padding = new Padding(7);
+            btnPDF.Size = new Size(50, 50);
+            btnPDF.Click += btnPDF_Click;
             // 
             // toolStripSeparator1
             // 
