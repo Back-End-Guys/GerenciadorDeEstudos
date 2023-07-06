@@ -55,22 +55,22 @@
             // 
             // statusStrip1
             // 
-            statusStrip1.BackColor = Color.AliceBlue;
+            statusStrip1.BackColor = SystemColors.GradientInactiveCaption;
             statusStrip1.ImageScalingSize = new Size(20, 20);
             statusStrip1.Items.AddRange(new ToolStripItem[] { labelRodape });
-            statusStrip1.Location = new Point(0, 599);
+            statusStrip1.Location = new Point(0, 597);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Padding = new Padding(1, 0, 16, 0);
-            statusStrip1.Size = new Size(1028, 22);
+            statusStrip1.Size = new Size(1028, 24);
             statusStrip1.TabIndex = 9;
             statusStrip1.Text = "[rodape]";
             // 
             // labelRodape
             // 
             labelRodape.Font = new Font("Nirmala UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            labelRodape.Margin = new Padding(19, 4, 0, 2);
+            labelRodape.Margin = new Padding(19, 4, 0, 3);
             labelRodape.Name = "labelRodape";
-            labelRodape.Size = new Size(0, 16);
+            labelRodape.Size = new Size(0, 17);
             // 
             // panelRegistros
             // 
@@ -266,7 +266,7 @@
             Name = "TelaPrincipalForm";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Tela Principal";
+            Text = "Gerenciador de Estudos";
             statusStrip1.ResumeLayout(false);
             statusStrip1.PerformLayout();
             toolBar.ResumeLayout(false);

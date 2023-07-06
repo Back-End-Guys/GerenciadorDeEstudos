@@ -128,6 +128,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloDisciplina
         {
             List<Disciplina> disciplinas = _repositorioDisciplina.SelecionarTodos();
             _tabelaDisciplina.AtualizarRegistros(disciplinas);
+            TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {disciplinas.Count} disciplinas");
         }
 
         public override UserControl ObterListagem()

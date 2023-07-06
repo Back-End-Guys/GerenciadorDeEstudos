@@ -1,4 +1,5 @@
-﻿using ListaExerciciosMariana.Dominio.ModuloMateria;
+﻿using ListaExerciciosMariana.Dominio.ModuloDisciplina;
+using ListaExerciciosMariana.Dominio.ModuloMateria;
 using ListaExerciciosMariana.Dominio.ModuloQuestao;
 
 namespace ListaExerciciosMariana.WinForm.ModuloQuestao
@@ -23,7 +24,8 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
 
         public override void Inserir()
         {
-            TelaQuestaoForm telaQuestao = new TelaQuestaoForm(_repositorioMateria.SelecionarTodos());
+            TelaQuestaoForm telaQuestao = new TelaQuestaoForm(_repositorioQuestao.SelecionarTodos(), _repositorioMateria.SelecionarTodos());
+            telaQuestao.Text = "Cadastrar nova questão";
 
             DialogResult opcaoEscolhida = telaQuestao.ShowDialog();
 
@@ -47,7 +49,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
                 return;
             }
 
-            TelaQuestaoForm telaQuestao = new TelaQuestaoForm(_repositorioMateria.SelecionarTodos());
+            TelaQuestaoForm telaQuestao = new TelaQuestaoForm(_repositorioQuestao.SelecionarTodos(), _repositorioMateria.SelecionarTodos());
             telaQuestao.Text = "Editar questão existente";
 
             telaQuestao.ConfigurarTela(questaoSelecionada);
@@ -70,14 +72,11 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
 
             if (questao == null)
             {
-                MessageBox.Show($"Selecione uma questão primeiro!",
-                    "Exclusão de Questões",
-                    MessageBoxButtons.OK,
-                MessageBoxIcon.Exclamation);
+                MessageBox.Show($"Selecione uma questão primeiro!", "Exclusão de Questões", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
-            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir a questão '{questao.id}'?", "Exclusão de Questões",
+            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir a questão \"{questao.id}\"?", "Exclusão de Questões",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
             if (opcaoEscolhida == DialogResult.OK)
@@ -98,6 +97,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
         {
             List<Questao> listaQuestoes = _repositorioQuestao.SelecionarTodos();
             _tabelaQuestao.AtualizarRegistros(listaQuestoes);
+            TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {listaQuestoes.Count} questões");
         }
 
         public override UserControl ObterListagem()

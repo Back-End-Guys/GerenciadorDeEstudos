@@ -123,9 +123,9 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
                     MessageBox.Show("Digite uma quantidade válida.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
-            else            
+            else
                 MessageBox.Show("Selecione uma matéria.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            
+
         }
 
         private List<Questao> SortearQuestoes(List<Questao> questoesDisponiveis, int quantidade)

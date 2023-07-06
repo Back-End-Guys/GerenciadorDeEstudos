@@ -233,6 +233,7 @@
             // 
             // TelaDetalhesForm
             // 
+            AcceptButton = btnOK;
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;

@@ -169,6 +169,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
         {
             List<Teste> testes = _repositorioTeste.SelecionarTodos();
             _tabelaTeste.AtualizarRegistros(testes);
+            TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {testes.Count} testes");
         }
 
         public override UserControl ObterListagem()

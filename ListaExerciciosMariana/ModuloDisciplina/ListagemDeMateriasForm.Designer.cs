@@ -69,11 +69,11 @@
             tableLayoutPanel2.ColumnCount = 1;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel2.Controls.Add(listagemMaterias, 0, 0);
-            tableLayoutPanel2.Location = new Point(2, 77);
+            tableLayoutPanel2.Location = new Point(-6, 77);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.Size = new Size(666, 290);
+            tableLayoutPanel2.Size = new Size(674, 290);
             tableLayoutPanel2.TabIndex = 1;
             // 
             // listagemMaterias
@@ -82,7 +82,7 @@
             listagemMaterias.Location = new Point(4, 4);
             listagemMaterias.Margin = new Padding(4);
             listagemMaterias.Name = "listagemMaterias";
-            listagemMaterias.Size = new Size(658, 282);
+            listagemMaterias.Size = new Size(666, 282);
             listagemMaterias.TabIndex = 0;
             // 
             // tableLayoutPanel3
@@ -90,11 +90,11 @@
             tableLayoutPanel3.ColumnCount = 1;
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel3.Controls.Add(btnOK, 0, 0);
-            tableLayoutPanel3.Location = new Point(2, 370);
+            tableLayoutPanel3.Location = new Point(-6, 364);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 1;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel3.Size = new Size(663, 63);
+            tableLayoutPanel3.Size = new Size(679, 75);
             tableLayoutPanel3.TabIndex = 2;
             // 
             // btnOK
@@ -106,17 +106,18 @@
             btnOK.ForeColor = Color.SteelBlue;
             btnOK.Location = new Point(3, 3);
             btnOK.Name = "btnOK";
-            btnOK.Size = new Size(657, 57);
+            btnOK.Size = new Size(673, 69);
             btnOK.TabIndex = 0;
             btnOK.Text = "OK";
             btnOK.UseVisualStyleBackColor = true;
             // 
             // ListagemDeMateriasForm
             // 
+            AcceptButton = btnOK;
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
-            ClientSize = new Size(666, 435);
+            ClientSize = new Size(662, 435);
             Controls.Add(tableLayoutPanel2);
             Controls.Add(tableLayoutPanel3);
             Controls.Add(tableLayoutPanel1);

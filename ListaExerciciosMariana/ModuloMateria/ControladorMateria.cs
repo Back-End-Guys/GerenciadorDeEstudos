@@ -1,5 +1,7 @@
 ﻿using ListaExerciciosMariana.Dominio.ModuloDisciplina;
 using ListaExerciciosMariana.Dominio.ModuloMateria;
+using System.ComponentModel;
+using System.Reflection;
 
 namespace ListaExerciciosMariana.WinForm.ModuloMateria
 {
@@ -8,11 +10,13 @@ namespace ListaExerciciosMariana.WinForm.ModuloMateria
         private IRepositorioDisciplina _repositorioDisciplina;
         private IRepositorioMateria _repositorioMateria;
         private TabelaMateriaControl _tabelaMateria;
+        private List<AnosEnum> _anosEnum;   
 
         public ControladorMateria(IRepositorioDisciplina repositorioDisciplina, IRepositorioMateria repositorioMateria)
         {
             this._repositorioDisciplina = repositorioDisciplina;
             this._repositorioMateria = repositorioMateria;
+            _anosEnum = new List<AnosEnum>(Enum.GetValues(typeof(AnosEnum)).Cast<AnosEnum>());
         }
 
         public override string ToolTipInserir => "Inserir Matéria";
@@ -23,7 +27,8 @@ namespace ListaExerciciosMariana.WinForm.ModuloMateria
 
         public override void Inserir()
         {
-            TelaMateriaForm telaMateria = new TelaMateriaForm(_repositorioDisciplina.SelecionarTodos());
+            TelaMateriaForm telaMateria = new TelaMateriaForm(_repositorioMateria.SelecionarTodos(), _repositorioDisciplina.SelecionarTodos(), _anosEnum);
+            telaMateria.Text = "Cadastrar nova matéria";
 
             DialogResult opcaoEscolhida = telaMateria.ShowDialog();
 
@@ -32,6 +37,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloMateria
                 Materia materia = telaMateria.ObterMateria();
 
                 _repositorioMateria.Inserir(materia);
+                materia.Disciplina.ListMaterias.Add(materia);
             }
 
             CarregarMaterias();
@@ -39,9 +45,16 @@ namespace ListaExerciciosMariana.WinForm.ModuloMateria
 
         public override void Editar()
         {
-            TelaMateriaForm telaMateriaForm = new TelaMateriaForm(_repositorioDisciplina.SelecionarTodos());
-
             Materia materiaSelecionada = ObterMateriaSelecionada();
+
+            if (materiaSelecionada == null)
+            {
+                MessageBox.Show("Selecione uma matéria primeiro!", "Edição de matéria", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            TelaMateriaForm telaMateriaForm = new TelaMateriaForm(_repositorioMateria.SelecionarTodos(), _repositorioDisciplina.SelecionarTodos(), _anosEnum);
+            telaMateriaForm.Text = "Edição de matéria";
 
             telaMateriaForm.ConfigurarTela(materiaSelecionada);
 
@@ -62,12 +75,19 @@ namespace ListaExerciciosMariana.WinForm.ModuloMateria
         {
             Materia materiaSelecionada = ObterMateriaSelecionada();
 
+            if (materiaSelecionada == null)
+            {
+                MessageBox.Show("Selecione uma matéria primeiro!", "Edição de matéria", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
             DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir a matéria {materiaSelecionada.Nome}?", "Exclusão de Matérias",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
             if (opcaoEscolhida == DialogResult.OK)
             {
                 _repositorioMateria.Excluir(materiaSelecionada);
+                materiaSelecionada.Disciplina.ListMaterias.Remove(materiaSelecionada);
             }
 
             CarregarMaterias();
@@ -76,8 +96,8 @@ namespace ListaExerciciosMariana.WinForm.ModuloMateria
         private void CarregarMaterias()
         {
             List<Materia> materias = _repositorioMateria.SelecionarTodos();
-
             _tabelaMateria.AtualizarRegistros(materias);
+            TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {materias.Count} matérias");
         }
 
         public override UserControl ObterListagem()

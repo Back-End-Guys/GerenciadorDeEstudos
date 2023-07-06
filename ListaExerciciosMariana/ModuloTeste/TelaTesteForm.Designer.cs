@@ -66,7 +66,6 @@
             btnSortearQuestoes.Anchor = AnchorStyles.None;
             btnSortearQuestoes.BackColor = SystemColors.GradientInactiveCaption;
             btnSortearQuestoes.Cursor = Cursors.Hand;
-            btnSortearQuestoes.DialogResult = DialogResult.OK;
             btnSortearQuestoes.FlatAppearance.BorderSize = 0;
             btnSortearQuestoes.FlatAppearance.MouseDownBackColor = Color.Lavender;
             btnSortearQuestoes.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
@@ -273,6 +272,7 @@
             // 
             // TelaTesteForm
             // 
+            AcceptButton = btnGravar;
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;

@@ -24,7 +24,8 @@ namespace ListaExerciciosMariana.Infra.ModuloMateria
         {
             int id = Convert.ToInt32(leitorRegistros["MATERIA_ID"]);
             string nome = Convert.ToString(leitorRegistros["MATERIA_NOME"]);
-            int serie = Convert.ToInt32(leitorRegistros["MATERIA_SERIE"]);
+            //int serie = Convert.ToInt32(leitorRegistros["MATERIA_SERIE"]);
+            string serie = leitorRegistros["MATERIA_SERIE"].ToString();
 
             Disciplina disciplina = new MapeadorDisciplina().ConverterRegistro(leitorRegistros);
 

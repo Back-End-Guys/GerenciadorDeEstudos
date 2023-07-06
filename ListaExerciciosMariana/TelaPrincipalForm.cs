@@ -75,7 +75,7 @@ namespace ListaExerciciosMariana
             btnExcluir.ToolTipText = controlador.ToolTipExcluir;
             btnListagem.ToolTipText = controlador.ToolTipListagem;
             btnPDF.ToolTipText = controlador.ToolTipPDF;
-            btnDuplicar.ToolTipText= controlador.ToolTipDuplicar;
+            btnDuplicar.ToolTipText = controlador.ToolTipDuplicar;
             btnTeste.ToolTipText = controlador.ToolTipTeste;
         }
 
@@ -129,7 +129,7 @@ namespace ListaExerciciosMariana
         }
 
         // Botões -------------------------------------------------------------------------------------------
-       
+
         private void btnInserir_Click(object sender, EventArgs e)
         {
             _controlador.Inserir();

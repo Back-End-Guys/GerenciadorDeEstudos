@@ -1,5 +1,4 @@
 ﻿using ListaExerciciosMariana.Dominio.ModuloDisciplina;
-using ListaExerciciosMariana.Dominio.ModuloQuestao;
 
 namespace ListaExerciciosMariana.Dominio.ModuloMateria
 {
@@ -7,9 +6,9 @@ namespace ListaExerciciosMariana.Dominio.ModuloMateria
     {
         public string Nome { get; set; }
         public Disciplina Disciplina { get; set; }
-        public int Ano { get; set; }
+        public string Ano { get; set; }
 
-        public Materia(int id, string nome, Disciplina disciplina, int ano)
+        public Materia(int id, string nome, Disciplina disciplina, string ano)
         {
             this.id = id;
             Nome = nome;
@@ -42,6 +41,11 @@ namespace ListaExerciciosMariana.Dominio.ModuloMateria
                 erros.Add("O campo \"Ano\" é obrigatório");
 
             return erros.ToArray();
+        }
+
+        public override string ToString()
+        {
+            return Nome;
         }
     }
 }

@@ -151,9 +151,11 @@
             btnGravar.TabIndex = 47;
             btnGravar.Text = "Gravar";
             btnGravar.UseVisualStyleBackColor = false;
+            btnGravar.Click += btnGravar_Click;
             // 
             // TelaMateriaForm
             // 
+            AcceptButton = btnGravar;
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(372, 328);

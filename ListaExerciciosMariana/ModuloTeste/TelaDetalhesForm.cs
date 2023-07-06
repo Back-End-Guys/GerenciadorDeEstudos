@@ -10,7 +10,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
         {
             InitializeComponent();
             this.ConfigurarDialog();
-            this._controlador = controlador;    
+            this._controlador = controlador;
         }
 
         private void btnGabarito_Click(object sender, EventArgs e)

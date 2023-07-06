@@ -189,7 +189,6 @@
             btnRemover.Anchor = AnchorStyles.None;
             btnRemover.BackColor = SystemColors.GradientInactiveCaption;
             btnRemover.Cursor = Cursors.Hand;
-            btnRemover.DialogResult = DialogResult.Cancel;
             btnRemover.FlatAppearance.BorderSize = 0;
             btnRemover.FlatAppearance.MouseDownBackColor = Color.Lavender;
             btnRemover.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
@@ -207,7 +206,6 @@
             btnAdicionar.Anchor = AnchorStyles.None;
             btnAdicionar.BackColor = SystemColors.GradientInactiveCaption;
             btnAdicionar.Cursor = Cursors.Hand;
-            btnAdicionar.DialogResult = DialogResult.OK;
             btnAdicionar.FlatAppearance.BorderSize = 0;
             btnAdicionar.FlatAppearance.MouseDownBackColor = Color.Lavender;
             btnAdicionar.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
@@ -238,6 +236,7 @@
             txtAno.BackColor = SystemColors.GradientActiveCaption;
             txtAno.Enabled = false;
             txtAno.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            txtAno.ForeColor = SystemColors.MenuText;
             txtAno.Location = new Point(456, 73);
             txtAno.Margin = new Padding(4, 5, 4, 5);
             txtAno.Name = "txtAno";
@@ -247,6 +246,7 @@
             // 
             // TelaQuestaoForm
             // 
+            AcceptButton = btnGravar;
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;

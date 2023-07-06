@@ -15,14 +15,16 @@ namespace ListaExerciciosMariana.WinForm.ModuloDisciplina
             lista.Items.Clear();
 
             lista.Columns.Add("", 0, HorizontalAlignment.Left);
-            lista.Columns.Add("ID", 100, HorizontalAlignment.Left);
-            lista.Columns.Add("NOME", 400, HorizontalAlignment.Left);
+            lista.Columns.Add("ID", 80, HorizontalAlignment.Left);
+            lista.Columns.Add("NOME", 300, HorizontalAlignment.Left);
+            lista.Columns.Add("ANO", 280, HorizontalAlignment.Left);
 
             materias.ForEach(m =>
             {
                 ListViewItem listaMaterias = new ListViewItem();
                 listaMaterias.SubItems.Add(m.id.ToString());
                 listaMaterias.SubItems.Add(m.Nome);
+                listaMaterias.SubItems.Add(m.Ano);
 
                 lista.Items.Add(listaMaterias);
             });

@@ -31,9 +31,9 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             lblTitulo = new Label();
             tableLayoutPanel2 = new TableLayoutPanel();
+            listagem = new ListagemGabaritoControl();
             tableLayoutPanel3 = new TableLayoutPanel();
             btnOK = new Button();
-            listagem = new ListagemGabaritoControl();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
@@ -76,6 +76,14 @@
             tableLayoutPanel2.Size = new Size(879, 347);
             tableLayoutPanel2.TabIndex = 1;
             // 
+            // listagem
+            // 
+            listagem.Location = new Point(4, 4);
+            listagem.Margin = new Padding(4);
+            listagem.Name = "listagem";
+            listagem.Size = new Size(871, 339);
+            listagem.TabIndex = 0;
+            // 
             // tableLayoutPanel3
             // 
             tableLayoutPanel3.ColumnCount = 1;
@@ -102,16 +110,9 @@
             btnOK.Text = "OK";
             btnOK.UseVisualStyleBackColor = true;
             // 
-            // listagem
-            // 
-            listagem.Location = new Point(4, 4);
-            listagem.Margin = new Padding(4, 4, 4, 4);
-            listagem.Name = "listagem";
-            listagem.Size = new Size(871, 339);
-            listagem.TabIndex = 0;
-            // 
             // TelaGabaritoForm
             // 
+            AcceptButton = btnOK;
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
