@@ -76,10 +76,10 @@
             panelRegistros.BorderStyle = BorderStyle.FixedSingle;
             panelRegistros.Dock = DockStyle.Fill;
             panelRegistros.Font = new Font("Nirmala UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            panelRegistros.Location = new Point(0, 91);
+            panelRegistros.Location = new Point(0, 95);
             panelRegistros.Margin = new Padding(3, 4, 3, 4);
             panelRegistros.Name = "panelRegistros";
-            panelRegistros.Size = new Size(1028, 530);
+            panelRegistros.Size = new Size(1028, 526);
             panelRegistros.TabIndex = 8;
             // 
             // toolBar
@@ -89,7 +89,7 @@
             toolBar.GripStyle = ToolStripGripStyle.Hidden;
             toolBar.ImageScalingSize = new Size(20, 20);
             toolBar.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, toolStripSeparator2, btnListagem, btnTeste, toolStripSeparator1, labelTipoCadastro });
-            toolBar.Location = new Point(0, 38);
+            toolBar.Location = new Point(0, 42);
             toolBar.Name = "toolBar";
             toolBar.RenderMode = ToolStripRenderMode.System;
             toolBar.Size = new Size(1028, 53);
@@ -138,7 +138,7 @@
             // btnListagem
             // 
             btnListagem.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnListagem.Image = WinForm.Properties.Resources.listaIcon;
+            btnListagem.Image = WinForm.Properties.Resources.listagemIcon;
             btnListagem.ImageScaling = ToolStripItemImageScaling.None;
             btnListagem.ImageTransparentColor = Color.Magenta;
             btnListagem.Name = "btnListagem";
@@ -149,7 +149,7 @@
             // btnTeste
             // 
             btnTeste.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnTeste.Image = WinForm.Properties.Resources.testIcon;
+            btnTeste.Image = WinForm.Properties.Resources.fazerTesteIcon;
             btnTeste.ImageScaling = ToolStripItemImageScaling.None;
             btnTeste.ImageTransparentColor = Color.Magenta;
             btnTeste.Name = "btnTeste";
@@ -177,7 +177,7 @@
             menuBar.Location = new Point(0, 0);
             menuBar.Name = "menuBar";
             menuBar.Padding = new Padding(7, 3, 0, 3);
-            menuBar.Size = new Size(1028, 38);
+            menuBar.Size = new Size(1028, 42);
             menuBar.TabIndex = 6;
             menuBar.Text = "menuStrip1";
             // 
@@ -185,37 +185,46 @@
             // 
             cadastrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { displinaMenuItem, materiaMenuItem, questaoMenuItem, testeToolStripMenuItem });
             cadastrosToolStripMenuItem.Font = new Font("Nirmala UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            cadastrosToolStripMenuItem.Image = WinForm.Properties.Resources.cadastroIcon;
             cadastrosToolStripMenuItem.ImageScaling = ToolStripItemImageScaling.None;
             cadastrosToolStripMenuItem.Margin = new Padding(15, 0, 0, 0);
             cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
-            cadastrosToolStripMenuItem.Size = new Size(112, 32);
+            cadastrosToolStripMenuItem.Size = new Size(144, 36);
             cadastrosToolStripMenuItem.Text = "Cadastros";
             // 
             // displinaMenuItem
             // 
+            displinaMenuItem.Image = WinForm.Properties.Resources.diciplinaIcon;
+            displinaMenuItem.ImageScaling = ToolStripItemImageScaling.None;
             displinaMenuItem.Name = "displinaMenuItem";
-            displinaMenuItem.Size = new Size(182, 32);
+            displinaMenuItem.Size = new Size(194, 38);
             displinaMenuItem.Text = "Disciplina";
             displinaMenuItem.Click += displinaMenuItem_Click;
             // 
             // materiaMenuItem
             // 
+            materiaMenuItem.Image = WinForm.Properties.Resources.materiaIcon;
+            materiaMenuItem.ImageScaling = ToolStripItemImageScaling.None;
             materiaMenuItem.Name = "materiaMenuItem";
-            materiaMenuItem.Size = new Size(182, 32);
+            materiaMenuItem.Size = new Size(194, 38);
             materiaMenuItem.Text = "Materia";
             materiaMenuItem.Click += materiaMenuItem_Click;
             // 
             // questaoMenuItem
             // 
+            questaoMenuItem.Image = WinForm.Properties.Resources.questaoIcon;
+            questaoMenuItem.ImageScaling = ToolStripItemImageScaling.None;
             questaoMenuItem.Name = "questaoMenuItem";
-            questaoMenuItem.Size = new Size(182, 32);
+            questaoMenuItem.Size = new Size(194, 38);
             questaoMenuItem.Text = "Questão";
             questaoMenuItem.Click += questaoMenuItem_Click;
             // 
             // testeToolStripMenuItem
             // 
+            testeToolStripMenuItem.Image = WinForm.Properties.Resources.testeIcon;
+            testeToolStripMenuItem.ImageScaling = ToolStripItemImageScaling.None;
             testeToolStripMenuItem.Name = "testeToolStripMenuItem";
-            testeToolStripMenuItem.Size = new Size(182, 32);
+            testeToolStripMenuItem.Size = new Size(194, 38);
             testeToolStripMenuItem.Text = "Teste";
             testeToolStripMenuItem.Click += testeToolStripMenuItem_Click;
             // 

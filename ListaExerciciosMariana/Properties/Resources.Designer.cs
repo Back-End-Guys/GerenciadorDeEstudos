@@ -73,9 +73,29 @@ namespace ListaExerciciosMariana.WinForm.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cadastroIcon {
+            get {
+                object obj = ResourceManager.GetObject("cadastroIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap deletarIcon {
             get {
                 object obj = ResourceManager.GetObject("deletarIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap diciplinaIcon {
+            get {
+                object obj = ResourceManager.GetObject("diciplinaIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +113,9 @@ namespace ListaExerciciosMariana.WinForm.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap listaIcon {
+        internal static System.Drawing.Bitmap fazerTesteIcon {
             get {
-                object obj = ResourceManager.GetObject("listaIcon", resourceCulture);
+                object obj = ResourceManager.GetObject("fazerTesteIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +123,39 @@ namespace ListaExerciciosMariana.WinForm.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap testIcon {
+        internal static System.Drawing.Bitmap listagemIcon {
             get {
-                object obj = ResourceManager.GetObject("testIcon", resourceCulture);
+                object obj = ResourceManager.GetObject("listagemIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap materiaIcon {
+            get {
+                object obj = ResourceManager.GetObject("materiaIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap questaoIcon {
+            get {
+                object obj = ResourceManager.GetObject("questaoIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap testeIcon {
+            get {
+                object obj = ResourceManager.GetObject("testeIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

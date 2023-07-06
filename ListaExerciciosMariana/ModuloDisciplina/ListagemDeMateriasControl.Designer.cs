@@ -47,6 +47,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(lista);
+            Cursor = Cursors.Hand;
             Name = "ListagemDeMateriasControl";
             Size = new Size(560, 344);
             ResumeLayout(false);

@@ -76,6 +76,7 @@
             btnCancelar.DialogResult = DialogResult.Cancel;
             btnCancelar.FlatAppearance.BorderSize = 0;
             btnCancelar.FlatAppearance.MouseDownBackColor = Color.Lavender;
+            btnCancelar.FlatAppearance.MouseOverBackColor = Color.Lavender;
             btnCancelar.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             btnCancelar.Location = new Point(208, 176);
             btnCancelar.Margin = new Padding(3, 4, 3, 4);
@@ -115,6 +116,7 @@
             // 
             // TelaDisciplinaForm
             // 
+            AcceptButton = btnGravar;
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
