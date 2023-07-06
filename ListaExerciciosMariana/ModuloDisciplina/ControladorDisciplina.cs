@@ -60,6 +60,17 @@ namespace ListaExerciciosMariana.WinForm.ModuloDisciplina
             if (opcaoEscolhida == DialogResult.OK)
             {
                 Disciplina disciplina = telaDisciplina.ObterDisciplina();
+
+                foreach (Disciplina d in _repositorioDisciplina.SelecionarTodos())
+                {
+                    if (disciplina.Nome == d.Nome)
+                    {
+                        TelaPrincipalForm.Instancia.AtualizarRodape("O nome já está em uso");
+                        telaDisciplina.ShowDialog();
+                        return;
+                    }
+                }
+
                 _repositorioDisciplina.Editar(disciplina.id, disciplina);
             }
 
