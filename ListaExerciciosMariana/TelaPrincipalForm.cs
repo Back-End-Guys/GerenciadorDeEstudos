@@ -79,7 +79,6 @@ namespace ListaExerciciosMariana
             btnListagem.ToolTipText = controlador.ToolTipListagem;
             btnPDF.ToolTipText = controlador.ToolTipPDF;
             btnDuplicar.ToolTipText = controlador.ToolTipDuplicar;
-            btnTeste.ToolTipText = controlador.ToolTipTeste;
         }
 
         private void ConfigurarBotoesHabilitados(ControladorBase controlador)
@@ -90,7 +89,6 @@ namespace ListaExerciciosMariana
             btnListagem.Enabled = controlador.ListagemHabilitado;
             btnPDF.Enabled = controlador.PDFHabilitado;
             btnDuplicar.Enabled = controlador.DuplicarHabilitado;
-            btnTeste.Enabled = controlador.TesteHabilitado;
         }
         private void ConfigurarBarraFerramentas(ControladorBase controlador)
         {
@@ -146,11 +144,6 @@ namespace ListaExerciciosMariana
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             _controlador.Excluir();
-        }
-
-        private void btnTeste_Click(object sender, EventArgs e)
-        {
-            _controlador.Teste();
         }
 
         private void btnListagem_Click(object sender, EventArgs e)

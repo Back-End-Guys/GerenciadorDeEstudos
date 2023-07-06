@@ -8,8 +8,6 @@
 
         public abstract string ToolTipExcluir { get; }
 
-        public virtual string ToolTipTeste { get; }
-
         public virtual string ToolTipListagem { get; }
 
         public virtual string ToolTipPDF { get; }
@@ -21,8 +19,6 @@
         public virtual bool EditarHabilitado { get { return true; } }
 
         public virtual bool ExcluirHabilitado { get { return true; } }
-
-        public virtual bool TesteHabilitado { get { return false ; } }
 
         public virtual bool ListagemHabilitado { get { return false ; } }
 

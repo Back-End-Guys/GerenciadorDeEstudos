@@ -39,7 +39,6 @@
             toolStripSeparator2 = new ToolStripSeparator();
             btnPDF = new ToolStripButton();
             btnDuplicar = new ToolStripButton();
-            btnTeste = new ToolStripButton();
             toolStripSeparator1 = new ToolStripSeparator();
             labelTipoCadastro = new ToolStripLabel();
             menuBar = new MenuStrip();
@@ -58,10 +57,10 @@
             statusStrip1.BackColor = SystemColors.GradientInactiveCaption;
             statusStrip1.ImageScalingSize = new Size(20, 20);
             statusStrip1.Items.AddRange(new ToolStripItem[] { labelRodape });
-            statusStrip1.Location = new Point(0, 597);
+            statusStrip1.Location = new Point(0, 599);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Padding = new Padding(1, 0, 16, 0);
-            statusStrip1.Size = new Size(1028, 24);
+            statusStrip1.Size = new Size(1028, 22);
             statusStrip1.TabIndex = 9;
             statusStrip1.Text = "[rodape]";
             // 
@@ -70,7 +69,7 @@
             labelRodape.Font = new Font("Nirmala UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             labelRodape.Margin = new Padding(19, 4, 0, 3);
             labelRodape.Name = "labelRodape";
-            labelRodape.Size = new Size(0, 17);
+            labelRodape.Size = new Size(0, 15);
             // 
             // panelRegistros
             // 
@@ -90,7 +89,7 @@
             toolBar.Enabled = false;
             toolBar.GripStyle = ToolStripGripStyle.Hidden;
             toolBar.ImageScalingSize = new Size(20, 20);
-            toolBar.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, btnListagem, toolStripSeparator2, btnPDF, btnDuplicar, btnTeste, toolStripSeparator1, labelTipoCadastro });
+            toolBar.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, btnListagem, toolStripSeparator2, btnDuplicar, btnPDF, toolStripSeparator1, labelTipoCadastro });
             toolBar.Location = new Point(0, 47);
             toolBar.Name = "toolBar";
             toolBar.Padding = new Padding(0, 3, 1, 0);
@@ -171,17 +170,6 @@
             btnDuplicar.Padding = new Padding(7);
             btnDuplicar.Size = new Size(50, 53);
             btnDuplicar.Click += btnDuplicar_Click;
-            // 
-            // btnTeste
-            // 
-            btnTeste.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnTeste.Image = WinForm.Properties.Resources.testeIcon2;
-            btnTeste.ImageScaling = ToolStripItemImageScaling.None;
-            btnTeste.ImageTransparentColor = Color.Magenta;
-            btnTeste.Name = "btnTeste";
-            btnTeste.Padding = new Padding(7);
-            btnTeste.Size = new Size(50, 50);
-            btnTeste.Click += btnTeste_Click;
             // 
             // toolStripSeparator1
             // 
@@ -285,7 +273,6 @@
         private ToolStrip toolBar;
         private ToolStripButton btnInserir;
         private ToolStripButton btnEditar;
-        private ToolStripButton btnTeste;
         private ToolStripLabel labelTipoCadastro;
         private MenuStrip menuBar;
         private ToolStripMenuItem cadastrosToolStripMenuItem;

@@ -15,7 +15,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
         public void AtualizarRegistros(List<Teste> testes)
         {
             gridTeste.Rows.Clear();
-            testes.ForEach(t => gridTeste.Rows.Add(t.id, t.Titulo, t.Materia.Ano, t.ListQuestoes.Count + " questões"));
+            testes.ForEach(t => gridTeste.Rows.Add(t.id, t.Titulo, t.Materia.Ano, t.Disciplina, t.ListQuestoes.Count + " questões"));
         }
 
         private void ConfigurarColunas()
@@ -34,13 +34,18 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
                 },
                 new DataGridViewTextBoxColumn()
                 {
+                    Name = "disciplina",
+                    HeaderText = "DISCIPLINA"
+                },
+                new DataGridViewTextBoxColumn()
+                {
                     Name = "materia",
                     HeaderText = "MATÉRIA"
                 },
                 new DataGridViewTextBoxColumn()
                 {
                     Name = "qtdQuestões",
-                    HeaderText = "QUANTIDADE DE QUESTÕES"
+                    HeaderText = "QTD. DE QUESTÕES"
                 }
            };
 

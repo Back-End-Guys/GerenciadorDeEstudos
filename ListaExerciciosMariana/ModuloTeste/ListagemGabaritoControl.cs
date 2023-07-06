@@ -17,7 +17,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
             lista.Columns.Add("", 0, HorizontalAlignment.Left);
             lista.Columns.Add("ID", 100, HorizontalAlignment.Left);
             lista.Columns.Add("ENUNCIADO", 400, HorizontalAlignment.Left);
-            lista.Columns.Add("GABARITO", 400, HorizontalAlignment.Left);
+            lista.Columns.Add("GABARITO", 380, HorizontalAlignment.Left);
 
             questaos.ForEach(q =>
             {

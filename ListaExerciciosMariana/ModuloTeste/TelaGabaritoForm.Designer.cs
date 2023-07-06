@@ -69,19 +69,20 @@
             tableLayoutPanel2.ColumnCount = 1;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel2.Controls.Add(listagem, 0, 0);
-            tableLayoutPanel2.Location = new Point(2, 102);
+            tableLayoutPanel2.Location = new Point(-5, 102);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.Size = new Size(879, 347);
+            tableLayoutPanel2.Size = new Size(892, 347);
             tableLayoutPanel2.TabIndex = 1;
             // 
             // listagem
             // 
+            listagem.Dock = DockStyle.Fill;
             listagem.Location = new Point(4, 4);
             listagem.Margin = new Padding(4);
             listagem.Name = "listagem";
-            listagem.Size = new Size(871, 339);
+            listagem.Size = new Size(884, 339);
             listagem.TabIndex = 0;
             // 
             // tableLayoutPanel3
@@ -89,11 +90,11 @@
             tableLayoutPanel3.ColumnCount = 1;
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel3.Controls.Add(btnOK, 0, 0);
-            tableLayoutPanel3.Location = new Point(2, 455);
+            tableLayoutPanel3.Location = new Point(-5, 445);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 1;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel3.Size = new Size(879, 64);
+            tableLayoutPanel3.Size = new Size(892, 78);
             tableLayoutPanel3.TabIndex = 2;
             // 
             // btnOK
@@ -105,7 +106,7 @@
             btnOK.ForeColor = Color.SteelBlue;
             btnOK.Location = new Point(3, 3);
             btnOK.Name = "btnOK";
-            btnOK.Size = new Size(873, 58);
+            btnOK.Size = new Size(886, 72);
             btnOK.TabIndex = 3;
             btnOK.Text = "OK";
             btnOK.UseVisualStyleBackColor = true;

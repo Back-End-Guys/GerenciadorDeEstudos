@@ -34,8 +34,6 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
 
         public override string ToolTipDuplicar => "Duplicar Teste";
 
-        public override string ToolTipTeste => "Fazer Teste";
-
         public override bool EditarHabilitado => false;
 
         public override bool ListagemHabilitado => true;
@@ -43,9 +41,6 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
         public override bool PDFHabilitado => true;
 
         public override bool DuplicarHabilitado => true;
-
-        public override bool TesteHabilitado => true;
-
 
         public override void Inserir()
         {
@@ -133,22 +128,6 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
             }
 
             CarregarTeste();
-        }
-
-        public override void Teste()
-        {
-            Teste testeSelecionado = ObterTesteSelecionado();
-
-            if (testeSelecionado == null)
-            {
-                MessageBox.Show("Selecione um teste primeiro!", "Fazer Teste", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-
-            FazerTesteForm fazerTeste = new FazerTesteForm(testeSelecionado);
-            fazerTeste.Text = $"Fazer teste: {testeSelecionado.Titulo}";
-
-            fazerTeste.ShowDialog();
         }
 
         public void ExibirGabarito()

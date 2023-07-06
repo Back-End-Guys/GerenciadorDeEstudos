@@ -15,7 +15,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
         public void AtualizarRegistros(List<Questao> listaQuestoes)
         {
             gridQuestao.Rows.Clear();
-            listaQuestoes.ForEach(q => gridQuestao.Rows.Add(q.id, q.Enunciado, q.Materia.Nome));
+            listaQuestoes.ForEach(q => gridQuestao.Rows.Add(q.id, q.Enunciado, q.RespostaCerta.ToString(), q.Materia.Nome));
         }
 
         private void ConfigurarColunas()
@@ -31,6 +31,11 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
                 {
                     Name = "enunciado",
                     HeaderText = "ENUNCIADO"
+                },
+                new DataGridViewTextBoxColumn()
+                {
+                    Name = "respostaCerta",
+                    HeaderText = "RESPOSTA CERTA"
                 },
                 new DataGridViewTextBoxColumn()
                 {

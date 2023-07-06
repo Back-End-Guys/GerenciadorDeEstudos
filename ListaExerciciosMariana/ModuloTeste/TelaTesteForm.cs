@@ -2,7 +2,6 @@
 using ListaExerciciosMariana.Dominio.ModuloMateria;
 using ListaExerciciosMariana.Dominio.ModuloQuestao;
 using ListaExerciciosMariana.Dominio.ModuloTeste;
-using System.Collections.Generic;
 
 namespace ListaExerciciosMariana.WinForm.ModuloTeste
 {
@@ -44,6 +43,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
             txtAno.Text = testeSelecionado.Materia.Ano.ToString();
             cbDisciplina.Text = testeSelecionado.Disciplina.ToString();
             cbMateria.Text = testeSelecionado.Materia.ToString();
+            chbRecuperacao.Checked = testeSelecionado.ProvaRecuperacao;
         }
 
         private void ConfigurarCbDisciplina(List<Disciplina> disciplinas)
@@ -126,15 +126,15 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
                     }
 
                     else
-                        MessageBox.Show("Não há questões suficientes para a quantidade solicitada.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Não há questões suficientes para a quantidade solicitada!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
                 else
-                    MessageBox.Show("Digite uma quantidade válida.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Digite uma quantidade válida!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
             else
-                MessageBox.Show("Selecione uma matéria.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Selecione uma matéria!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
         }
 
