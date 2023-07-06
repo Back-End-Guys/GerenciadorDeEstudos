@@ -50,17 +50,17 @@
             chListAlternativas.BackColor = Color.Snow;
             chListAlternativas.Cursor = Cursors.Hand;
             chListAlternativas.FormattingEnabled = true;
-            chListAlternativas.Location = new Point(136, 312);
+            chListAlternativas.Location = new Point(124, 304);
             chListAlternativas.Margin = new Padding(4, 5, 4, 5);
             chListAlternativas.Name = "chListAlternativas";
-            chListAlternativas.Size = new Size(555, 220);
+            chListAlternativas.Size = new Size(553, 166);
             chListAlternativas.TabIndex = 0;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(29, 194);
+            label4.Location = new Point(31, 186);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.Size = new Size(95, 25);
@@ -71,20 +71,20 @@
             // 
             txtEnunciado.BackColor = Color.Snow;
             txtEnunciado.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            txtEnunciado.Location = new Point(132, 66);
+            txtEnunciado.Location = new Point(124, 58);
             txtEnunciado.Margin = new Padding(4, 5, 4, 5);
             txtEnunciado.Multiline = true;
             txtEnunciado.Name = "txtEnunciado";
             txtEnunciado.PlaceholderText = "Inserir enunciado";
             txtEnunciado.ScrollBars = ScrollBars.Vertical;
-            txtEnunciado.Size = new Size(559, 87);
+            txtEnunciado.Size = new Size(553, 87);
             txtEnunciado.TabIndex = 24;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(14, 97);
+            label3.Location = new Point(16, 89);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new Size(110, 25);
@@ -97,7 +97,7 @@
             cbMateria.DropDownStyle = ComboBoxStyle.DropDownList;
             cbMateria.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             cbMateria.FormattingEnabled = true;
-            cbMateria.Location = new Point(132, 16);
+            cbMateria.Location = new Point(124, 8);
             cbMateria.Margin = new Padding(4, 5, 4, 5);
             cbMateria.Name = "cbMateria";
             cbMateria.Size = new Size(245, 33);
@@ -108,7 +108,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(38, 20);
+            label2.Location = new Point(40, 12);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(86, 25);
@@ -120,11 +120,11 @@
             txtId.BackColor = SystemColors.GradientActiveCaption;
             txtId.Enabled = false;
             txtId.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            txtId.Location = new Point(634, 17);
+            txtId.Location = new Point(626, 9);
             txtId.Margin = new Padding(4, 5, 4, 5);
             txtId.Name = "txtId";
             txtId.ReadOnly = true;
-            txtId.Size = new Size(57, 32);
+            txtId.Size = new Size(51, 32);
             txtId.TabIndex = 20;
             txtId.Text = "0";
             // 
@@ -132,7 +132,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(587, 20);
+            label1.Location = new Point(579, 12);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(39, 25);
@@ -148,7 +148,7 @@
             btnCancelar.FlatAppearance.BorderSize = 0;
             btnCancelar.FlatAppearance.MouseDownBackColor = Color.Lavender;
             btnCancelar.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            btnCancelar.Location = new Point(420, 547);
+            btnCancelar.Location = new Point(408, 479);
             btnCancelar.Margin = new Padding(3, 4, 3, 4);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(112, 56);
@@ -165,7 +165,7 @@
             btnGravar.FlatAppearance.BorderSize = 0;
             btnGravar.FlatAppearance.MouseDownBackColor = Color.Lavender;
             btnGravar.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            btnGravar.Location = new Point(293, 547);
+            btnGravar.Location = new Point(281, 479);
             btnGravar.Margin = new Padding(3, 4, 3, 4);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(112, 56);
@@ -178,7 +178,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(386, 19);
+            label5.Location = new Point(378, 11);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new Size(55, 25);
@@ -193,7 +193,7 @@
             btnRemover.FlatAppearance.BorderSize = 0;
             btnRemover.FlatAppearance.MouseDownBackColor = Color.Lavender;
             btnRemover.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            btnRemover.Location = new Point(420, 259);
+            btnRemover.Location = new Point(408, 251);
             btnRemover.Margin = new Padding(3, 4, 3, 4);
             btnRemover.Name = "btnRemover";
             btnRemover.Size = new Size(269, 44);
@@ -210,7 +210,7 @@
             btnAdicionar.FlatAppearance.BorderSize = 0;
             btnAdicionar.FlatAppearance.MouseDownBackColor = Color.Lavender;
             btnAdicionar.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            btnAdicionar.Location = new Point(136, 259);
+            btnAdicionar.Location = new Point(124, 251);
             btnAdicionar.Margin = new Padding(3, 4, 3, 4);
             btnAdicionar.Name = "btnAdicionar";
             btnAdicionar.Size = new Size(269, 44);
@@ -223,13 +223,13 @@
             // 
             txtResposta.BackColor = Color.Snow;
             txtResposta.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            txtResposta.Location = new Point(132, 163);
+            txtResposta.Location = new Point(124, 155);
             txtResposta.Margin = new Padding(4, 5, 4, 5);
             txtResposta.Multiline = true;
             txtResposta.Name = "txtResposta";
             txtResposta.PlaceholderText = "Inserir alternativas";
             txtResposta.ScrollBars = ScrollBars.Vertical;
-            txtResposta.Size = new Size(557, 87);
+            txtResposta.Size = new Size(553, 87);
             txtResposta.TabIndex = 35;
             // 
             // txtAno
@@ -238,7 +238,7 @@
             txtAno.Enabled = false;
             txtAno.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             txtAno.ForeColor = SystemColors.MenuText;
-            txtAno.Location = new Point(449, 16);
+            txtAno.Location = new Point(441, 8);
             txtAno.Margin = new Padding(4, 5, 4, 5);
             txtAno.Name = "txtAno";
             txtAno.ReadOnly = true;
@@ -251,7 +251,7 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
-            ClientSize = new Size(727, 614);
+            ClientSize = new Size(727, 547);
             Controls.Add(txtAno);
             Controls.Add(chListAlternativas);
             Controls.Add(txtResposta);
