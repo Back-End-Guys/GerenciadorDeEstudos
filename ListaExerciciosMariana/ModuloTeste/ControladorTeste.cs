@@ -1,4 +1,5 @@
 ﻿using ListaExerciciosMariana.Dominio.ModuloDisciplina;
+using ListaExerciciosMariana.Dominio.ModuloMateria;
 using ListaExerciciosMariana.Dominio.ModuloQuestao;
 using ListaExerciciosMariana.Dominio.ModuloTeste;
 
@@ -10,11 +11,13 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
         private ListagemGabaritoControl _listagemGabarito;
         private IRepositorioTeste _repositorioTeste;
         private IRepositorioDisciplina _repositorioDisciplina;
+        private IRepositorioMateria _repositorioMateria;
         private IRepositorioQuestao _repositorioQuestao;
 
-        public ControladorTeste(IRepositorioTeste repositorio, IRepositorioDisciplina repositorioDisciplina, IRepositorioQuestao repositorioQuestao)
+        public ControladorTeste(IRepositorioTeste repositorio, IRepositorioDisciplina repositorioDisciplina, IRepositorioQuestao repositorioQuestao, IRepositorioMateria repositorioMateria)
         {
             this._repositorioTeste = repositorio;
+            this._repositorioMateria = repositorioMateria;
             this._repositorioDisciplina = repositorioDisciplina;
             this._repositorioQuestao = repositorioQuestao;
         }
@@ -46,7 +49,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
 
         public override void Inserir()
         {
-            TelaTesteForm telaTeste = new TelaTesteForm(_repositorioTeste.SelecionarTodos(), _repositorioDisciplina.SelecionarTodos(), _repositorioQuestao.SelecionarTodos());
+            TelaTesteForm telaTeste = new TelaTesteForm(_repositorioTeste.SelecionarTodos(), _repositorioDisciplina.SelecionarTodos(), _repositorioQuestao.SelecionarTodos(), _repositorioMateria.SelecionarTodos());
             telaTeste.Text = "Cadastrar novo teste";
 
             DialogResult opcaoEscolhida = telaTeste.ShowDialog();
@@ -116,7 +119,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
                 return;
             }
 
-            TelaTesteForm telaTeste = new TelaTesteForm(_repositorioTeste.SelecionarTodos(), _repositorioDisciplina.SelecionarTodos(), _repositorioQuestao.SelecionarTodos());
+            TelaTesteForm telaTeste = new TelaTesteForm(_repositorioTeste.SelecionarTodos(), _repositorioDisciplina.SelecionarTodos(), _repositorioQuestao.SelecionarTodos(), _repositorioMateria.SelecionarTodos());
             telaTeste.Text = "Duplicar teste existente";
 
             telaTeste.ConfigurarTela(testeSelecionado);

@@ -37,7 +37,7 @@ namespace ListaExerciciosMariana.Infra.ModuloMateria
                                                            ,D.[NOME]            DISCIPLINA_NOME
                                                         FROM 
 	                                                        [TBMATERIA] AS M
-                                                        INNER JOIN [TBDISCIPLINA] AS D
+                                                        INNER JOIN [DISCIPLINA] AS D
                                                                 ON M.[DISCIPLINA_ID] = D.ID";
 
         protected override string sqlSelecionarPorId => @"SELECT 
@@ -48,7 +48,7 @@ namespace ListaExerciciosMariana.Infra.ModuloMateria
                                                        ,D.[NOME]           DISCIPLINA_NOME
                                                     FROM 
 	                                                    [TBMATERIA] AS M
-                                                    INNER JOIN [TBDISCIPLINA] AS D
+                                                    INNER JOIN [DISCIPLINA] AS D
                                                             ON M.[DISCIPLINA_ID] = D.ID
                                                     WHERE 
                                                         M.[ID] = @ID";

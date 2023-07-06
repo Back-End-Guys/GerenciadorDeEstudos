@@ -77,14 +77,15 @@ namespace ListaExerciciosMariana.WinForm.ModuloMateria
                 return;
             }
 
-            _materiaList.ForEach(m =>
+            foreach (Materia d in _materiaList)
             {
-                if (_materia.Nome == m.Nome && txtId.Text == "0")
+                if (materia.Nome == d.Nome && txtId.Text == "0")
                 {
-                    TelaPrincipalForm.Instancia.AtualizarRodape("O nome já está em uso");
+                    TelaPrincipalForm.Instancia.AtualizarRodape("O nome ja esta em uso");
+
                     DialogResult = DialogResult.None;
                 }
-            });
+            }
         }
     }
 }

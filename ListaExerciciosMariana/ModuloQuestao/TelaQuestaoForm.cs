@@ -109,14 +109,15 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
                 return;
             }
 
-            _questoes.ForEach(d =>
+            foreach (Questao q in _questoes)
             {
-                if (_questao.Enunciado == d.Enunciado && txtId.Text == "0")
+                if (questao.Enunciado == q.Enunciado && txtId.Text == "0")
                 {
-                    TelaPrincipalForm.Instancia.AtualizarRodape("O enunciado já está em uso");
+                    TelaPrincipalForm.Instancia.AtualizarRodape("O nome ja esta em uso");
+
                     DialogResult = DialogResult.None;
                 }
-            });
+            }
         }
     }
 }

@@ -2,6 +2,7 @@
 using ListaExerciciosMariana.Dominio.ModuloMateria;
 using ListaExerciciosMariana.Dominio.ModuloQuestao;
 using ListaExerciciosMariana.Dominio.ModuloTeste;
+using System.Collections.Generic;
 
 namespace ListaExerciciosMariana.WinForm.ModuloTeste
 {
@@ -11,13 +12,14 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
         private List<Teste> _testes;
         private List<Questao> _questoesDisponiveis;
 
-        public TelaTesteForm(List<Teste> testes, List<Disciplina> disciplinas, List<Questao> questoes)
+        public TelaTesteForm(List<Teste> testes, List<Disciplina> disciplinas, List<Questao> questoes, List<Materia> materias)
         {
             InitializeComponent();
             this.ConfigurarDialog();
             this._testes = testes;
             this._questoesDisponiveis = questoes;
             ConfigurarCbDisciplina(disciplinas);
+            ConfigurarComboBoxMateria(materias);
         }
 
         public Teste ObterTeste()
@@ -50,19 +52,27 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
             disciplinas.ForEach(d => cbDisciplina.Items.Add(d));
         }
 
-        private void cbDisciplina_SelectedValueChanged(object sender, EventArgs e)
+        //private void cbDisciplina_SelectedValueChanged(object sender, EventArgs e)
+        //{
+        //    MudarValorCbMateria();
+        //}
+
+        //private void MudarValorCbMateria()
+        //{
+        //    cbMateria.Items.Clear();
+
+        //    Disciplina disciplinaSelecionada = (Disciplina)cbDisciplina.SelectedItem;
+
+        //    if (disciplinaSelecionada != null)
+        //        disciplinaSelecionada.ListMaterias.ForEach(m => cbMateria.Items.Add(m));
+        //}
+
+        public void ConfigurarComboBoxMateria(List<Materia> materias)
         {
-            MudarValorCbMateria();
-        }
-
-        private void MudarValorCbMateria()
-        {
-            cbMateria.Items.Clear();
-
-            Disciplina disciplinaSelecionada = (Disciplina)cbDisciplina.SelectedItem;
-
-            if (disciplinaSelecionada != null)
-                disciplinaSelecionada.ListMaterias.ForEach(m => cbMateria.Items.Add(m));
+            foreach (Materia materia in materias)
+            {
+                cbMateria.Items.Add(materia);
+            }
         }
 
         private void cbMateria_SelectedValueChanged(object sender, EventArgs e)
@@ -157,14 +167,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
                 return;
             }
 
-            _testes.ForEach(t =>
-            {
-                if (teste.Titulo == t.Titulo && txtId.Text == "0")
-                {
-                    TelaPrincipalForm.Instancia.AtualizarRodape("O título já está em uso");
-                    DialogResult = DialogResult.None;
-                }
-            });
+
         }
     }
 }
