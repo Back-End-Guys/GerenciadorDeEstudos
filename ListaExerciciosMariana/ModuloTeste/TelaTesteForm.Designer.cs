@@ -127,6 +127,7 @@
             // cbMateria
             // 
             cbMateria.BackColor = Color.Snow;
+            cbMateria.DropDownStyle = ComboBoxStyle.DropDownList;
             cbMateria.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             cbMateria.FormattingEnabled = true;
             cbMateria.Location = new Point(431, 131);
@@ -238,6 +239,7 @@
             // cbDisciplina
             // 
             cbDisciplina.BackColor = Color.Snow;
+            cbDisciplina.DropDownStyle = ComboBoxStyle.DropDownList;
             cbDisciplina.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             cbDisciplina.FormattingEnabled = true;
             cbDisciplina.Location = new Point(133, 131);

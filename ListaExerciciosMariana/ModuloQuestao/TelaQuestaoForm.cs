@@ -76,6 +76,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
         public void ConfigurarListBoxAlternativa(List<Alternativa> aternativas)
         {
             chListAlternativas.Items.Clear();
+            chListAlternativas.SelectionMode = SelectionMode.One;
 
             chListAlternativas.Items.AddRange(aternativas.ToArray());
         }

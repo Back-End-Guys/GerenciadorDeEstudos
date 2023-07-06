@@ -93,6 +93,7 @@
             // cbDisciplina
             // 
             cbDisciplina.BackColor = Color.Snow;
+            cbDisciplina.DropDownStyle = ComboBoxStyle.DropDownList;
             cbDisciplina.FormattingEnabled = true;
             cbDisciplina.Location = new Point(118, 129);
             cbDisciplina.Name = "cbDisciplina";
@@ -112,6 +113,7 @@
             // cbAno
             // 
             cbAno.BackColor = Color.Snow;
+            cbAno.DropDownStyle = ComboBoxStyle.DropDownList;
             cbAno.FormattingEnabled = true;
             cbAno.Location = new Point(118, 185);
             cbAno.Name = "cbAno";

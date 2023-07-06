@@ -50,6 +50,9 @@ namespace ListaExerciciosMariana.Dominio.ModuloQuestao
             if (ListAlternativas.Count > 5)
                 erros.Add("Máximo 5 \"Alternativas\"");
 
+            if (string.IsNullOrEmpty(RespostaCerta))
+                erros.Add("É necessário marcar uma resposta como certa");
+
             return erros.ToArray();
         }
 
