@@ -4,12 +4,12 @@
     {
         public static void ConfigurarGridLinhas(this DataGridView grid)
         {
-            Font font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Font font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
 
             DataGridViewCellStyle linhas = new DataGridViewCellStyle
             {
-                BackColor = Color.Snow,
                 Font = font,
+                BackColor = Color.Snow,
                 ForeColor = Color.Black,
                 SelectionBackColor = Color.LightSteelBlue,
                 SelectionForeColor = Color.Black
@@ -20,21 +20,19 @@
 
         public static void ConfigurarGridSomenteLeitura(this DataGridView grid)
         {
+            grid.ReadOnly = true;
+            grid.MultiSelect = false;
             grid.AllowUserToAddRows = false;
+            grid.AutoGenerateColumns = false;
             grid.AllowUserToDeleteRows = false;
+            grid.AllowUserToResizeRows = false;
 
-            grid.BackgroundColor = Color.AliceBlue;
             grid.BorderStyle = BorderStyle.None;
+            grid.BackgroundColor = Color.AliceBlue;
+            grid.Cursor = Cursors.Hand;
+            grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             grid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-
-            grid.MultiSelect = false;
-            grid.ReadOnly = true;
-
-            grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            grid.AutoGenerateColumns = false;
-
-            grid.AllowUserToResizeRows = false;
         }
     }
 }

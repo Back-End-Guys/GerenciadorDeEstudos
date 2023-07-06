@@ -35,7 +35,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
                 new DataGridViewTextBoxColumn()
                 {
                     Name = "materia",
-                    HeaderText = "MATERIA"
+                    HeaderText = "MATÉRIA"
                 },
                 new DataGridViewTextBoxColumn()
                 {

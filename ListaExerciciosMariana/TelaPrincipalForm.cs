@@ -80,7 +80,7 @@ namespace ListaExerciciosMariana
         {
             btnInserir.Enabled = controlador.InserirHabilitado;
             btnEditar.Enabled = controlador.EditarHabilitado;
-            btnEditar.Enabled = controlador.ExcluirHabilitado;
+            btnExcluir.Enabled = controlador.ExcluirHabilitado;
             btnTeste.Enabled = controlador.TesteHabilitado;
         }
         private void ConfigurarBarraFerramentas(ControladorBase controlador)

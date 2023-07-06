@@ -14,6 +14,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
         public TelaTesteForm(List<Teste> testes, List<Disciplina> disciplinas, List<Questao> questoes)
         {
             InitializeComponent();
+            this.ConfigurarDialog();
             this._testes = testes;
             this._questoesDisponiveis = questoes;
             ConfigurarCbDisciplina(disciplinas);

@@ -9,7 +9,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
         public TelaQuestaoForm(List<Materia> materias)
         {
             InitializeComponent();
-
+            this.ConfigurarDialog();
             ConfigurarCbMateria(materias);
         }
 

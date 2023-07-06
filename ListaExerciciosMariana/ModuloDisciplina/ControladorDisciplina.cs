@@ -102,7 +102,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloDisciplina
                 return;
             }
 
-            if (disciplinaSelecionada.ListMaterias.Count > 0)
+            if (disciplinaSelecionada.ListMaterias.Count <= 0)
             {
                 MessageBox.Show($"A disciplina \"{disciplinaSelecionada.Nome}\" não possui matérias cadastradas!", "Listagem inexistente", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return;

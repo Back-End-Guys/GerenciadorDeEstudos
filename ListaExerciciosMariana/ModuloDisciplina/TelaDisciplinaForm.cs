@@ -10,6 +10,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloDisciplina
         public TelaDisciplinaForm(List<Disciplina> disciplinas)
         {
             InitializeComponent();
+            this.ConfigurarDialog();
             this._disciplinas = disciplinas;
         }
 
