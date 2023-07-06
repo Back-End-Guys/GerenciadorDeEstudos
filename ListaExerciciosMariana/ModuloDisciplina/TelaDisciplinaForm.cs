@@ -44,14 +44,15 @@ namespace ListaExerciciosMariana.WinForm.ModuloDisciplina
                 return;
             }
 
-            _disciplinas.ForEach(d =>
+            foreach (Disciplina d in _disciplinas)
             {
                 if (disciplina.Nome == d.Nome && txtId.Text == "0")
                 {
-                    TelaPrincipalForm.Instancia.AtualizarRodape("O nome já está em uso");
+                    TelaPrincipalForm.Instancia.AtualizarRodape("O nome ja esta em uso");
+
                     DialogResult = DialogResult.None;
                 }
-            });
+            }
         }
     }
 }

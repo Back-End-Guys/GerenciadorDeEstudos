@@ -69,6 +69,10 @@ namespace ListaExerciciosMariana.Dominio.ModuloQuestao
             return false;
         }
 
+        public override string ToString()
+        {
+            return Enunciado;
+        }
         public void RemoverAlternativa(Alternativa alternaticaParaRemover)
         {
             ListAlternativas.Remove(alternaticaParaRemover);

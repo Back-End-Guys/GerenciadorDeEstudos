@@ -4,7 +4,7 @@ namespace ListaExerciciosMariana.Infra.ModuloDisciplina
 {
     public class RepositorioDisciplinaEmSql : RepositorioBaseEmSql<Disciplina, MapeadorDisciplina>, IRepositorioDisciplina
     {
-        protected override string sqlInserir => @"INSERT INTO [TBDISCIPLINA] 
+        protected override string sqlInserir => @"INSERT INTO [DISCIPLINA] 
 	                                            (
 		                                            [NOME]
 	                                            )
@@ -15,13 +15,13 @@ namespace ListaExerciciosMariana.Infra.ModuloDisciplina
 
                                             SELECT SCOPE_IDENTITY();";
 
-        protected override string sqlEditar => @"UPDATE [TBDISCIPLINA] 
+        protected override string sqlEditar => @"UPDATE [DISCIPLINA] 
                                                 SET
                                                     [NOME] = @NOME
                                                 WHERE
                                                     [ID] = @ID";
 
-        protected override string sqlExcluir => @"DELETE FROM [TBDISCIPLINA]
+        protected override string sqlExcluir => @"DELETE FROM [DISCIPLINA]
 	                                                WHERE 
 		                                                [ID] = @ID";
 
@@ -29,13 +29,13 @@ namespace ListaExerciciosMariana.Infra.ModuloDisciplina
 	                                                    [ID]        DISCIPLINA_ID 
 	                                                   ,[NOME]      DISCIPLINA_NOME
                                                     FROM 
-	                                                    [TBDISCIPLINA]";
+	                                                    [DISCIPLINA]";
 
         protected override string sqlSelecionarPorId => @"SELECT 
 	                                                    [ID]        DISCIPLINA_ID 
 	                                                   ,[NOME]      DISCIPLINA_NOME
                                                     FROM 
-	                                                    [TBDISCIPLINA] 
+	                                                    [DISCIPLINA] 
                                                     WHERE 
                                                         [ID] = @ID";
 

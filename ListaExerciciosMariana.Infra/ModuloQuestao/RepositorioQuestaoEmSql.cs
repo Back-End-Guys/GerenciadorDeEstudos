@@ -5,43 +5,45 @@ namespace ListaExerciciosMariana.Infra.ModuloQuestao
 {
     public class RepositorioQuestaoEmSql : RepositorioBaseEmSql<Questao, MapeadorQuestao>, IRepositorioQuestao
     {
-        protected override string sqlInserir => @"INSERT INTO[DBO].[TBQUESTOES]
+        protected override string sqlInserir => @"INSERT INTO[DBO].[QUESTAO]
                                                     (
-                                                       [MATERIA_ID]
-                                                       ,[ENUNCIADO]
+                                                        [ENUNCIADO]
+                                                       ,[MATERIA_ID]
                                                        ,[RESPOSTA]
                                                     )
                                                  VALUES
                                                     (
-                                                       @MATERIA_ID
-                                                       ,@ENUNCIADO
+                                                        @ENUNCIADO
+                                                       ,@MATERIA_ID
                                                        ,@RESPOSTACERTA
                                                     );
                                                  SELECT SCOPE_IDENTITY();";
 
-        protected override string sqlEditar => @"UPDATE[TBQUESTOES]
+        protected override string sqlEditar => @"UPDATE[QUESTAO]
                                                SET
                                                    [MATERIA_ID] = @MATERIA_ID
                                                   ,[ENUNCIADO] = @ENUNCIADO
                                                   ,[RESPOSTA] = @RESPOSTACERTA
                                              WHERE [ID] = @ID;";
 
-        protected override string sqlExcluir => throw new NotImplementedException();
+        protected override string sqlExcluir => @"DELETE FROM [QUESTAO]
+                                                    WHERE 
+                                                        [ID] = @ID";
 
         protected override string sqlSelecionarTodos => @"SELECT 
 	                                                        Q.[ID]                QUESTAO_ID 
-	                                                       ,Q.[MATERIA_ID]        MATERIA_ID
 	                                                       ,Q.[ENUNCIADO]         QUESTAO_ENUNCIADO
+	                                                       ,Q.[MATERIA_ID]        MATERIA_ID
                                                            ,Q.[RESPOSTA]          QUESTAO_RESPOSTA
                                                            ,M.[NOME]              MATERIA_NOME
                                                            ,M.[SERIE]             MATERIA_SERIE
                                                            ,M.[DISCIPLINA_ID]     DISCIPLINA_ID
-                                                           ,D.[NOME]   DISCIPLINA_NOME
+                                                           ,D.[NOME]              DISCIPLINA_NOME
                                                         FROM 
-	                                                        [TBQUESTOES] AS Q
+	                                                        [QUESTAO] AS Q
                                                         INNER JOIN [TBMATERIA] AS M
                                                                 ON Q.[MATERIA_ID] = M.ID
-                                                        INNER JOIN [TBDISCIPLINA] AS D
+                                                        INNER JOIN [DISCIPLINA] AS D
                                                                 ON M.[DISCIPLINA_ID] = D.ID";
 
         protected override string sqlSelecionarPorId => @"SELECT 
@@ -54,10 +56,10 @@ namespace ListaExerciciosMariana.Infra.ModuloQuestao
                                                            ,M.[DISCIPLINA_ID]     DISCIPLINA_ID
                                                            ,D.[NOME]   DISCIPLINA_NOME
                                                     FROM 
-	                                                        [TBQUESTOES] AS Q
+	                                                        [QUESTAO] AS Q
                                                         INNER JOIN [TBMATERIA] AS M
                                                                 ON Q.[MATERIA_ID] = M.ID
-                                                        INNER JOIN [TBDISCIPLINA] AS D
+                                                        INNER JOIN [DISCIPLINA] AS D
                                                                 ON M.[DISCIPLINA_ID] = D.ID
                                                     WHERE 
                                                         Q.[ID] = @ID";
@@ -68,22 +70,22 @@ namespace ListaExerciciosMariana.Infra.ModuloQuestao
                    [LETRA]
                    ,[QUESTAO_ID]
                    ,[RESPOSTA]
-                   ,[CORRETA]
+                   ,[VERDADEIRO]
                 )
             VALUES
                 (
                    @LETRA
                    ,@QUESTAO_ID
                    ,@RESPOSTA
-                   ,@CORRETA
+                   ,@VERDADEIRO
                 )";
 
         private string sqlCarregarAlternativas =>
             @"SELECT 
                 A.ID            ALTERNATIVA_ID, 
-                A.QUESTAO_ID    QUESTAO_ID,
                 A.RESPOSTA      ALTERNATIVA_RESPOSTA,
-                A.CORRETA       ALTERNATIVA_CORRETA,
+                A.VERDADEIRO    ALTERNATIVA_VERDADEIRO,
+                A.QUESTAO_ID    QUESTAO_ID,
 
                 Q.MATERIA_ID    MATERIA_ID,
                 Q.ENUNCIADO     QUESTAO_ENUNCIADO,
@@ -97,7 +99,7 @@ namespace ListaExerciciosMariana.Infra.ModuloQuestao
             FROM 
                 TBALTERNATIVA A
 
-                INNER JOIN TBQUESTOES Q
+                INNER JOIN QUESTAO Q
 
                     ON Q.ID = A.QUESTAO_ID
 
@@ -105,7 +107,7 @@ namespace ListaExerciciosMariana.Infra.ModuloQuestao
 
                     ON Q.MATERIA_ID = M.ID
 
-                INNER JOIN TBDISCIPLINA D
+                INNER JOIN DISCIPLINA D
 
                     ON M.DISCIPLINA_ID = D.ID
             WHERE 
