@@ -9,9 +9,9 @@
 
         public Alternativa() { }
 
-        public Alternativa(Questao questao, string resposta)
+        public Alternativa(Questao questao, string resposta, bool verdadeiro)
         {
-            Verdadeiro = false;
+            Verdadeiro = verdadeiro;
             Questao = questao;
             AlternativaResposta = resposta;
         }

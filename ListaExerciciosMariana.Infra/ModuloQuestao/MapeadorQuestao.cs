@@ -35,11 +35,11 @@ namespace ListaExerciciosMariana.Infra.ModuloQuestao
         {
             int id = Convert.ToInt32(leitorAlternativa["ALTERNATIVA_ID"]);
             string resposta = Convert.ToString(leitorAlternativa["ALTERNATIVA_RESPOSTA"]);
-            string correta = Convert.ToString(leitorAlternativa["ALTERNATIVA_VERDADEIRO"]);
+            bool correta = Convert.ToBoolean(leitorAlternativa["ALTERNATIVA_VERDADEIRO"]);
 
             Questao questao = ConverterRegistro(leitorAlternativa);
 
-            return new Alternativa(questao, resposta);
+            return new Alternativa(questao, resposta, correta);
         }
     }
 }

@@ -25,16 +25,47 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
 
             string respostaCerta = chListAlternativas.CheckedItems.ToString();
 
-            List<Alternativa> listaAlaternativas = new List<Alternativa>();
+            List < Alternativa > listaAlaternativas = new List<Alternativa>();
 
             listaAlaternativas.AddRange(chListAlternativas.Items.Cast<Alternativa>());
 
             Questao questao = new Questao(materia, enunciado, respostaCerta, listaAlaternativas);
 
-            if (id > 0)
-                questao.id = id;
+            //-------------------------------------------------------------------------------------
+            //if (chListAlternativas.Items.Count == 0)
+            //    return null;
+            
+            //if (chListAlternativas.CheckedItems.Count == 0)
+            //    respostaCerta = "erro";
+            //else
+            //    respostaCerta = chListAlternativas.CheckedItems[0].ToString()!;
+            //_questao = new Questao(id, materia, enunciado, respostaCerta);
 
-            return questao;
+            //foreach (Alternativa alternativa in ObterAlternativasDesmarcadas())
+            //{
+            //    _questao.AdicionarAlternativa(alternativa);
+            //}
+
+            //foreach (Alternativa alternativaMarcada in ObterAlternativasMarcadas())
+            //{
+            //    Alternativa alternativa = new Alternativa(_questao, respostaCerta, true);
+            //    alternativa.Verdadeiro = true;
+            //    _questao.AdicionarAlternativa(alternativa);
+            //}
+            //-------------------------------------------------------------------------------------
+
+            return _questao;
+        }
+
+        public List<Alternativa> ObterAlternativasMarcadas()
+        {
+            return chListAlternativas.CheckedItems.Cast<Alternativa>().ToList();
+        }
+
+        public List<Alternativa> ObterAlternativasDesmarcadas()
+        {
+            return chListAlternativas.Items.Cast<Alternativa>()
+                .Except(ObterAlternativasMarcadas()).ToList();
         }
 
         public void ConfigurarTela(Questao questao)
