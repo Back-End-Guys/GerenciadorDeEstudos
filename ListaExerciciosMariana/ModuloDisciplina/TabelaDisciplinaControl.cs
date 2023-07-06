@@ -7,9 +7,9 @@ namespace ListaExerciciosMariana.WinForm.ModuloDisciplina
         public TabelaDisciplinaControl()
         {
             InitializeComponent();
+            ConfigurarColunas();
             gridDisciplina.ConfigurarGridLinhas();
             gridDisciplina.ConfigurarGridSomenteLeitura();
-            ConfigurarColunas();
         }
 
         public void AtualizarRegistros(List<Disciplina> disciplinas)

@@ -27,9 +27,10 @@
             grid.AllowUserToDeleteRows = false;
             grid.AllowUserToResizeRows = false;
 
-            grid.BorderStyle = BorderStyle.None;
-            grid.BackgroundColor = Color.AliceBlue;
             grid.Cursor = Cursors.Hand;
+            grid.BackgroundColor = Color.FromArgb(255, 255, 255);
+            grid.BorderStyle = BorderStyle.None;
+            grid.GridColor = Color.LightSteelBlue;
             grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             grid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;

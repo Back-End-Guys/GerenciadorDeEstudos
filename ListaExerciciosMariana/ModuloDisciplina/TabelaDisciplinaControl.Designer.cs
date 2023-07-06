@@ -32,14 +32,17 @@
             ((System.ComponentModel.ISupportInitialize)gridDisciplina).BeginInit();
             SuspendLayout();
             // 
-            // grid
+            // gridDisciplina
             // 
+            gridDisciplina.AllowUserToAddRows = false;
+            gridDisciplina.AllowUserToDeleteRows = false;
             gridDisciplina.BackgroundColor = Color.Snow;
             gridDisciplina.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             gridDisciplina.Dock = DockStyle.Fill;
             gridDisciplina.GridColor = Color.AliceBlue;
             gridDisciplina.Location = new Point(0, 0);
-            gridDisciplina.Name = "grid";
+            gridDisciplina.Name = "gridDisciplina";
+            gridDisciplina.ReadOnly = true;
             gridDisciplina.RowHeadersWidth = 51;
             gridDisciplina.RowTemplate.Height = 29;
             gridDisciplina.Size = new Size(650, 388);
