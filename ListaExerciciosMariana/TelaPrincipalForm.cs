@@ -159,7 +159,7 @@ namespace ListaExerciciosMariana
 
         private void btnPDF_Click(object sender, EventArgs e)
         {
-
+            _controlador.GerarPdf();
         }
     }
 }

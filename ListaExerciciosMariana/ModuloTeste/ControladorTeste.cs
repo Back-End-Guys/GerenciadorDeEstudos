@@ -2,6 +2,7 @@
 using ListaExerciciosMariana.Dominio.ModuloMateria;
 using ListaExerciciosMariana.Dominio.ModuloQuestao;
 using ListaExerciciosMariana.Dominio.ModuloTeste;
+using ListaExerciciosMariana.WinForm.ModuloPdf;
 
 namespace ListaExerciciosMariana.WinForm.ModuloTeste
 {
@@ -141,6 +142,22 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
 
             telaGabarito.Listagem(testeSelecionado);
             telaGabarito.ShowDialog();
+        }
+
+        public override void GerarPdf()
+        {
+            Teste testeSelecionado = ObterTesteSelecionado();
+
+            if (testeSelecionado == null)
+            {
+                MessageBox.Show("Selecione um teste primeiro!", "Gerar PDF do teste", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            TelaEscolhaPdfForm telaEscolha = new TelaEscolhaPdfForm(testeSelecionado);
+            telaEscolha.Text = $"Gerar PDF do {testeSelecionado.Titulo}";
+
+            telaEscolha.ShowDialog();
         }
 
         private Teste ObterTesteSelecionado()
