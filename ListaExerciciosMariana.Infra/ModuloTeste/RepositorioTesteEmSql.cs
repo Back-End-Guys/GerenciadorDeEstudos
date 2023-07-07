@@ -83,7 +83,7 @@ namespace ListaExerciciosMariana.Infra.ModuloTeste
 
 
         private const string sqlAdicionarQuestao =
-            @"INSERT INTO [TBTESTE_QUESTAO]
+            @"INSERT INTO [TBQUESTAO_TBTESTE]
                 (
                     [Questao_Id]
                    ,[Teste_Id])
