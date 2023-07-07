@@ -1,4 +1,7 @@
 ﻿using ListaExerciciosMariana.Dominio.ModuloDisciplina;
+using ListaExerciciosMariana.Dominio.ModuloMateria;
+using ListaExerciciosMariana.Infra.ModuloMateria;
+using Microsoft.Data.SqlClient;
 
 namespace ListaExerciciosMariana.Infra.ModuloDisciplina
 {
@@ -39,6 +42,7 @@ namespace ListaExerciciosMariana.Infra.ModuloDisciplina
                                                     WHERE 
                                                         [ID] = @ID";
 
+
         public Disciplina SelecionarPorId(int id)
         {
             Disciplina disciplina = base.SelecionarPorId(id);
@@ -52,5 +56,6 @@ namespace ListaExerciciosMariana.Infra.ModuloDisciplina
 
             return disciplinas;
         }
+
     }
 }

@@ -22,8 +22,6 @@ namespace ListaExerciciosMariana.WinForm.ModuloDisciplina
 
         public override string ToolTipListagem => "Listagem de Matérias";
 
-        public override bool ListagemHabilitado => true;
-
         public override void Inserir()
         {
             TelaDisciplinaForm telaDisciplina = new TelaDisciplinaForm(_repositorioDisciplina.SelecionarTodos());

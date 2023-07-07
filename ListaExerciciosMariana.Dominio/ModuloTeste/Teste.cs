@@ -33,6 +33,12 @@ namespace ListaExerciciosMariana.Dominio.ModuloTeste
             this.ListQuestoes = registroAtualizado.ListQuestoes;
         }
 
+        public void AdicionarQuestao(Questao questao)
+        {
+            if (ListQuestoes.Contains(questao) == false)
+                ListQuestoes.Add(questao);
+        }
+
         public override string[] Validar()
         {
             List<string> erros = new List<string>();
