@@ -159,39 +159,6 @@ namespace ListaExerciciosMariana.Infra.ModuloTeste
 
 
 
-        //public void Inserir(Teste novoTeste, List<Questao> questoesAdicionadas)
-        //{
-        //    foreach (Questao questao in questoesAdicionadas)
-        //    {
-        //        novoTeste.AdicionarQuestao(questao);
-        //    }
-
-        //    //obter a conexão com o banco e abrir ela
-        //    SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
-        //    conexaoComBanco.Open();
-
-        //    //cria um comando e relaciona com a conexão aberta
-        //    SqlCommand comandoInserir = conexaoComBanco.CreateCommand();
-        //    comandoInserir.CommandText = sqlInserir;
-
-        //    //adiciona os parâmetros no comando
-        //    MapeadorTeste mapeador = new MapeadorTeste();
-        //    mapeador.ConfigurarParametros(comandoInserir, novoTeste);
-
-        //    //executa o comando
-        //    object id = comandoInserir.ExecuteScalar();
-
-        //    novoTeste.id = Convert.ToInt32(id);
-
-        //    //encerra a conexão
-        //    conexaoComBanco.Close();
-
-        //    foreach (Questao questao in questoesAdicionadas)
-        //    {
-        //        AdicionarQuestao(novoTeste, questao);
-        //    }
-        //}
-
         public void Inserir(Teste novoRegistro, List<Questao> questoesAdicionadas)
         {
             SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
@@ -212,7 +179,7 @@ namespace ListaExerciciosMariana.Infra.ModuloTeste
 
             foreach (Questao questao in questoesAdicionadas)
             {
-                AdicionarQuestao(questao, novoRegistro);
+                AdicionarQuestao(novoRegistro, questao);
             }
         }
 
@@ -262,21 +229,6 @@ namespace ListaExerciciosMariana.Infra.ModuloTeste
             conexaoComBanco.Close();
         }
 
-        private void AdicionarQuestao(Questao questao, Teste teste)
-        {
-            SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
-            conexaoComBanco.Open();
-
-            SqlCommand comandoInserir = conexaoComBanco.CreateCommand();
-            comandoInserir.CommandText = sqlAdicionarQuestao;
-
-            comandoInserir.Parameters.AddWithValue("QUESTAO_ID", questao.id);
-            comandoInserir.Parameters.AddWithValue("TESTE_ID", teste.id);
-
-            comandoInserir.ExecuteNonQuery();
-
-            conexaoComBanco.Close();
-        }
 
         private void RemoverQuestao(Questao questao, Teste teste)
         {
