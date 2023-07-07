@@ -1,4 +1,8 @@
-﻿using ListaExerciciosMariana.Dominio.ModuloTeste;
+﻿using ListaExerciciosMariana.Dominio.ModuloDisciplina;
+using ListaExerciciosMariana.Dominio.ModuloMateria;
+using ListaExerciciosMariana.Dominio.ModuloTeste;
+using ListaExerciciosMariana.Infra.ModuloDisciplina;
+using ListaExerciciosMariana.Infra.ModuloMateria;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
@@ -22,7 +26,16 @@ namespace ListaExerciciosMariana.Infra.ModuloTeste
 
         public override Teste ConverterRegistro(SqlDataReader leitorRegistros)
         {
-            throw new NotImplementedException();
+            int id = Convert.ToInt32(leitorRegistros["TESTE_ID"]);
+            string titulo = Convert.ToString(leitorRegistros["TESTE_TITULO"]);
+            int quantidadeQuestoes = Convert.ToInt32(leitorRegistros["TESTE_QUANTIDADEQUESTOES"]);
+            bool provaRecuperacao = Convert.ToBoolean(leitorRegistros["TESTE_PROVARECUPERACAO"]);
+
+            Disciplina disciplina = new MapeadorDisciplina().ConverterRegistro(leitorRegistros);
+
+            Materia materia = new MapeadorMateria().ConverterRegistro(leitorRegistros);
+
+            return new Teste(id, titulo, disciplina, materia, quantidadeQuestoes, provaRecuperacao);
         }
     }
 }

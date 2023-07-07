@@ -153,7 +153,10 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
 
             return questoesSorteadas;
         }
-
+        public List<Questao> ObterQuestoesSorteadas()
+        {
+            return listQuestoes.Items.Cast<Questao>().ToList();
+        }
         private void btnGravar_Click(object sender, EventArgs e)
         {
             Teste teste = ObterTeste();

@@ -15,7 +15,12 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
         public void AtualizarRegistros(List<Teste> testes)
         {
             gridTeste.Rows.Clear();
-            testes.ForEach(t => gridTeste.Rows.Add(t.id, t.Titulo, t.Materia.Ano, t.Disciplina, t.ListQuestoes.Count + " questões"));
+
+            foreach (Teste teste in testes)
+            {
+                gridTeste.Rows.Add(teste.id, teste.Titulo, teste.Disciplina, teste.Materia, teste.QuantidadeQuestoes, teste.ProvaRecuperacao);
+            }
+            TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {testes.Count} teste(s)");
         }
 
         private void ConfigurarColunas()

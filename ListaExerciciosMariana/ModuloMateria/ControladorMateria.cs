@@ -65,16 +65,6 @@ namespace ListaExerciciosMariana.WinForm.ModuloMateria
             {
                 Materia materia = telaMateriaForm.ObterMateria();
 
-                foreach (Materia d in _repositorioMateria.SelecionarTodos())
-                {
-                    if (materia.Nome == d.Nome)
-                    {
-                        TelaPrincipalForm.Instancia.AtualizarRodape("O nome já está em uso");
-                        telaMateriaForm.ShowDialog();
-                        return;
-                    }
-                }
-
                 _repositorioMateria.Editar(materia.id, materia);
             }
 

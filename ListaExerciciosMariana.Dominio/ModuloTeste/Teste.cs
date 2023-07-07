@@ -13,6 +13,17 @@ namespace ListaExerciciosMariana.Dominio.ModuloTeste
         public bool ProvaRecuperacao { get; set; }
         public List<Questao> ListQuestoes { get; set; }
 
+        public Teste(int id, string titulo, Disciplina disciplina, Materia materia, int quantidadeQuestoes, bool provaRecuperacao)
+        {
+            this.id = id;
+            Titulo = titulo;
+            Disciplina = disciplina;
+            Materia = materia;
+            QuantidadeQuestoes = quantidadeQuestoes;
+            ProvaRecuperacao = provaRecuperacao;
+            ListQuestoes = new List<Questao>();
+        }
+
         public Teste(string titulo, Disciplina disciplina, Materia materia, int quantidadeQuestoes, bool provaRecuperacao, List<Questao> listQuestoes)
         {
             Titulo = titulo;

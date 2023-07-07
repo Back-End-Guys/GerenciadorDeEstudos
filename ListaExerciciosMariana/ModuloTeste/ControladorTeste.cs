@@ -54,7 +54,8 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
             {
                 Teste teste = telaTeste.ObterTeste();
 
-                _repositorioTeste.Inserir(teste);
+                //_repositorioTeste.Inserir(teste);
+                _repositorioTeste.Inserir(teste, telaTeste.ObterQuestoesSorteadas());
             }
 
             CarregarTeste();
@@ -77,12 +78,6 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
 
             if (opcaoEscolhida == DialogResult.Yes)
             {
-                if (testeSelecionado.ListQuestoes.Count > 0)
-                {
-                    MessageBox.Show("Exclusão inválida! Teste possui questões cadastradas.", "Exclusão de teste", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                    return;
-                }
-
                 _repositorioTeste.Excluir(testeSelecionado);
             }
 
