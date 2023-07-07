@@ -53,7 +53,8 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
             {
                 Teste teste = telaTeste.ObterTeste();
 
-                _repositorioTeste.Inserir(teste);
+                //_repositorioTeste.Inserir(teste);
+                _repositorioTeste.Inserir(teste, telaTeste.ObterQuestoesSorteadas());
             }
 
             CarregarTeste();

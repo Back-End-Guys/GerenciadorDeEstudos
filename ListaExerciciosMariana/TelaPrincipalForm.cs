@@ -9,6 +9,7 @@ using ListaExerciciosMariana.Dominio.ModuloTeste;
 using ListaExerciciosMariana.Infra.ModuloDisciplina;
 using ListaExerciciosMariana.Infra.ModuloMateria;
 using ListaExerciciosMariana.Infra.ModuloQuestao;
+using ListaExerciciosMariana.Infra.ModuloTeste;
 using ListaExerciciosMariana.WinForm.ModuloDisciplina;
 using ListaExerciciosMariana.WinForm.ModuloMateria;
 using ListaExerciciosMariana.WinForm.ModuloQuestao;
@@ -25,7 +26,7 @@ namespace ListaExerciciosMariana
         private IRepositorioDisciplina _repositorioDisciplina = new RepositorioDisciplinaEmSql();
         private IRepositorioMateria _repositorioMateria = new RepositorioMateriaEmSql();
         private IRepositorioQuestao _repositorioQuestao = new RepositorioQuestaoEmSql();
-        private IRepositorioTeste _repositorioTeste = new RepositorioTesteEmMemoria(new List<Teste>());
+        private IRepositorioTeste _repositorioTeste = new RepositorioTesteEmSql();
 
         public TelaPrincipalForm()
         {

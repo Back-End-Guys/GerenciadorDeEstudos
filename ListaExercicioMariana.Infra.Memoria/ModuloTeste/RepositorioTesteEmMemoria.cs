@@ -13,5 +13,10 @@ namespace ListaExercicioMariana.Infra.Memoria.ModuloTeste
         {
             throw new NotImplementedException();
         }
+
+        public void Inserir(Teste novoRegistro, List<Questao> questoesAdicionadas)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

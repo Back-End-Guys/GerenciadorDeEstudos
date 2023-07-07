@@ -1,4 +1,6 @@
 ﻿using ListaExerciciosMariana.Dominio.ModuloMateria;
+using ListaExerciciosMariana.Dominio.ModuloQuestao;
+using ListaExerciciosMariana.Dominio.ModuloTeste;
 
 namespace ListaExercicioMariana.Infra.Memoria.ModuloMateria
 {
@@ -6,6 +8,11 @@ namespace ListaExercicioMariana.Infra.Memoria.ModuloMateria
     {
         public RepositorioMateriaEmMemoria(List<Materia> listaCadastros) : base(listaCadastros)
         {
+        }
+
+        public void Inserir(Teste novoRegistro, List<Questao> questoesAdicionadas)
+        {
+            throw new NotImplementedException();
         }
     }
 }
