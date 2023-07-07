@@ -59,6 +59,7 @@
             // txtId
             // 
             txtId.BackColor = SystemColors.GradientActiveCaption;
+            txtId.Enabled = false;
             txtId.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             txtId.Location = new Point(97, 47);
             txtId.Margin = new Padding(3, 4, 3, 4);

@@ -25,7 +25,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
 
             string respostaCerta = chListAlternativas.CheckedItems.ToString();
 
-            List < Alternativa > listaAlaternativas = new List<Alternativa>();
+            List<Alternativa> listaAlaternativas = new List<Alternativa>();
 
             listaAlaternativas.AddRange(chListAlternativas.Items.Cast<Alternativa>());
 
@@ -34,7 +34,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
             //-------------------------------------------------------------------------------------
             //if (chListAlternativas.Items.Count == 0)
             //    return null;
-            
+
             //if (chListAlternativas.CheckedItems.Count == 0)
             //    respostaCerta = "erro";
             //else
@@ -76,7 +76,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
             txtEnunciado.Text = questao.Enunciado;
             txtAno.Text = questao.Materia.Ano;
 
-            cbMateria.SelectedItem = questao.Materia.ToString();
+            cbMateria.Text = questao.Materia.ToString();
 
             int i = 0;
 

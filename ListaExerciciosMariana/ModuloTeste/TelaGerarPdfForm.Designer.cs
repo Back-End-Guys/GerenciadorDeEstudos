@@ -1,6 +1,6 @@
 ﻿namespace ListaExerciciosMariana.WinForm.ModuloPdf
 {
-    partial class TelaEscolhaPdfForm
+    partial class TelaGerarPdfForm
     {
         /// <summary>
         /// Required designer variable.

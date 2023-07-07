@@ -4,11 +4,11 @@ using ListaExerciciosMariana.Dominio.ModuloTeste;
 
 namespace ListaExerciciosMariana.WinForm.ModuloPdf
 {
-    public partial class TelaEscolhaPdfForm : Form
+    public partial class TelaGerarPdfForm : Form
     {
         private Teste _testeSelecionado;
 
-        public TelaEscolhaPdfForm(Teste testeSelecionado)
+        public TelaGerarPdfForm(Teste testeSelecionado)
         {
             InitializeComponent();
             this.ConfigurarDialog();

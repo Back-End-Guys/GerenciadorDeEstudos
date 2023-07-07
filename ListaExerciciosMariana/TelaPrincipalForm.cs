@@ -31,6 +31,7 @@ namespace ListaExerciciosMariana
         {
             InitializeComponent();
             _telaPrincipal = this;
+            Cursor = Cursors.Hand;
         }
 
         public static TelaPrincipalForm Instancia

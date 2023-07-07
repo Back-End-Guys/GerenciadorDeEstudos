@@ -57,10 +57,10 @@
             statusStrip1.BackColor = Color.AliceBlue;
             statusStrip1.ImageScalingSize = new Size(20, 20);
             statusStrip1.Items.AddRange(new ToolStripItem[] { labelRodape });
-            statusStrip1.Location = new Point(0, 597);
+            statusStrip1.Location = new Point(0, 599);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Padding = new Padding(1, 0, 16, 0);
-            statusStrip1.Size = new Size(1028, 24);
+            statusStrip1.Size = new Size(1028, 22);
             statusStrip1.TabIndex = 9;
             statusStrip1.Text = "[rodape]";
             // 
@@ -69,7 +69,7 @@
             labelRodape.Font = new Font("Nirmala UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             labelRodape.Margin = new Padding(19, 4, 0, 3);
             labelRodape.Name = "labelRodape";
-            labelRodape.Size = new Size(0, 17);
+            labelRodape.Size = new Size(0, 15);
             // 
             // panelRegistros
             // 
@@ -93,7 +93,7 @@
             toolBar.Location = new Point(0, 47);
             toolBar.Name = "toolBar";
             toolBar.Padding = new Padding(0, 3, 1, 0);
-            toolBar.RenderMode = ToolStripRenderMode.System;
+            toolBar.RenderMode = ToolStripRenderMode.Professional;
             toolBar.Size = new Size(1028, 56);
             toolBar.TabIndex = 7;
             toolBar.Text = "toolStrip1";
@@ -211,7 +211,7 @@
             displinaMenuItem.Image = WinForm.Properties.Resources.diciplinaIcon;
             displinaMenuItem.ImageScaling = ToolStripItemImageScaling.None;
             displinaMenuItem.Name = "displinaMenuItem";
-            displinaMenuItem.Size = new Size(194, 38);
+            displinaMenuItem.Size = new Size(236, 38);
             displinaMenuItem.Text = "Disciplina";
             displinaMenuItem.Click += displinaMenuItem_Click;
             // 
@@ -220,7 +220,7 @@
             materiaMenuItem.Image = WinForm.Properties.Resources.materiaIcon;
             materiaMenuItem.ImageScaling = ToolStripItemImageScaling.None;
             materiaMenuItem.Name = "materiaMenuItem";
-            materiaMenuItem.Size = new Size(194, 38);
+            materiaMenuItem.Size = new Size(236, 38);
             materiaMenuItem.Text = "Matéria";
             materiaMenuItem.Click += materiaMenuItem_Click;
             // 
@@ -229,7 +229,7 @@
             questaoMenuItem.Image = WinForm.Properties.Resources.questaoIcon;
             questaoMenuItem.ImageScaling = ToolStripItemImageScaling.None;
             questaoMenuItem.Name = "questaoMenuItem";
-            questaoMenuItem.Size = new Size(194, 38);
+            questaoMenuItem.Size = new Size(236, 38);
             questaoMenuItem.Text = "Questão";
             questaoMenuItem.Click += questaoMenuItem_Click;
             // 
@@ -238,7 +238,7 @@
             testeToolStripMenuItem.Image = WinForm.Properties.Resources.testeIcon;
             testeToolStripMenuItem.ImageScaling = ToolStripItemImageScaling.None;
             testeToolStripMenuItem.Name = "testeToolStripMenuItem";
-            testeToolStripMenuItem.Size = new Size(194, 38);
+            testeToolStripMenuItem.Size = new Size(236, 38);
             testeToolStripMenuItem.Text = "Teste";
             testeToolStripMenuItem.Click += testeToolStripMenuItem_Click;
             // 
