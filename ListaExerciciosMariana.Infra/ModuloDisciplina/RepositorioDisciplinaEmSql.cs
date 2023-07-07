@@ -1,7 +1,4 @@
 ﻿using ListaExerciciosMariana.Dominio.ModuloDisciplina;
-using ListaExerciciosMariana.Dominio.ModuloMateria;
-using ListaExerciciosMariana.Infra.ModuloMateria;
-using Microsoft.Data.SqlClient;
 
 namespace ListaExerciciosMariana.Infra.ModuloDisciplina
 {

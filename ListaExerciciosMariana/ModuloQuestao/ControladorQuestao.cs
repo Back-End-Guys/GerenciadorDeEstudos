@@ -1,5 +1,4 @@
-﻿using ListaExerciciosMariana.Dominio.ModuloDisciplina;
-using ListaExerciciosMariana.Dominio.ModuloMateria;
+﻿using ListaExerciciosMariana.Dominio.ModuloMateria;
 using ListaExerciciosMariana.Dominio.ModuloQuestao;
 
 namespace ListaExerciciosMariana.WinForm.ModuloQuestao

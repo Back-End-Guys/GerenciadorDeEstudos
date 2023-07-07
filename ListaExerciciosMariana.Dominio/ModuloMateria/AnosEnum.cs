@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-
-namespace ListaExerciciosMariana.Dominio.ModuloMateria
+﻿namespace ListaExerciciosMariana.Dominio.ModuloMateria
 {
     public enum AnosEnum
     {

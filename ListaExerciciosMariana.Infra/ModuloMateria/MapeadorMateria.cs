@@ -2,11 +2,6 @@
 using ListaExerciciosMariana.Dominio.ModuloMateria;
 using ListaExerciciosMariana.Infra.ModuloDisciplina;
 using Microsoft.Data.SqlClient;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ListaExerciciosMariana.Infra.ModuloMateria
 {
@@ -24,7 +19,6 @@ namespace ListaExerciciosMariana.Infra.ModuloMateria
         {
             int id = Convert.ToInt32(leitorRegistros["MATERIA_ID"]);
             string nome = Convert.ToString(leitorRegistros["MATERIA_NOME"]);
-            //int serie = Convert.ToInt32(leitorRegistros["MATERIA_SERIE"]);
             string serie = leitorRegistros["MATERIA_SERIE"].ToString();
 
             Disciplina disciplina = new MapeadorDisciplina().ConverterRegistro(leitorRegistros);

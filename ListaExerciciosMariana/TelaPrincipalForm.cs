@@ -1,7 +1,3 @@
-using ListaExercicioMariana.Infra.Memoria.ModuloDisciplina;
-using ListaExercicioMariana.Infra.Memoria.ModuloMateria;
-using ListaExercicioMariana.Infra.Memoria.ModuloQuestao;
-using ListaExercicioMariana.Infra.Memoria.ModuloTeste;
 using ListaExerciciosMariana.Dominio.ModuloDisciplina;
 using ListaExerciciosMariana.Dominio.ModuloMateria;
 using ListaExerciciosMariana.Dominio.ModuloQuestao;
