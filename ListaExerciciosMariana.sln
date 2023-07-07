@@ -19,7 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - BancoDeDados", "4 - Ban
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "GeradorDeTestes.Infra.Dados.Sql.ProjetoDatabase", "GeradorDeTestes.Infra.Dados.Sql.ProjetoDatabase\GeradorDeTestes.Infra.Dados.Sql.ProjetoDatabase.sqlproj", "{16C3E648-B323-4A7F-88BA-71DEB095F9FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListaExercicioMariana.Infra.Memoria", "ListaExercicioMariana.Infra.Memoria\ListaExercicioMariana.Infra.Memoria.csproj", "{4D230B56-029C-4FAA-A2AE-841AAC7E95FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListaExercicioMariana.Infra.Memoria", "ListaExercicioMariana.Infra.Memoria\ListaExercicioMariana.Infra.Memoria.csproj", "{4D230B56-029C-4FAA-A2AE-841AAC7E95FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

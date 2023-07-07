@@ -38,8 +38,11 @@
 
         public virtual void Teste() { }
 
+        public virtual void GerarPdf() { }
+
         public abstract UserControl ObterListagem();
 
         public abstract string ObterTipoCadastro();
+
     }
 }
