@@ -15,7 +15,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloDisciplina
         public void AtualizarRegistros(List<Disciplina> disciplinas)
         {
             gridDisciplina.Rows.Clear();
-            disciplinas.ForEach(d => gridDisciplina.Rows.Add(d.id, d.Nome, d.ListMaterias.Count + " matérias"));
+            disciplinas.ForEach(d => gridDisciplina.Rows.Add(d.id, d.Nome));
         }
 
         private void ConfigurarColunas()
@@ -31,11 +31,6 @@ namespace ListaExerciciosMariana.WinForm.ModuloDisciplina
                 {
                     Name = "nome",
                     HeaderText = "NOME"
-                },
-                new DataGridViewTextBoxColumn()
-                {
-                    Name = "qtdMaterias",
-                    HeaderText = "QUANTIDADE DE MATÉRIAS"
                 }
            };
 
