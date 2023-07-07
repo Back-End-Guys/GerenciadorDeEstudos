@@ -1,4 +1,7 @@
-﻿using ListaExerciciosMariana.Dominio.ModuloTeste;
+﻿using ListaExerciciosMariana.Dominio.ModuloQuestao;
+using ListaExerciciosMariana.Dominio.ModuloTeste;
+using ListaExerciciosMariana.Infra.ModuloQuestao;
+using Microsoft.Data.SqlClient;
 
 namespace ListaExerciciosMariana.Infra.ModuloTeste
 {
@@ -46,6 +49,51 @@ namespace ListaExerciciosMariana.Infra.ModuloTeste
 
         protected override string sqlSelecionarPorId => throw new NotImplementedException();
 
+
+        protected string sqlAdicionarQuestao => @"INSERT INTO [TbQuestao_TbTeste]
+                                                              (
+                                                                  [QUESTAO_ID]
+                                                                 ,[TESTE_ID])
+                                                          VALUES
+                                                              (
+                                                                  @QUESTAO_ID
+                                                                 ,@TESTE_ID
+                                                              )";
+
+
+        public void Inserir(Teste novoTeste, List<Questao> questoesAdicionadas)
+        {
+            foreach (Questao questao in questoesAdicionadas)
+            {
+                novoTeste.AdicionarQuestao(questao);
+            }
+
+            //obter a conexão com o banco e abrir ela
+            SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
+            conexaoComBanco.Open();
+
+            //cria um comando e relaciona com a conexão aberta
+            SqlCommand comandoInserir = conexaoComBanco.CreateCommand();
+            comandoInserir.CommandText = sqlInserir;
+
+            //adiciona os parâmetros no comando
+            MapeadorTeste mapeador = new MapeadorTeste();
+            mapeador.ConfigurarParametros(comandoInserir, novoTeste);
+
+            //executa o comando
+            object id = comandoInserir.ExecuteScalar();
+
+            novoTeste.id = Convert.ToInt32(id);
+
+            //encerra a conexão
+            conexaoComBanco.Close();
+
+            foreach (Questao questao in questoesAdicionadas)
+            {
+                AdicionarQuestao(novoTeste, questao);
+            }
+        }
+    
         public Teste SelecionarPorId(int id)
         {
             throw new NotImplementedException();
@@ -57,5 +105,27 @@ namespace ListaExerciciosMariana.Infra.ModuloTeste
 
             return testes;
         }
+
+        public void AdicionarQuestao(Teste teste, Questao questao)
+        {
+            //obter a conexão com o banco e abrir ela
+            SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
+            conexaoComBanco.Open();
+
+            //cria um comando e relaciona com a conexão aberta
+            SqlCommand comandoAdicionarQuestao = conexaoComBanco.CreateCommand();
+            comandoAdicionarQuestao.CommandText = sqlAdicionarQuestao;
+
+            //adiciona os parâmetros no comando
+            comandoAdicionarQuestao.Parameters.AddWithValue("QUESTAO_ID", questao.id);
+            comandoAdicionarQuestao.Parameters.AddWithValue("TESTE_ID", teste.id);
+
+            //executa o comando
+            comandoAdicionarQuestao.ExecuteNonQuery();
+
+            //fecha conexão
+            conexaoComBanco.Close();
+        }
+        
     }
 }

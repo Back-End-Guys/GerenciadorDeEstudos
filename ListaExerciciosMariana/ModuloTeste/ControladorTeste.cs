@@ -52,6 +52,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
             if (opcaoEscolhida == DialogResult.OK)
             {
                 Teste teste = telaTeste.ObterTeste();
+
                 _repositorioTeste.Inserir(teste);
             }
 

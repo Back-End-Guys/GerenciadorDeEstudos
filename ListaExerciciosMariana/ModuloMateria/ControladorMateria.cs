@@ -1,5 +1,6 @@
 ﻿using ListaExerciciosMariana.Dominio.ModuloDisciplina;
 using ListaExerciciosMariana.Dominio.ModuloMateria;
+using ListaExerciciosMariana.Dominio.ModuloQuestao;
 using System.ComponentModel;
 using System.Reflection;
 

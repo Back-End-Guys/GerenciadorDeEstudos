@@ -54,7 +54,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
             //}
             //-------------------------------------------------------------------------------------
 
-            return _questao;
+            return questao;
         }
 
         public List<Alternativa> ObterAlternativasMarcadas()
