@@ -86,7 +86,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloPdf
             Paragraph data = new Paragraph(string.Format($"Data: {DateTime.Today.ToString("dd/MM/yyyy")}"), fonteInfo);
             doc.Add(data);
 
-            if(txtNome.Text != null)
+            if(!string.IsNullOrEmpty(txtNome.Text))
             {
                 Paragraph nomeEstudante = new Paragraph(string.Format($"Nome: {txtNome.Text}"), fonteInfo);
                 doc.Add(nomeEstudante);
