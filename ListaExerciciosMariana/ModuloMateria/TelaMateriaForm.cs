@@ -81,9 +81,9 @@ namespace ListaExerciciosMariana.WinForm.ModuloMateria
                 return;
             }
 
-            foreach (Materia d in _materiaList)
+            foreach (Materia m in _materiaList)
             {
-                if (materia.Nome == d.Nome && txtId.Text == "0")
+                if (materia.Nome.ToUpper() == m.Nome.ToUpper() && materia.id != m.id)
                 {
                     TelaPrincipalForm.Instancia.AtualizarRodape("O nome ja esta em uso");
 
