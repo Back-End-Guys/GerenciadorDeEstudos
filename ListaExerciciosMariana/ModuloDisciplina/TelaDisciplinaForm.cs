@@ -46,7 +46,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloDisciplina
 
             foreach (Disciplina d in _disciplinas)
             {
-                if (disciplina.Nome == d.Nome)
+                if (disciplina.Nome.ToUpper() == d.Nome.ToUpper() && disciplina.id != d.id)
                 {
                     TelaPrincipalForm.Instancia.AtualizarRodape("O nome ja esta em uso");
 
