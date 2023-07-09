@@ -142,7 +142,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
 
             foreach (Questao q in _questoes)
             {
-                if (questao.Enunciado == q.Enunciado && txtId.Text == "0")
+                if (questao.Enunciado.ToUpper() == q.Enunciado.ToUpper() && questao.id != q.id)
                 {
                     TelaPrincipalForm.Instancia.AtualizarRodape("O nome ja esta em uso");
 
