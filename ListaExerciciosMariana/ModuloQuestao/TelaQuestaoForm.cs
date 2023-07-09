@@ -144,7 +144,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
             {
                 if (questao.Enunciado.ToUpper() == q.Enunciado.ToUpper() && questao.id != q.id)
                 {
-                    TelaPrincipalForm.Instancia.AtualizarRodape("O nome ja esta em uso");
+                    TelaPrincipalForm.Instancia.AtualizarRodape("O enunciado ja esta em uso");
 
                     DialogResult = DialogResult.None;
                 }

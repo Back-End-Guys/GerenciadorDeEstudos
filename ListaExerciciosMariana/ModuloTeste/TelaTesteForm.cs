@@ -169,7 +169,15 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
                 DialogResult = DialogResult.None;
                 return;
             }
+            foreach (Teste t in _testes)
+            {
+                if (teste.Titulo.ToUpper() == t.Titulo.ToUpper() && teste.id != t.id)
+                {
+                    TelaPrincipalForm.Instancia.AtualizarRodape("O título já esta em uso");
 
+                    DialogResult = DialogResult.None;
+                }
+            }
 
         }
     }
