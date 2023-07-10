@@ -2,37 +2,44 @@
 using ListaExerciciosMariana.Dominio.ModuloMateria;
 using ListaExerciciosMariana.Dominio.ModuloQuestao;
 using ListaExerciciosMariana.Dominio.ModuloTeste;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ListaExerciciosMariana.WinForm.ModuloTeste
 {
     public partial class TelaTesteForm : Form
     {
-        private Teste _teste;
         private List<Teste> _testes;
         private List<Questao> _questoesDisponiveis;
+        private IRepositorioMateria _repositorioMateria;
 
-        public TelaTesteForm(List<Teste> testes, List<Disciplina> disciplinas, List<Questao> questoes, List<Materia> materias)
+        public TelaTesteForm(List<Materia> materias, List<Disciplina> disciplinas, List<Questao> questoes, List<Teste> testes, IRepositorioMateria repositorioMateria)
         {
+            this._questoesDisponiveis = questoes;
+            this._testes = testes;
+
             InitializeComponent();
             this.ConfigurarDialog();
-            this._testes = testes;
-            this._questoesDisponiveis = questoes;
+
             ConfigurarCbDisciplina(disciplinas);
             ConfigurarComboBoxMateria(materias);
+            this._testes = testes;
+            this._repositorioMateria = repositorioMateria;
         }
 
         public Teste ObterTeste()
         {
+            int id = int.Parse(txtId.Text);
             string titulo = txtTítulo.Text;
             Disciplina disciplina = (Disciplina)cbDisciplina.SelectedItem;
             Materia materia = (Materia)cbMateria.SelectedItem;
             int qtdQuestoes = int.Parse(txtQnt.Text);
             bool recuperacao = chbRecuperacao.Checked;
-            List<Questao> questoes = listQuestoes.Items.Cast<Questao>().ToList();
+            //List<Questao> questoes = listQuestoes.Items.Cast<Questao>().ToList();
 
-            _teste = new Teste(titulo, disciplina, materia, qtdQuestoes, recuperacao, questoes);
+            Teste teste = new Teste(id, titulo, disciplina, materia, qtdQuestoes, recuperacao);
+            teste.id = id;
 
-            return _teste;
+            return teste;
         }
 
         public void ConfigurarTela(Teste testeSelecionado)
@@ -52,21 +59,6 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
             disciplinas.ForEach(d => cbDisciplina.Items.Add(d));
         }
 
-        //private void cbDisciplina_SelectedValueChanged(object sender, EventArgs e)
-        //{
-        //    MudarValorCbMateria();
-        //}
-
-        //private void MudarValorCbMateria()
-        //{
-        //    cbMateria.Items.Clear();
-
-        //    Disciplina disciplinaSelecionada = (Disciplina)cbDisciplina.SelectedItem;
-
-        //    if (disciplinaSelecionada != null)
-        //        disciplinaSelecionada.ListMaterias.ForEach(m => cbMateria.Items.Add(m));
-        //}
-
         public void ConfigurarComboBoxMateria(List<Materia> materias)
         {
             foreach (Materia materia in materias)
@@ -75,39 +67,10 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
             }
         }
 
-        private void cbMateria_SelectedValueChanged(object sender, EventArgs e)
+        public List<Questao> ObterQuestoesSorteadas()
         {
-            ExibirAnoMateriaSelecionada();
-            AtualizarQuestoesDisponiveis();
+            return listQuestoes.Items.Cast<Questao>().ToList();
         }
-
-        private void AtualizarQuestoesDisponiveis()
-        {
-            listQuestoes.Items.Clear();
-
-            Materia materiaSelecionada = (Materia)cbMateria.SelectedItem;
-
-            if (materiaSelecionada != null)
-            {
-                List<Questao> questoesFiltradas = _questoesDisponiveis
-                    .Where(q => q.Materia == materiaSelecionada)
-                    .ToList();
-
-                questoesFiltradas.ForEach(q => listQuestoes.Items.Add($" → {q.Enunciado}\n"));
-            }
-        }
-
-        private void ExibirAnoMateriaSelecionada()
-        {
-            if (cbMateria.SelectedItem != null)
-            {
-                Materia materiaSelecionada = (Materia)cbMateria.SelectedItem;
-                txtAno.Text = materiaSelecionada.Ano.ToString();
-            }
-
-            else txtAno.Text = string.Empty;
-        }
-
         private void btnSortearQuestoes_Click(object sender, EventArgs e)
         {
             int quantidade = int.Parse(txtQnt.Text);
@@ -138,25 +101,28 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
 
         }
 
+
         private List<Questao> SortearQuestoes(List<Questao> questoesDisponiveis, int quantidade)
         {
             List<Questao> questoesSorteadas = new List<Questao>();
-
             Random random = new Random();
+            Materia materia = (Materia)cbMateria.SelectedItem;
+
+            List<Questao> questoesFiltradas = questoesDisponiveis.FindAll(x => x.Materia.id == materia.id);
 
             for (int i = 0; i < quantidade; i++)
             {
-                int index = random.Next(questoesDisponiveis.Count);
-                questoesSorteadas.Add(questoesDisponiveis[index]);
-                questoesDisponiveis.RemoveAt(index);
+                if (questoesFiltradas.Count == 0)
+                    break;
+
+                int index = random.Next(questoesFiltradas.Count);
+                questoesSorteadas.Add(questoesFiltradas[index]);
+                questoesFiltradas.RemoveAt(index);
             }
 
             return questoesSorteadas;
         }
-        public List<Questao> ObterQuestoesSorteadas()
-        {
-            return listQuestoes.Items.Cast<Questao>().ToList();
-        }
+
         private void btnGravar_Click(object sender, EventArgs e)
         {
             Teste teste = ObterTeste();
@@ -180,5 +146,52 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
             }
 
         }
+
+        private void cbDisciplina_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbMateria.Items.Clear();
+
+            if (cbDisciplina.SelectedItem != null)
+            {
+                Disciplina disciplinaSelecionada = (Disciplina)cbDisciplina.SelectedItem;
+
+                List<Materia> materiasRelacionadas = _repositorioMateria.CarregarMateriasDisciplina(disciplinaSelecionada);
+
+                cbMateria.Items.AddRange(materiasRelacionadas.ToArray());
+            }
+        }
+
+        //private void cbMateria_SelectedValueChanged(object sender, EventArgs e)
+        //{
+        //    ExibirAnoMateriaSelecionada();
+        //    AtualizarQuestoesDisponiveis();
+        //}
+
+        //private void ExibirAnoMateriaSelecionada()
+        //{
+        //    if (cbMateria.SelectedItem != null)
+        //    {
+        //        Materia materiaSelecionada = (Materia)cbMateria.SelectedItem;
+        //        txtAno.Text = materiaSelecionada.Ano.ToString();
+        //    }
+
+        //    else txtAno.Text = string.Empty;
+        //}
+
+        //private void AtualizarQuestoesDisponiveis()
+        //{
+        //    listQuestoes.Items.Clear();
+
+        //    Materia materiaSelecionada = (Materia)cbMateria.SelectedItem;
+
+        //    if (materiaSelecionada != null)
+        //    {
+        //        List<Questao> questoesFiltradas = _questoesDisponiveis
+        //            .Where(q => q.Materia == materiaSelecionada)
+        //            .ToList();
+
+        //        questoesFiltradas.ForEach(q => listQuestoes.Items.Add($" → {q.Enunciado}\n"));
+        //    }
+        //}
     }
 }

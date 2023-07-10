@@ -25,6 +25,17 @@ namespace ListaExerciciosMariana.Infra.ModuloMateria
 
             return new Materia(id, nome, disciplina, serie);
         }
+
+        public Materia ConverterRegistro2(SqlDataReader leitorRegistros)
+        {
+            int id = Convert.ToInt32(leitorRegistros["ID"]);
+            string nome = Convert.ToString(leitorRegistros["NOME"]);
+            string ano = Convert.ToString(leitorRegistros["SERIE"]);
+
+            //Disciplina disciplina = new MapeadorDisciplina().ConverterRegistro(leitorRegistros);
+
+            return new Materia(id, nome, ano);
+        }
     }
 }
 

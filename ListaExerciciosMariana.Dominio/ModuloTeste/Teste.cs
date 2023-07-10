@@ -6,6 +6,11 @@ namespace ListaExerciciosMariana.Dominio.ModuloTeste
 {
     public class Teste : EntidadeBase<Teste>
     {
+        private Disciplina disciplina;
+        private Materia materia;
+        private int qtdQuestoes;
+        private bool recuperacao;
+
         public string Titulo { get; set; }
         public Disciplina Disciplina { get; set; }
         public Materia Materia { get; set; }
@@ -32,6 +37,15 @@ namespace ListaExerciciosMariana.Dominio.ModuloTeste
             QuantidadeQuestoes = quantidadeQuestoes;
             ProvaRecuperacao = provaRecuperacao;
             ListQuestoes = listQuestoes;
+        }
+
+        public Teste(string titulo, Disciplina disciplina, Materia materia, int qtdQuestoes, bool recuperacao)
+        {
+            Titulo = titulo;
+            this.disciplina = disciplina;
+            this.materia = materia;
+            this.qtdQuestoes = qtdQuestoes;
+            this.recuperacao = recuperacao;
         }
 
         public override void AtualizarInformacoes(Teste registroAtualizado)

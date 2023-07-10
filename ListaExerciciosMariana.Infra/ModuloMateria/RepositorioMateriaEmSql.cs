@@ -1,4 +1,6 @@
-﻿using ListaExerciciosMariana.Dominio.ModuloMateria;
+﻿using ListaExerciciosMariana.Dominio.ModuloDisciplina;
+using ListaExerciciosMariana.Dominio.ModuloMateria;
+using Microsoft.Data.SqlClient;
 
 namespace ListaExerciciosMariana.Infra.ModuloMateria
 {
@@ -53,6 +55,10 @@ namespace ListaExerciciosMariana.Infra.ModuloMateria
                                                     WHERE 
                                                         M.[ID] = @ID";
 
+        private string sqlSelecionarMateriaNaDisciplina => @"SELECT * FROM [TBMATERIA] 
+	                                                          WHERE
+		                                                        DISCIPLINA_ID = @DISCIPLINA_ID";
+
         public override List<Materia> SelecionarTodos()
         {
             List<Materia> materias = base.SelecionarTodos();
@@ -66,6 +72,38 @@ namespace ListaExerciciosMariana.Infra.ModuloMateria
 
             return materia;
         }
+
+        public List<Materia> CarregarMateriasDisciplina(Disciplina disciplina)
+        {
+            SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
+            conexaoComBanco.Open();
+
+            SqlCommand comandoSelecionarMaterias = conexaoComBanco.CreateCommand();
+            comandoSelecionarMaterias.CommandText = sqlSelecionarMateriaNaDisciplina;
+
+            comandoSelecionarMaterias.Parameters.AddWithValue("DISCIPLINA_ID", disciplina.id);
+            comandoSelecionarMaterias.Parameters.AddWithValue("DISCIPLINA_NOME", disciplina.Nome);
+
+            SqlDataReader leitorMateria = comandoSelecionarMaterias.ExecuteReader();
+
+            List<Materia> materias = new List<Materia>();
+
+            while (leitorMateria.Read())
+            {
+                MapeadorMateria mapeador = new MapeadorMateria();
+
+                Materia materia = mapeador.ConverterRegistro2(leitorMateria);
+
+                materias.Add(materia);
+            }
+
+
+
+            conexaoComBanco.Close();
+
+            return materias;
+        }
+
 
     }
 }

@@ -183,6 +183,42 @@ namespace ListaExerciciosMariana.Infra.ModuloTeste
             }
         }
 
+        public void Excluir(Teste registroSelecionado)
+        {
+            foreach (Questao QuestaoParaRemover in registroSelecionado.ListQuestoes)
+            {
+                RemoverQuestao(QuestaoParaRemover, registroSelecionado);
+            }
+
+            SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
+            conexaoComBanco.Open();
+
+            SqlCommand comandoExcluir = conexaoComBanco.CreateCommand();
+            comandoExcluir.CommandText = sqlExcluir;
+
+            comandoExcluir.Parameters.AddWithValue("ID", registroSelecionado.id);
+
+            comandoExcluir.ExecuteNonQuery();
+
+            conexaoComBanco.Close();
+        }
+
+        public void AdicionarQuestao(Teste teste, Questao questao)
+        {
+            SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
+            conexaoComBanco.Open();
+
+            SqlCommand comandoInserir = conexaoComBanco.CreateCommand();
+            comandoInserir.CommandText = sqlAdicionarQuestao;
+
+            comandoInserir.Parameters.AddWithValue("QUESTAO_ID", questao.id);
+            comandoInserir.Parameters.AddWithValue("TESTE_ID", teste.id);
+
+            comandoInserir.ExecuteNonQuery();
+
+            conexaoComBanco.Close();
+        }
+
         public void CarregarQuestoes(Teste teste)
         {
             SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
@@ -209,27 +245,6 @@ namespace ListaExerciciosMariana.Infra.ModuloTeste
             conexaoComBanco.Close();
         }
 
-        public void Excluir(Teste registroSelecionado)
-        {
-            foreach (Questao QuestaoParaRemover in registroSelecionado.ListQuestoes)
-            {
-                RemoverQuestao(QuestaoParaRemover, registroSelecionado);
-            }
-
-            SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
-            conexaoComBanco.Open();
-
-            SqlCommand comandoExcluir = conexaoComBanco.CreateCommand();
-            comandoExcluir.CommandText = sqlExcluir;
-
-            comandoExcluir.Parameters.AddWithValue("ID", registroSelecionado.id);
-
-            comandoExcluir.ExecuteNonQuery();
-
-            conexaoComBanco.Close();
-        }
-
-
         private void RemoverQuestao(Questao questao, Teste teste)
         {
             SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
@@ -245,7 +260,6 @@ namespace ListaExerciciosMariana.Infra.ModuloTeste
 
             conexaoComBanco.Close();
         }
-
 
         public Teste SelecionarPorId(int id)
         {
@@ -264,26 +278,6 @@ namespace ListaExerciciosMariana.Infra.ModuloTeste
             return testes;
         }
 
-        public void AdicionarQuestao(Teste teste, Questao questao)
-        {
-            //obter a conexão com o banco e abrir ela
-            SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
-            conexaoComBanco.Open();
-
-            //cria um comando e relaciona com a conexão aberta
-            SqlCommand comandoAdicionarQuestao = conexaoComBanco.CreateCommand();
-            comandoAdicionarQuestao.CommandText = sqlAdicionarQuestao;
-
-            //adiciona os parâmetros no comando
-            comandoAdicionarQuestao.Parameters.AddWithValue("QUESTAO_ID", questao.id);
-            comandoAdicionarQuestao.Parameters.AddWithValue("TESTE_ID", teste.id);
-
-            //executa o comando
-            comandoAdicionarQuestao.ExecuteNonQuery();
-
-            //fecha conexão
-            conexaoComBanco.Close();
-        }
         
     }
 }
