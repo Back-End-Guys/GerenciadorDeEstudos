@@ -2,7 +2,6 @@
 using ListaExerciciosMariana.Dominio.ModuloMateria;
 using ListaExerciciosMariana.Dominio.ModuloQuestao;
 using ListaExerciciosMariana.Dominio.ModuloTeste;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace ListaExerciciosMariana.WinForm.ModuloTeste
 {

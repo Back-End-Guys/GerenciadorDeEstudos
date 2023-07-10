@@ -143,14 +143,6 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
             txtAno.Text = materiaSelecionada.Ano.ToString();
         }
 
-        public void ConfigurarListBoxAlternativa(List<Alternativa> aternativas)
-        {
-            chListAlternativas.Items.Clear();
-            chListAlternativas.SelectionMode = SelectionMode.One;
-
-            chListAlternativas.Items.AddRange(aternativas.ToArray());
-        }
-
         private void btnGravar_Click(object sender, EventArgs e)
         {
             Questao questao = ObterQuestao();
@@ -180,7 +172,14 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
                     DialogResult = DialogResult.None;
                 }
             }
-        }
+        }   
 
+        //public void ConfigurarListBoxAlternativa(List<Alternativa> aternativas)
+        //{
+        //    chListAlternativas.Items.Clear();
+        //    chListAlternativas.SelectionMode = SelectionMode.One;
+
+        //    chListAlternativas.Items.AddRange(aternativas.ToArray());
+        //}
     }
 }
