@@ -1,18 +1,24 @@
 ﻿using iTextSharp.text;
 using iTextSharp.text.pdf;
+using ListaExerciciosMariana.Dominio.ModuloQuestao;
 using ListaExerciciosMariana.Dominio.ModuloTeste;
+using System;
 
 namespace ListaExerciciosMariana.WinForm.ModuloPdf
 {
     public partial class TelaGerarPdfForm : Form
     {
         private Teste _testeSelecionado;
+        private Questao _questao;
+        private Alternativa _alternativa;
+        private IRepositorioQuestao _repositorioQuestao;
 
-        public TelaGerarPdfForm(Teste testeSelecionado)
+        public TelaGerarPdfForm(Teste testeSelecionado, IRepositorioQuestao repositorioQuestao)
         {
             InitializeComponent();
             this.ConfigurarDialog();
             this._testeSelecionado = testeSelecionado;
+            _repositorioQuestao = repositorioQuestao;
         }
 
         private string DefinirNomeArquivo()
@@ -73,20 +79,22 @@ namespace ListaExerciciosMariana.WinForm.ModuloPdf
             FileStream fs = new FileStream(caminho, FileMode.Create, FileAccess.Write, FileShare.None);
 
             PdfWriter writer = PdfWriter.GetInstance(doc, fs);
-            
+
             //-------------------------------------------------------------------------------------------------------------------------------------------
             doc.Open();
 
             BaseColor corPadrao = BaseColor.BLACK;
+            BaseColor corGabarito = new BaseColor(34, 139, 34);
 
             iTextSharp.text.Font fonteTitulo = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 16, corPadrao);
             iTextSharp.text.Font fonteInfo = FontFactory.GetFont(FontFactory.HELVETICA, 13, corPadrao);
             iTextSharp.text.Font fonteQuestao = FontFactory.GetFont(FontFactory.HELVETICA, 12, corPadrao);
+            iTextSharp.text.Font fonteGabarito = FontFactory.GetFont(FontFactory.HELVETICA, 12, corGabarito);
 
             Paragraph data = new Paragraph(string.Format($"Data: {DateTime.Today.ToString("dd/MM/yyyy")}"), fonteInfo);
             doc.Add(data);
 
-            if(!string.IsNullOrEmpty(txtNome.Text))
+            if (!string.IsNullOrEmpty(txtNome.Text))
             {
                 Paragraph nomeEstudante = new Paragraph(string.Format($"Nome: {txtNome.Text}"), fonteInfo);
                 doc.Add(nomeEstudante);
@@ -101,7 +109,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloPdf
             if (_testeSelecionado.ProvaRecuperacao)
             {
                 Paragraph recuperacao = new Paragraph(string.Format($"Prova de recuperação"), fonteInfo);
-                doc.Add(recuperacao);               
+                doc.Add(recuperacao);
             }
 
             doc.Add(new Paragraph(" "));
@@ -110,24 +118,32 @@ namespace ListaExerciciosMariana.WinForm.ModuloPdf
             titulo.Alignment = Element.ALIGN_CENTER;
             doc.Add(titulo);
 
-            doc.Add(new Paragraph(" "));
-
-            Paragraph qtdQuestoes = new Paragraph(string.Format($"Resolva as {_testeSelecionado.ListQuestoes.Count} questões abaixo:"), fonteInfo);
-            doc.Add(qtdQuestoes);
-
-            doc.Add(new Paragraph(" "));
+            doc.Add(new Paragraph(" "));                    
 
             _testeSelecionado.ListQuestoes.ForEach(q =>
             {
+                char letra = 'A';
+                _repositorioQuestao.CarregarAlternativas(q);
+
                 Paragraph questao = new Paragraph(string.Format($"{q}"), fonteQuestao);
                 doc.Add(questao);
                 doc.Add(new Paragraph(" "));
+
+                q.ListAlternativas.ForEach(a =>
+                {
+                    Paragraph alternativa = new Paragraph(string.Format($"{letra}) {a}"), fonteQuestao);
+                    doc.Add(alternativa);
+                    doc.Add(new Paragraph(" "));
+                    letra++;
+                });
+
+                if (rbGabarito.Checked)
+                {
+                    Paragraph respostaCerta = new Paragraph(string.Format($"Resposta Certa: {q.RespostaCerta}"), fonteGabarito);
+                    doc.Add(respostaCerta);
+                    doc.Add(new Paragraph(" "));
+                }
             });
-
-            if (rbGabarito.Checked)
-            {
-
-            }
 
             doc.Close();
             //-------------------------------------------------------------------------------------------------------------------------------------------

@@ -150,7 +150,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
                 return;
             }
 
-            TelaGerarPdfForm telaEscolha = new TelaGerarPdfForm(testeSelecionado);
+            TelaGerarPdfForm telaEscolha = new TelaGerarPdfForm(testeSelecionado, _repositorioQuestao);
             telaEscolha.Text = $"Gerar PDF do {testeSelecionado.Titulo}";
 
             telaEscolha.ShowDialog();

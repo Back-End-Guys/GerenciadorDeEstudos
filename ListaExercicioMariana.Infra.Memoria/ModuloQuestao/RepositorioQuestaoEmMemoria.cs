@@ -8,6 +8,11 @@ namespace ListaExercicioMariana.Infra.Memoria.ModuloQuestao
         {
         }
 
+        public void CarregarAlternativas(Questao questao)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Editar(int id, Questao questao, List<Alternativa> alternativas)
         {
             throw new NotImplementedException();
