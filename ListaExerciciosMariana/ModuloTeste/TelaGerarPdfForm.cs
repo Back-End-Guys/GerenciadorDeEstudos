@@ -137,14 +137,13 @@ namespace ListaExerciciosMariana.WinForm.ModuloPdf
                     letra++;
                 });
 
-                doc.Add(new Paragraph(" "));
-
                 if (rbGabarito.Checked)
                 {
-                    Paragraph respostaCerta = new Paragraph(string.Format($"Resposta Certa: {q.RespostaCerta}"), fonteGabarito);
+                    Paragraph respostaCerta = new Paragraph(string.Format($"Gabarito: {q.RespostaCerta}"), fonteGabarito);
                     doc.Add(respostaCerta);
-                    doc.Add(new Paragraph(" "));
                 }
+
+                doc.Add(new Paragraph(" "));
             });
 
             doc.Close();
