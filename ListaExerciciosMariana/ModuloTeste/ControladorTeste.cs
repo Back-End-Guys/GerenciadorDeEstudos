@@ -123,7 +123,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
             if (opcaoEscolhida == DialogResult.OK)
             {
                 Teste teste = telaTeste.ObterTeste();
-                _repositorioTeste.Inserir(teste);
+                _repositorioTeste.Inserir(teste, telaTeste.ObterQuestoesSorteadas());
             }
 
             CarregarTeste();
