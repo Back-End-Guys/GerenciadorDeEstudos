@@ -84,8 +84,14 @@ namespace ListaExerciciosMariana.WinForm.ModuloMateria
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                _repositorioMateria.Excluir(materiaSelecionada);
-                materiaSelecionada.Disciplina.ListMaterias.Remove(materiaSelecionada);
+                try
+                {
+                    _repositorioMateria.Excluir(materiaSelecionada);
+                }
+                catch (Microsoft.Data.SqlClient.SqlException)
+                {
+                    MessageBox.Show("Não é possível excluir a materia pois ela possui uma questão!", "Exclusão de Materia");
+                }
             }
 
             CarregarMaterias();
