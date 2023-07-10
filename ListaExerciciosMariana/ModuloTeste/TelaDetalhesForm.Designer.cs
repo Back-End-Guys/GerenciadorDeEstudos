@@ -95,6 +95,7 @@
             // txtTitulo
             // 
             txtTitulo.BackColor = SystemColors.GradientInactiveCaption;
+            txtTitulo.Enabled = false;
             txtTitulo.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             txtTitulo.Location = new Point(124, 81);
             txtTitulo.Margin = new Padding(3, 4, 3, 4);
@@ -153,7 +154,7 @@
             txtId.BackColor = SystemColors.GradientInactiveCaption;
             txtId.Enabled = false;
             txtId.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            txtId.Location = new Point(124, 30);
+            txtId.Location = new Point(125, 30);
             txtId.Margin = new Padding(4, 5, 4, 5);
             txtId.Name = "txtId";
             txtId.ReadOnly = true;
@@ -194,11 +195,11 @@
             txtDisciplina.BackColor = SystemColors.GradientInactiveCaption;
             txtDisciplina.Enabled = false;
             txtDisciplina.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            txtDisciplina.Location = new Point(128, 141);
+            txtDisciplina.Location = new Point(125, 141);
             txtDisciplina.Margin = new Padding(4, 5, 4, 5);
             txtDisciplina.Name = "txtDisciplina";
             txtDisciplina.ReadOnly = true;
-            txtDisciplina.Size = new Size(192, 32);
+            txtDisciplina.Size = new Size(195, 32);
             txtDisciplina.TabIndex = 75;
             // 
             // txtMateria
@@ -258,6 +259,7 @@
             Name = "TelaDetalhesForm";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
+            Load += TelaDetalhesForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }

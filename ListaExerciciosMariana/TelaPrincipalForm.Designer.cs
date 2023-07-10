@@ -35,10 +35,10 @@
             btnInserir = new ToolStripButton();
             btnEditar = new ToolStripButton();
             btnExcluir = new ToolStripButton();
-            btnListagem = new ToolStripButton();
             toolStripSeparator2 = new ToolStripSeparator();
-            btnDuplicar = new ToolStripButton();
+            btnListagem = new ToolStripButton();
             btnPDF = new ToolStripButton();
+            btnDuplicar = new ToolStripButton();
             toolStripSeparator1 = new ToolStripSeparator();
             labelTipoCadastro = new ToolStripLabel();
             menuBar = new MenuStrip();
@@ -73,7 +73,7 @@
             // 
             // panelRegistros
             // 
-            panelRegistros.BackColor = Color.Snow;
+            panelRegistros.BackColor = Color.White;
             panelRegistros.BorderStyle = BorderStyle.FixedSingle;
             panelRegistros.Dock = DockStyle.Fill;
             panelRegistros.Font = new Font("Nirmala UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
@@ -132,6 +132,11 @@
             btnExcluir.Size = new Size(50, 50);
             btnExcluir.Click += btnExcluir_Click;
             // 
+            // toolStripSeparator2
+            // 
+            toolStripSeparator2.Name = "toolStripSeparator2";
+            toolStripSeparator2.Size = new Size(6, 53);
+            // 
             // btnListagem
             // 
             btnListagem.DisplayStyle = ToolStripItemDisplayStyle.Image;
@@ -143,10 +148,16 @@
             btnListagem.Size = new Size(50, 50);
             btnListagem.Click += btnListagem_Click;
             // 
-            // toolStripSeparator2
+            // btnPDF
             // 
-            toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new Size(6, 53);
+            btnPDF.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnPDF.Image = WinForm.Properties.Resources.pdfIcon;
+            btnPDF.ImageScaling = ToolStripItemImageScaling.None;
+            btnPDF.ImageTransparentColor = Color.Magenta;
+            btnPDF.Name = "btnPDF";
+            btnPDF.Padding = new Padding(7);
+            btnPDF.Size = new Size(50, 50);
+            btnPDF.Click += btnPDF_Click;
             // 
             // btnDuplicar
             // 
@@ -159,17 +170,6 @@
             btnDuplicar.Padding = new Padding(7);
             btnDuplicar.Size = new Size(50, 53);
             btnDuplicar.Click += btnDuplicar_Click;
-            // 
-            // btnPDF
-            // 
-            btnPDF.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnPDF.Image = WinForm.Properties.Resources.pdfIcon;
-            btnPDF.ImageScaling = ToolStripItemImageScaling.None;
-            btnPDF.ImageTransparentColor = Color.Magenta;
-            btnPDF.Name = "btnPDF";
-            btnPDF.Padding = new Padding(7);
-            btnPDF.Size = new Size(50, 50);
-            btnPDF.Click += btnPDF_Click;
             // 
             // toolStripSeparator1
             // 
