@@ -31,7 +31,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
             {
                 Questao questao = telaQuestaoForm.ObterQuestao();
 
-                _repositorioQuestao.Inserir(questao, telaQuestaoForm.ObterAlternativas());
+                _repositorioQuestao.Inserir(questao, questao.ListAlternativas);
             }
 
             CarregarQuestoes();

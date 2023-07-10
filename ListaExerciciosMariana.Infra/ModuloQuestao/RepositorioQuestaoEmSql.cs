@@ -136,10 +136,7 @@ namespace ListaExerciciosMariana.Infra.ModuloQuestao
 
             foreach (Alternativa alternativa in alternativasAdicionadas)
             {
-                if (questao.ListAlternativas.Contains(alternativa) == false)
-                {
-                    AdicionarAlternativa(alternativa, questao);
-                }
+                AdicionarAlternativa(alternativa, questao);
             }
         }
 

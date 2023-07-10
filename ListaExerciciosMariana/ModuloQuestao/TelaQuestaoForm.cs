@@ -37,32 +37,27 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
                 return null;
 
             if (chListAlternativas.CheckedItems.Count == 0)
-                respostaCerta = "erro";
+                return null;
             else
-                respostaCerta = chListAlternativas.CheckedItems[0].ToString()!;
+                respostaCerta = ObterAlternativaMarcada().ToString();
 
             _questao.RespostaCerta = respostaCerta;
+
 
             foreach (Alternativa alternativa in ObterAlternativasDesmarcadas())
             {
                 _questao.AdicionarAlternativa(alternativa);
             }
 
-            foreach (Alternativa alternativaMarcada in ObterAlternativas())
-            {
-                Alternativa alternativa = new Alternativa(_questao, respostaCerta, true);
-                alternativa.Verdadeiro = true;
-                _questao.AdicionarAlternativa(alternativa);
-            }
+            Alternativa alternativaCorreta = ObterAlternativaMarcada();
+
+            alternativaCorreta.Verdadeiro = true;
+            _questao.AdicionarAlternativa(alternativaCorreta);
+
 
             return _questao;
         }
-        public Alternativa ObterAlternativa(Questao questao)
-        {
-            string resposta = txtResposta.Text;
 
-            return new Alternativa(questao, resposta, false);
-        }
 
         public void ConfigurarTela(Questao questao)
         {
@@ -84,12 +79,15 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
             {
                 Alternativa alternativa = (Alternativa)chListAlternativas.Items[j];
 
-                if (questao.ListAlternativas.Contains(alternativa))
+                if (alternativa.Verdadeiro)
                 {
-                    chListAlternativas.SetItemChecked(i, true);
-                }
+                    if (questao.ListAlternativas.Contains(alternativa))
+                    {
+                        chListAlternativas.SetItemChecked(j, true);
+                    }
 
-                i++;
+                }
+                    i++;
             }
         }
 
@@ -126,15 +124,30 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
                 }
             }
         }
+        public Alternativa ObterAlternativa(Questao questao)
+        {
+            string resposta = txtResposta.Text;
+
+            return new Alternativa(questao, resposta, false);
+        }
 
         public List<Alternativa> ObterAlternativas()
         {
             return chListAlternativas.Items.Cast<Alternativa>().ToList();
         }
+
         public List<Alternativa> ObterAlternativasDesmarcadas()
         {
             return chListAlternativas.Items.Cast<Alternativa>()
-                .Except(ObterAlternativas()).ToList();
+                .Except(chListAlternativas.CheckedItems.Cast<Alternativa>()).ToList();
+        }
+
+        public Alternativa ObterAlternativaMarcada()
+        {
+            List<Alternativa> listaCerta = new List<Alternativa>();
+            listaCerta = chListAlternativas.CheckedItems.Cast<Alternativa>().ToList();
+            Alternativa alt = listaCerta[0];
+            return alt;
         }
 
         private void cbMateria_SelectedValueChanged(object sender, EventArgs e)
@@ -173,13 +186,5 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
                 }
             }
         }   
-
-        //public void ConfigurarListBoxAlternativa(List<Alternativa> aternativas)
-        //{
-        //    chListAlternativas.Items.Clear();
-        //    chListAlternativas.SelectionMode = SelectionMode.One;
-
-        //    chListAlternativas.Items.AddRange(aternativas.ToArray());
-        //}
     }
 }
