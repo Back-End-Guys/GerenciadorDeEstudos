@@ -89,7 +89,7 @@
             toolBar.Enabled = false;
             toolBar.GripStyle = ToolStripGripStyle.Hidden;
             toolBar.ImageScalingSize = new Size(20, 20);
-            toolBar.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, btnListagem, toolStripSeparator2, btnDuplicar, btnPDF, toolStripSeparator1, labelTipoCadastro });
+            toolBar.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, toolStripSeparator2, btnListagem, btnPDF, btnDuplicar, toolStripSeparator1, labelTipoCadastro });
             toolBar.Location = new Point(0, 47);
             toolBar.Name = "toolBar";
             toolBar.Padding = new Padding(0, 3, 1, 0);
@@ -211,7 +211,7 @@
             displinaMenuItem.Image = WinForm.Properties.Resources.diciplinaIcon;
             displinaMenuItem.ImageScaling = ToolStripItemImageScaling.None;
             displinaMenuItem.Name = "displinaMenuItem";
-            displinaMenuItem.Size = new Size(236, 38);
+            displinaMenuItem.Size = new Size(194, 38);
             displinaMenuItem.Text = "Disciplina";
             displinaMenuItem.Click += displinaMenuItem_Click;
             // 
@@ -220,7 +220,7 @@
             materiaMenuItem.Image = WinForm.Properties.Resources.materiaIcon;
             materiaMenuItem.ImageScaling = ToolStripItemImageScaling.None;
             materiaMenuItem.Name = "materiaMenuItem";
-            materiaMenuItem.Size = new Size(236, 38);
+            materiaMenuItem.Size = new Size(194, 38);
             materiaMenuItem.Text = "Matéria";
             materiaMenuItem.Click += materiaMenuItem_Click;
             // 
@@ -229,7 +229,7 @@
             questaoMenuItem.Image = WinForm.Properties.Resources.questaoIcon;
             questaoMenuItem.ImageScaling = ToolStripItemImageScaling.None;
             questaoMenuItem.Name = "questaoMenuItem";
-            questaoMenuItem.Size = new Size(236, 38);
+            questaoMenuItem.Size = new Size(194, 38);
             questaoMenuItem.Text = "Questão";
             questaoMenuItem.Click += questaoMenuItem_Click;
             // 
@@ -238,7 +238,7 @@
             testeToolStripMenuItem.Image = WinForm.Properties.Resources.testeIcon;
             testeToolStripMenuItem.ImageScaling = ToolStripItemImageScaling.None;
             testeToolStripMenuItem.Name = "testeToolStripMenuItem";
-            testeToolStripMenuItem.Size = new Size(236, 38);
+            testeToolStripMenuItem.Size = new Size(194, 38);
             testeToolStripMenuItem.Text = "Teste";
             testeToolStripMenuItem.Click += testeToolStripMenuItem_Click;
             // 
