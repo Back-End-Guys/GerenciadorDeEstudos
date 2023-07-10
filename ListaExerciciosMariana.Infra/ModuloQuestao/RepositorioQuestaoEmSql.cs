@@ -117,6 +117,10 @@ namespace ListaExerciciosMariana.Infra.ModuloQuestao
                 WHERE
                     [QUESTAO_ID] = @QUESTAO_ID";
 
+        private const string sqlRemoverQuestoes = @"DELETE FROM [TBQUESTAO_TBTESTE]
+                                                          WHERE
+                                                        [QUESTAO_ID] = @QUESTAO_ID";
+
         public void Inserir(Questao questao, List<Alternativa> alternativasAdicionadas)
         {
             SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
@@ -136,10 +140,7 @@ namespace ListaExerciciosMariana.Infra.ModuloQuestao
 
             foreach (Alternativa alternativa in alternativasAdicionadas)
             {
-                if (questao.ListAlternativas.Contains(alternativa) == false)
-                {
-                    AdicionarAlternativa(alternativa, questao);
-                }
+                AdicionarAlternativa(alternativa, questao);
             }
         }
 
@@ -172,6 +173,8 @@ namespace ListaExerciciosMariana.Infra.ModuloQuestao
         {
             RemoverAlternativa(questao);
 
+            RemoverQuestao(questao);
+
             SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
 
             SqlCommand comandoExclusao = new SqlCommand(sqlExcluir, conexaoComBanco);
@@ -181,6 +184,20 @@ namespace ListaExerciciosMariana.Infra.ModuloQuestao
             conexaoComBanco.Open();
 
             int numeroRegistrosExcluidos = comandoExclusao.ExecuteNonQuery();
+
+            conexaoComBanco.Close();
+        }
+
+        private void RemoverQuestao(Questao questao)
+        {
+            SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
+
+            SqlCommand comandoExclusao = new SqlCommand(sqlRemoverQuestoes, conexaoComBanco);
+
+            comandoExclusao.Parameters.AddWithValue("QUESTAO_ID", questao.id);
+
+            conexaoComBanco.Open();
+            comandoExclusao.ExecuteNonQuery();
 
             conexaoComBanco.Close();
         }
