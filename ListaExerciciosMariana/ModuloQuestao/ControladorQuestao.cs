@@ -1,5 +1,6 @@
 ﻿using ListaExerciciosMariana.Dominio.ModuloMateria;
 using ListaExerciciosMariana.Dominio.ModuloQuestao;
+using ListaExerciciosMariana.Dominio.ModuloTeste;
 
 namespace ListaExerciciosMariana.WinForm.ModuloQuestao
 {
@@ -8,9 +9,11 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
         private TabelaQuestaoControl _tabelaQuestao;
         private IRepositorioQuestao _repositorioQuestao;
         private IRepositorioMateria _repositorioMateria;
+        private IRepositorioTeste _repositorioTeste;
 
-        public ControladorQuestao(IRepositorioQuestao repositorio, IRepositorioMateria repositorioMateria)
+        public ControladorQuestao(IRepositorioQuestao repositorio, IRepositorioMateria repositorioMateria, IRepositorioTeste repositorioTeste)
         {
+            this._repositorioTeste = repositorioTeste;
             this._repositorioQuestao = repositorio;
             this._repositorioMateria = repositorioMateria;
         }
@@ -84,7 +87,15 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                _repositorioQuestao.Excluir(questao);
+                try
+                {
+                _repositorioQuestao.Excluir(questao, _repositorioTeste.SelecionarTodos());
+                }
+                catch (Microsoft.Data.SqlClient.SqlException)
+                {
+                    MessageBox.Show($"Questão está em um teste! Não pode ser Excluída", "Exclusão de Questões", 
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
 
             CarregarQuestoes();

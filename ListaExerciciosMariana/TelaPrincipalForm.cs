@@ -115,7 +115,7 @@ namespace ListaExerciciosMariana
 
         private void questaoMenuItem_Click(object sender, EventArgs e)
         {
-            _controlador = new ControladorQuestao(_repositorioQuestao, _repositorioMateria);
+            _controlador = new ControladorQuestao(_repositorioQuestao, _repositorioMateria, _repositorioTeste);
 
             ConfigurarTelaPrincipal(_controlador);
         }

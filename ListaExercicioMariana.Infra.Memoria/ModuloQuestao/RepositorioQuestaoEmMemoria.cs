@@ -1,4 +1,5 @@
 ﻿using ListaExerciciosMariana.Dominio.ModuloQuestao;
+using ListaExerciciosMariana.Dominio.ModuloTeste;
 
 namespace ListaExercicioMariana.Infra.Memoria.ModuloQuestao
 {
@@ -14,6 +15,11 @@ namespace ListaExercicioMariana.Infra.Memoria.ModuloQuestao
         }
 
         public void Editar(int id, Questao questao, List<Alternativa> alternativas)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Excluir(Questao questao, List<Teste> testes)
         {
             throw new NotImplementedException();
         }

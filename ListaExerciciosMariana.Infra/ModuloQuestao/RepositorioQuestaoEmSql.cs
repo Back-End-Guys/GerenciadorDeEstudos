@@ -1,4 +1,5 @@
 ﻿using ListaExerciciosMariana.Dominio.ModuloQuestao;
+using ListaExerciciosMariana.Dominio.ModuloTeste;
 using Microsoft.Data.SqlClient;
 
 namespace ListaExerciciosMariana.Infra.ModuloQuestao
@@ -169,23 +170,25 @@ namespace ListaExerciciosMariana.Infra.ModuloQuestao
             conexaoComBanco.Close();
         }
 
-        public override void Excluir(Questao questao)
+        public void Excluir(Questao questao, List<Teste> testes)
         {
             RemoverAlternativa(questao);
 
-            RemoverQuestao(questao);
+            if (testes.Exists(t => t.ListQuestoes.Contains(questao)))
+            {
+                RemoverQuestao(questao);
+            }
+                SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
 
-            SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
+                SqlCommand comandoExclusao = new SqlCommand(sqlExcluir, conexaoComBanco);
 
-            SqlCommand comandoExclusao = new SqlCommand(sqlExcluir, conexaoComBanco);
+                comandoExclusao.Parameters.AddWithValue("ID", questao.id);
 
-            comandoExclusao.Parameters.AddWithValue("ID", questao.id);
+                conexaoComBanco.Open();
 
-            conexaoComBanco.Open();
+                int numeroRegistrosExcluidos = comandoExclusao.ExecuteNonQuery();
 
-            int numeroRegistrosExcluidos = comandoExclusao.ExecuteNonQuery();
-
-            conexaoComBanco.Close();
+                conexaoComBanco.Close();
         }
 
         private void RemoverQuestao(Questao questao)
