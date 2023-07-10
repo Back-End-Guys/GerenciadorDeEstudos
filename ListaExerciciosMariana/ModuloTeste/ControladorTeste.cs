@@ -45,7 +45,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
 
         public override void Inserir()
         {
-            TelaTesteForm telaTeste = new TelaTesteForm(_repositorioMateria.SelecionarTodos(), _repositorioDisciplina.SelecionarTodos(),
+            TelaTesteForm telaTeste = new TelaTesteForm(duplicar: false, _repositorioMateria.SelecionarTodos(), _repositorioDisciplina.SelecionarTodos(),
                 _repositorioQuestao.SelecionarTodos(), _repositorioTeste.SelecionarTodos(), _repositorioMateria);
             telaTeste.Text = "Cadastrar novo teste";
 
@@ -112,7 +112,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
                 return;
             }
 
-            TelaTesteForm telaTeste = new TelaTesteForm(_repositorioMateria.SelecionarTodos(), _repositorioDisciplina.SelecionarTodos(),
+            TelaTesteForm telaTeste = new TelaTesteForm(duplicar: true, _repositorioMateria.SelecionarTodos(), _repositorioDisciplina.SelecionarTodos(),
                 _repositorioQuestao.SelecionarTodos(), _repositorioTeste.SelecionarTodos(), _repositorioMateria);
             telaTeste.Text = "Duplicar teste existente";
 

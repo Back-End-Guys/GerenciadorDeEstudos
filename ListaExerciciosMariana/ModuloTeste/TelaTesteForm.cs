@@ -11,9 +11,11 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
         private List<Teste> _testes;
         private List<Questao> _questoesDisponiveis;
         private IRepositorioMateria _repositorioMateria;
+        private bool _duplicar;
 
-        public TelaTesteForm(List<Materia> materias, List<Disciplina> disciplinas, List<Questao> questoes, List<Teste> testes, IRepositorioMateria repositorioMateria)
+        public TelaTesteForm(bool duplicar, List<Materia> materias, List<Disciplina> disciplinas, List<Questao> questoes, List<Teste> testes, IRepositorioMateria repositorioMateria)
         {
+            this._duplicar = duplicar;
             this._questoesDisponiveis = questoes;
             this._testes = testes;
 
@@ -144,7 +146,23 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
                     DialogResult = DialogResult.None;
                 }
             }
+            ValidarDuplicacao(teste, _duplicar);
+        }
 
+        public void ValidarDuplicacao(Teste teste, bool duplicar)
+        {
+            if (duplicar == true)
+            {
+                foreach (Teste t in _testes)
+                {
+                    if (teste.Titulo.ToUpper() == t.Titulo.ToUpper())
+                    {
+                        TelaPrincipalForm.Instancia.AtualizarRodape("O título já esta em uso");
+
+                        DialogResult = DialogResult.None;
+                    }
+                }
+            }
         }
 
         private void cbDisciplina_SelectedIndexChanged(object sender, EventArgs e)
