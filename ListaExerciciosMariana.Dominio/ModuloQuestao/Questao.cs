@@ -4,6 +4,8 @@ namespace ListaExerciciosMariana.Dominio.ModuloQuestao
 {
     public class Questao : EntidadeBase<Questao>
     {
+
+
         public Materia Materia { get; set; }
         public string Enunciado { get; set; }
         public string RespostaCerta { get; set; }
@@ -24,6 +26,14 @@ namespace ListaExerciciosMariana.Dominio.ModuloQuestao
             Enunciado = enunciado;
             RespostaCerta = respostaCerta;
             ListAlternativas = listAlternativas;
+        }
+
+        public Questao(int id, Materia materia, string enunciado)
+        {
+            this.id = id;
+            this.Materia = materia;
+            Enunciado = enunciado;
+            ListAlternativas = new List<Alternativa>();
         }
 
         public override void AtualizarInformacoes(Questao registroAtualizado)

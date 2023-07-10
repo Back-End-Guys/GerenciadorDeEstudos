@@ -26,24 +26,12 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
         }
         public Questao ObterQuestao()
         {
-            //int id = Convert.ToInt32(txtId.Text);
-            //string enunciado = txtEnunciado.Text;
-
-            //Materia materia = (Materia)cbMateria.SelectedItem;
-
-            //string respostaCerta = chListAlternativas.CheckedItems.ToString();
-
-            //List<Alternativa> listaAlaternativas = new List<Alternativa>();
-
-            //listaAlaternativas.AddRange(chListAlternativas.Items.Cast<Alternativa>());
-
-            //Questao questao = new Questao(materia, enunciado, respostaCerta, listaAlaternativas);
-
-            //return questao;
             int id = int.Parse(txtId.Text);
             string enunciado = txtEnunciado.Text;
             Materia materia = (Materia)cbMateria.SelectedItem;
             string respostaCerta;
+
+            _questao = new Questao(id, materia, enunciado);
 
             if (chListAlternativas.Items.Count == 0)
                 return null;
@@ -53,8 +41,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
             else
                 respostaCerta = chListAlternativas.CheckedItems[0].ToString()!;
 
-
-            _questao = new Questao(id, materia, enunciado, respostaCerta);
+            _questao.RespostaCerta = respostaCerta;
 
             foreach (Alternativa alternativa in ObterAlternativasDesmarcadas())
             {
@@ -167,6 +154,13 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
         private void btnGravar_Click(object sender, EventArgs e)
         {
             Questao questao = ObterQuestao();
+
+            if (questao == null)
+            {
+                TelaPrincipalForm.Instancia.AtualizarRodape("Nenhuma alternativa foi marcada");
+                DialogResult = DialogResult.None;
+                return;
+            }
 
             string[] erros = questao.Validar();
 

@@ -31,20 +31,6 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
             {
                 Questao questao = telaQuestaoForm.ObterQuestao();
 
-                if (questao == null)
-                {
-                    TelaPrincipalForm.Instancia.AtualizarRodape("É necessário adicionar uma alternativa");
-                    telaQuestaoForm.ShowDialog();
-                    return;
-                }
-
-                if (questao.RespostaCerta == "erro")
-                {
-                    TelaPrincipalForm.Instancia.AtualizarRodape("É necessário marcar uma alternativa");
-                    telaQuestaoForm.ShowDialog();
-                    return;
-                }
-
                 _repositorioQuestao.Inserir(questao, telaQuestaoForm.ObterAlternativas());
             }
 
