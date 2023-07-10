@@ -7,76 +7,89 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
     {
         private Questao _questao;
         private List<Questao> _questoes;
+        private int alternativaCount = 0;
 
-        public TelaQuestaoForm(List<Questao> questoes, List<Materia> materias)
+        public TelaQuestaoForm(List<Materia> materias, List<Questao> questoes)
         {
-            InitializeComponent();
-            this.ConfigurarDialog();
-            ConfigurarCbMateria(materias);
             this._questoes = questoes;
+
+            InitializeComponent();
+
+            this.ConfigurarDialog();
+
+            ConfigurarCbMateria(materias);
         }
 
+        public void ConfigurarCbMateria(List<Materia> materias)
+        {
+            materias.ForEach(m => cbMateria.Items.Add(m));
+        }
         public Questao ObterQuestao()
         {
-            int id = Convert.ToInt32(txtId.Text);
+            //int id = Convert.ToInt32(txtId.Text);
+            //string enunciado = txtEnunciado.Text;
+
+            //Materia materia = (Materia)cbMateria.SelectedItem;
+
+            //string respostaCerta = chListAlternativas.CheckedItems.ToString();
+
+            //List<Alternativa> listaAlaternativas = new List<Alternativa>();
+
+            //listaAlaternativas.AddRange(chListAlternativas.Items.Cast<Alternativa>());
+
+            //Questao questao = new Questao(materia, enunciado, respostaCerta, listaAlaternativas);
+
+            //return questao;
+            int id = int.Parse(txtId.Text);
             string enunciado = txtEnunciado.Text;
-
             Materia materia = (Materia)cbMateria.SelectedItem;
+            string respostaCerta;
 
-            string respostaCerta = chListAlternativas.CheckedItems.ToString();
+            if (chListAlternativas.Items.Count == 0)
+                return null;
 
-            List<Alternativa> listaAlaternativas = new List<Alternativa>();
+            if (chListAlternativas.CheckedItems.Count == 0)
+                respostaCerta = "erro";
+            else
+                respostaCerta = chListAlternativas.CheckedItems[0].ToString()!;
 
-            listaAlaternativas.AddRange(chListAlternativas.Items.Cast<Alternativa>());
 
-            Questao questao = new Questao(materia, enunciado, respostaCerta, listaAlaternativas);
+            _questao = new Questao(id, materia, enunciado, respostaCerta);
 
-            //-------------------------------------------------------------------------------------
-            //if (chListAlternativas.Items.Count == 0)
-            //    return null;
+            foreach (Alternativa alternativa in ObterAlternativasDesmarcadas())
+            {
+                _questao.AdicionarAlternativa(alternativa);
+            }
 
-            //if (chListAlternativas.CheckedItems.Count == 0)
-            //    respostaCerta = "erro";
-            //else
-            //    respostaCerta = chListAlternativas.CheckedItems[0].ToString()!;
-            //_questao = new Questao(id, materia, enunciado, respostaCerta);
+            foreach (Alternativa alternativaMarcada in ObterAlternativas())
+            {
+                Alternativa alternativa = new Alternativa(_questao, respostaCerta, true);
+                alternativa.Verdadeiro = true;
+                _questao.AdicionarAlternativa(alternativa);
+            }
 
-            //foreach (Alternativa alternativa in ObterAlternativasDesmarcadas())
-            //{
-            //    _questao.AdicionarAlternativa(alternativa);
-            //}
-
-            //foreach (Alternativa alternativaMarcada in ObterAlternativasMarcadas())
-            //{
-            //    Alternativa alternativa = new Alternativa(_questao, respostaCerta, true);
-            //    alternativa.Verdadeiro = true;
-            //    _questao.AdicionarAlternativa(alternativa);
-            //}
-            //-------------------------------------------------------------------------------------
-
-            return questao;
+            return _questao;
         }
-
-        public List<Alternativa> ObterAlternativasMarcadas()
+        public Alternativa ObterAlternativa(Questao questao)
         {
-            return chListAlternativas.CheckedItems.Cast<Alternativa>().ToList();
-        }
+            string resposta = txtResposta.Text;
 
-        public List<Alternativa> ObterAlternativasDesmarcadas()
-        {
-            return chListAlternativas.Items.Cast<Alternativa>()
-                .Except(ObterAlternativasMarcadas()).ToList();
+            return new Alternativa(questao, resposta, false);
         }
 
         public void ConfigurarTela(Questao questao)
         {
-            ConfigurarListBoxAlternativa(questao.ListAlternativas);
 
             txtId.Text = questao.id.ToString();
             txtEnunciado.Text = questao.Enunciado;
             txtAno.Text = questao.Materia.Ano;
 
             cbMateria.Text = questao.Materia.ToString();
+
+            foreach (Alternativa alternativa in questao.ListAlternativas)
+            {
+                chListAlternativas.Items.Add(alternativa);
+            }
 
             int i = 0;
 
@@ -93,9 +106,48 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
             }
         }
 
-        public void ConfigurarCbMateria(List<Materia> materias)
+        private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            materias.ForEach(m => cbMateria.Items.Add(m));
+            Alternativa alternativa = ObterAlternativa(_questao);
+
+            if (alternativa.AlternativaResposta == "")
+            {
+                TelaPrincipalForm.Instancia.AtualizarRodape("É necessário ter uma resposta");
+                return;
+            }
+
+            alternativaCount++;
+
+            chListAlternativas.Items.Add(alternativa);
+            txtResposta.Text = string.Empty;
+        }
+        private void btnRemover_Click(object sender, EventArgs e)
+        {
+            chListAlternativas.Items.Remove(chListAlternativas.SelectedItem);
+        }
+        private void chListAlternativas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = chListAlternativas.SelectedIndex;
+
+            int count = chListAlternativas.Items.Count;
+
+            for (int x = 0; x < count; x++)
+            {
+                if (index != x)
+                {
+                    chListAlternativas.SetItemCheckState(x, CheckState.Unchecked);
+                }
+            }
+        }
+
+        public List<Alternativa> ObterAlternativas()
+        {
+            return chListAlternativas.Items.Cast<Alternativa>().ToList();
+        }
+        public List<Alternativa> ObterAlternativasDesmarcadas()
+        {
+            return chListAlternativas.Items.Cast<Alternativa>()
+                .Except(ObterAlternativas()).ToList();
         }
 
         private void cbMateria_SelectedValueChanged(object sender, EventArgs e)
@@ -110,21 +162,6 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
             chListAlternativas.SelectionMode = SelectionMode.One;
 
             chListAlternativas.Items.AddRange(aternativas.ToArray());
-        }
-
-        private void btnAdicionar_Click(object sender, EventArgs e)
-        {
-            Alternativa Alternativa = new Alternativa();
-            Alternativa.AlternativaResposta = txtResposta.Text;
-
-            chListAlternativas.Items.Add(Alternativa);
-            txtResposta.Text = "";
-        }
-
-        private void btnRemover_Click(object sender, EventArgs e)
-        {
-            Alternativa alternativaSelecionada = (Alternativa)chListAlternativas.SelectedItem;
-            chListAlternativas.Items.Remove(alternativaSelecionada);
         }
 
         private void btnGravar_Click(object sender, EventArgs e)
@@ -150,5 +187,6 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
                 }
             }
         }
+
     }
 }

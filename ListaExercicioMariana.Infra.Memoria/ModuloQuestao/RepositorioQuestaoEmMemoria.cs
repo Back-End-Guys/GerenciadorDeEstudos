@@ -7,5 +7,15 @@ namespace ListaExercicioMariana.Infra.Memoria.ModuloQuestao
         public RepositorioQuestaoEmMemoria(List<Questao> listaCadastros) : base(listaCadastros)
         {
         }
+
+        public void Editar(int id, Questao questao, List<Alternativa> alternativas)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Inserir(Questao questao, List<Alternativa> alternativasAdicionadas)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

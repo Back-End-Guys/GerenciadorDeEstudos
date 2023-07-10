@@ -23,22 +23,37 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
 
         public override void Inserir()
         {
-            TelaQuestaoForm telaQuestao = new TelaQuestaoForm(_repositorioQuestao.SelecionarTodos(), _repositorioMateria.SelecionarTodos());
-            telaQuestao.Text = "Cadastrar nova questão";
+            TelaQuestaoForm telaQuestaoForm = new TelaQuestaoForm(_repositorioMateria.SelecionarTodos(), _repositorioQuestao.SelecionarTodos());
 
-            DialogResult opcaoEscolhida = telaQuestao.ShowDialog();
+            DialogResult opcaoEscolhida = telaQuestaoForm.ShowDialog();
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                Questao questao = telaQuestao.ObterQuestao();
+                Questao questao = telaQuestaoForm.ObterQuestao();
 
-                _repositorioQuestao.Inserir(questao);
+                if (questao == null)
+                {
+                    TelaPrincipalForm.Instancia.AtualizarRodape("É necessário adicionar uma alternativa");
+                    telaQuestaoForm.ShowDialog();
+                    return;
+                }
+
+                if (questao.RespostaCerta == "erro")
+                {
+                    TelaPrincipalForm.Instancia.AtualizarRodape("É necessário marcar uma alternativa");
+                    telaQuestaoForm.ShowDialog();
+                    return;
+                }
+
+                _repositorioQuestao.Inserir(questao, telaQuestaoForm.ObterAlternativas());
             }
+
             CarregarQuestoes();
         }
 
         public override void Editar()
         {
+            TelaQuestaoForm telaQuestao = new TelaQuestaoForm(_repositorioMateria.SelecionarTodos(), _repositorioQuestao.SelecionarTodos());
             Questao questaoSelecionada = ObterQuestaoSelecionada();
 
             if (questaoSelecionada == null)
@@ -48,7 +63,6 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
                 return;
             }
 
-            TelaQuestaoForm telaQuestao = new TelaQuestaoForm(_repositorioQuestao.SelecionarTodos(), _repositorioMateria.SelecionarTodos());
             telaQuestao.Text = "Editar questão existente";
 
             telaQuestao.ConfigurarTela(questaoSelecionada);
@@ -59,7 +73,11 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
             {
                 Questao questao = telaQuestao.ObterQuestao();
 
-                _repositorioQuestao.Editar(questao.id, questao);
+                List<Alternativa> alternativasMarcadas = telaQuestao.ObterAlternativas();
+
+                List<Alternativa> alternativasDesmarcadas = telaQuestao.ObterAlternativasDesmarcadas();
+
+                _repositorioQuestao.Editar(questao.id, questao, alternativasMarcadas);
             }
 
             CarregarQuestoes();

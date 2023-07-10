@@ -61,9 +61,9 @@ namespace ListaExerciciosMariana.Dominio.ModuloQuestao
             ListAlternativas.Add(alternativa);
         }
 
-        public bool Contem(Alternativa alternativaParaAdicionar)
+        public bool Existe(Alternativa alternativaParaAdicionar)
         {
-            if (ListAlternativas.Contains(alternativaParaAdicionar))
+            if (ListAlternativas.Exists(x => x.id == alternativaParaAdicionar.id))
                 return true;
 
             return false;
@@ -73,9 +73,6 @@ namespace ListaExerciciosMariana.Dominio.ModuloQuestao
         {
             return Enunciado;
         }
-        public void RemoverAlternativa(Alternativa alternaticaParaRemover)
-        {
-            ListAlternativas.Remove(alternaticaParaRemover);
-        }
+
     }
 }

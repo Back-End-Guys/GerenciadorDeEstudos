@@ -67,15 +67,13 @@ namespace ListaExerciciosMariana.Infra.ModuloQuestao
         private string sqlAdicionarAlternativa =>
             @"INSERT INTO [TBAlternativa]
                 (
-                   [LETRA]
-                   ,[QUESTAO_ID]
+                    [QUESTAO_ID]
                    ,[RESPOSTA]
                    ,[VERDADEIRO]
                 )
             VALUES
                 (
-                   @LETRA
-                   ,@QUESTAO_ID
+                   @QUESTAO_ID
                    ,@RESPOSTA
                    ,@VERDADEIRO
                 )";
@@ -115,80 +113,75 @@ namespace ListaExerciciosMariana.Infra.ModuloQuestao
                 A.QUESTAO_ID = @QUESTAO_ID AND Q.MATERIA_ID = @MATERIA_ID AND M.DISCIPLINA_ID = @DISCIPLINA_ID";
 
         private const string sqlRemoverAlternativas =
-            @"DELETE FROM TBALTERNATIVA 
-                WHERE QUESTAO_ID = @QUESTAO_ID AND ALTERNATIVA_ID = @ALTERNATIVA_ID";
+            @"DELETE FROM [TBALTERNATIVA]
+                WHERE
+                    [QUESTAO_ID] = @QUESTAO_ID";
 
         public void Inserir(Questao questao, List<Alternativa> alternativasAdicionadas)
         {
-            foreach (Alternativa alternativa in alternativasAdicionadas)
-            {
-                questao.AdicionarAlternativa(alternativa);
-            }
-
-            //obter a conexão com o banco e abrir ela
             SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
             conexaoComBanco.Open();
 
-            //cria um comando e relaciona com a conexão aberta
             SqlCommand comandoInserir = conexaoComBanco.CreateCommand();
             comandoInserir.CommandText = sqlInserir;
 
-            //adiciona os parâmetros no comando
             MapeadorQuestao mapeador = new MapeadorQuestao();
             mapeador.ConfigurarParametros(comandoInserir, questao);
 
-            //executa o comando
             object id = comandoInserir.ExecuteScalar();
 
             questao.id = Convert.ToInt32(id);
 
-            //encerra a conexão
             conexaoComBanco.Close();
 
             foreach (Alternativa alternativa in alternativasAdicionadas)
             {
-                AdicionarAlternativa(alternativa, questao);
+                if (questao.ListAlternativas.Contains(alternativa) == false)
+                {
+                    AdicionarAlternativa(alternativa, questao);
+                }
             }
         }
 
-        public void Editar(int id, Questao questao, List<Alternativa> alternativasMarcadas, List<Alternativa> AlternativasDesmarcadas)
+        public void Editar(int id, Questao questao, List<Alternativa> alternativas)
         {
-            foreach (Alternativa alternativaParaAdicionar in alternativasMarcadas)
+            foreach (Alternativa alternativaParaAdicionar in alternativas)
             {
-                if (questao.Contem(alternativaParaAdicionar))
+                if (questao.Existe(alternativaParaAdicionar))
                     continue;
 
                 AdicionarAlternativa(alternativaParaAdicionar, questao);
                 questao.AdicionarAlternativa(alternativaParaAdicionar);
             }
 
-
-            foreach (Alternativa alternativaParaAdicionar in AlternativasDesmarcadas)
-            {
-                if (questao.Contem(alternativaParaAdicionar))
-                {
-                    AdicionarAlternativa(alternativaParaAdicionar, questao);
-                    questao.AdicionarAlternativa(alternativaParaAdicionar);
-                }
-            }
-
-
-            //obter a conexão com o banco e abrir ela
             SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
             conexaoComBanco.Open();
 
-            //cria um comando e relaciona com a conexão aberta
             SqlCommand comandoEditar = conexaoComBanco.CreateCommand();
             comandoEditar.CommandText = sqlEditar;
 
-            //adiciona os parâmetros no comando
             MapeadorQuestao mapeador = new MapeadorQuestao();
             mapeador.ConfigurarParametros(comandoEditar, questao);
 
-            //executa o comando
             comandoEditar.ExecuteNonQuery();
 
-            //encerra a conexão
+            conexaoComBanco.Close();
+        }
+
+        public override void Excluir(Questao questao)
+        {
+            RemoverAlternativa(questao);
+
+            SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
+
+            SqlCommand comandoExclusao = new SqlCommand(sqlExcluir, conexaoComBanco);
+
+            comandoExclusao.Parameters.AddWithValue("ID", questao.id);
+
+            conexaoComBanco.Open();
+
+            int numeroRegistrosExcluidos = comandoExclusao.ExecuteNonQuery();
+
             conexaoComBanco.Close();
         }
 
@@ -230,15 +223,12 @@ namespace ListaExerciciosMariana.Infra.ModuloQuestao
 
         public List<Questao> SelecionarTodos(bool carregarItens = false, bool carregarAlugueis = false)
         {
-            //obter a conexão com o banco e abrir ela
             SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
             conexaoComBanco.Open();
 
-            //cria um comando e relaciona com a conexão aberta
             SqlCommand comandoSelecionarTodos = conexaoComBanco.CreateCommand();
             comandoSelecionarTodos.CommandText = sqlSelecionarTodos;
 
-            //executa o comando
             SqlDataReader leitorTemas = comandoSelecionarTodos.ExecuteReader();
 
             List<Questao> questoes = new List<Questao>();
@@ -254,7 +244,6 @@ namespace ListaExerciciosMariana.Infra.ModuloQuestao
                 questoes.Add(questao);
             }
 
-            //encerra a conexão
             conexaoComBanco.Close();
 
             return questoes;
@@ -262,55 +251,40 @@ namespace ListaExerciciosMariana.Infra.ModuloQuestao
 
         private void AdicionarAlternativa(Alternativa alternativa, Questao questao)
         {
-            //obter a conexão com o banco e abrir ela
             SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
             conexaoComBanco.Open();
 
-            //cria um comando e relaciona com a conexão aberta
             SqlCommand comandoInserir = conexaoComBanco.CreateCommand();
             comandoInserir.CommandText = sqlAdicionarAlternativa;
 
-            //adiciona os parâmetros no comando
-
             comandoInserir.Parameters.AddWithValue("QUESTAO_ID", questao.id);
             comandoInserir.Parameters.AddWithValue("RESPOSTA", alternativa.AlternativaResposta);
-            comandoInserir.Parameters.AddWithValue("CORRETA", alternativa.Verdadeiro);
+            comandoInserir.Parameters.AddWithValue("VERDADEIRO", alternativa.Verdadeiro);
 
-            //executa o comando
             comandoInserir.ExecuteNonQuery();
 
-            //fecha conexão
             conexaoComBanco.Close();
         }
 
-        private void RemoverAlternativa(Alternativa alternativa, Questao questao)
+        private void RemoverAlternativa(Questao questao)
         {
-            //obter a conexão com o banco e abrir ela
             SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
+
+            SqlCommand comandoExclusao = new SqlCommand(sqlRemoverAlternativas, conexaoComBanco);
+
+            comandoExclusao.Parameters.AddWithValue("QUESTAO_ID", questao.id);
+
             conexaoComBanco.Open();
+            comandoExclusao.ExecuteNonQuery();
 
-            //cria um comando e relaciona com a conexão aberta
-            SqlCommand comandoInserir = conexaoComBanco.CreateCommand();
-            comandoInserir.CommandText = sqlRemoverAlternativas;
-
-            //adiciona os parâmetros no comando
-            comandoInserir.Parameters.AddWithValue("ALTERNATIVA_ID", alternativa.id);
-            comandoInserir.Parameters.AddWithValue("QUESTAO_ID", questao.id);
-
-            //executa o comando
-            comandoInserir.ExecuteNonQuery();
-
-            //fecha conexão
             conexaoComBanco.Close();
         }
 
         private void CarregarAlternativas(Questao questao)
         {
-            //obter a conexão com o banco e abrir ela
             SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
             conexaoComBanco.Open();
 
-            //cria um comando e relaciona com a conexão aberta
             SqlCommand comandoSelecionarAlternativas = conexaoComBanco.CreateCommand();
             comandoSelecionarAlternativas.CommandText = sqlCarregarAlternativas;
 
@@ -318,7 +292,6 @@ namespace ListaExerciciosMariana.Infra.ModuloQuestao
             comandoSelecionarAlternativas.Parameters.AddWithValue("MATERIA_ID", questao.Materia.id);
             comandoSelecionarAlternativas.Parameters.AddWithValue("DISCIPLINA_ID", questao.Materia.Disciplina.id);
 
-            //executa o comando
             SqlDataReader leitorAlternativa = comandoSelecionarAlternativas.ExecuteReader();
 
             while (leitorAlternativa.Read())
@@ -330,7 +303,6 @@ namespace ListaExerciciosMariana.Infra.ModuloQuestao
                 questao.AdicionarAlternativa(alternativa);
             }
 
-            //encerra a conexão
             conexaoComBanco.Close();
         }
 
