@@ -75,7 +75,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloPdf
 
             string caminho = Path.Combine(txtDiretorio.Text, nomePdf + ".pdf");
 
-            Document doc = new Document(PageSize.A4, 20, 20, 10, 10);
+            Document doc = new Document(PageSize.A4, 30, 30, 30, 30);
             FileStream fs = new FileStream(caminho, FileMode.Create, FileAccess.Write, FileShare.None);
 
             PdfWriter writer = PdfWriter.GetInstance(doc, fs);
@@ -133,9 +133,11 @@ namespace ListaExerciciosMariana.WinForm.ModuloPdf
                 {
                     Paragraph alternativa = new Paragraph(string.Format($"{letra}) {a}"), fonteQuestao);
                     doc.Add(alternativa);
-                    doc.Add(new Paragraph(" "));
+                    doc.Add(new Paragraph(""));
                     letra++;
                 });
+
+                doc.Add(new Paragraph(" "));
 
                 if (rbGabarito.Checked)
                 {
