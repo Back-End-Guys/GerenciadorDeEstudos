@@ -1,4 +1,5 @@
-﻿using ListaExerciciosMariana.Dominio.ModuloQuestao;
+﻿using ListaExerciciosMariana.Dominio.ModuloMateria;
+using ListaExerciciosMariana.Dominio.ModuloQuestao;
 using ListaExerciciosMariana.Dominio.ModuloTeste;
 using Microsoft.Data.SqlClient;
 
@@ -121,6 +122,13 @@ namespace ListaExerciciosMariana.Infra.ModuloQuestao
         private const string sqlRemoverQuestoes = @"DELETE FROM [TBQUESTAO_TBTESTE]
                                                           WHERE
                                                         [QUESTAO_ID] = @QUESTAO_ID";
+
+        public override List<Questao> SelecionarTodos()
+        {
+            List<Questao> questoes = base.SelecionarTodos();
+
+            return questoes;
+        }
 
         public void Inserir(Questao questao, List<Alternativa> alternativasAdicionadas)
         {
