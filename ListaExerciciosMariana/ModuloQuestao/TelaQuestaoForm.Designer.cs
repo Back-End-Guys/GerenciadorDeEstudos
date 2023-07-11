@@ -53,7 +53,7 @@
             chListAlternativas.Location = new Point(124, 304);
             chListAlternativas.Margin = new Padding(4, 5, 4, 5);
             chListAlternativas.Name = "chListAlternativas";
-            chListAlternativas.Size = new Size(553, 158);
+            chListAlternativas.Size = new Size(553, 166);
             chListAlternativas.TabIndex = 0;
             chListAlternativas.SelectedIndexChanged += chListAlternativas_SelectedIndexChanged;
             // 
@@ -64,7 +64,7 @@
             label4.Location = new Point(31, 186);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(76, 20);
+            label4.Size = new Size(95, 25);
             label4.TabIndex = 25;
             label4.Text = "Resposta :";
             // 
@@ -88,7 +88,7 @@
             label3.Location = new Point(16, 89);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(85, 20);
+            label3.Size = new Size(110, 25);
             label3.TabIndex = 23;
             label3.Text = "Enunciado :";
             // 
@@ -101,7 +101,7 @@
             cbMateria.Location = new Point(124, 8);
             cbMateria.Margin = new Padding(4, 5, 4, 5);
             cbMateria.Name = "cbMateria";
-            cbMateria.Size = new Size(245, 28);
+            cbMateria.Size = new Size(245, 33);
             cbMateria.TabIndex = 22;
             cbMateria.SelectedValueChanged += cbMateria_SelectedValueChanged;
             // 
@@ -112,7 +112,7 @@
             label2.Location = new Point(40, 12);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(67, 20);
+            label2.Size = new Size(86, 25);
             label2.TabIndex = 21;
             label2.Text = "Matéria :";
             // 
@@ -125,7 +125,7 @@
             txtId.Margin = new Padding(4, 5, 4, 5);
             txtId.Name = "txtId";
             txtId.ReadOnly = true;
-            txtId.Size = new Size(51, 27);
+            txtId.Size = new Size(51, 32);
             txtId.TabIndex = 20;
             txtId.Text = "0";
             // 
@@ -136,7 +136,7 @@
             label1.Location = new Point(579, 12);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(31, 20);
+            label1.Size = new Size(39, 25);
             label1.TabIndex = 19;
             label1.Text = "ID :";
             // 
@@ -149,7 +149,7 @@
             btnCancelar.FlatAppearance.BorderSize = 0;
             btnCancelar.FlatAppearance.MouseDownBackColor = Color.Lavender;
             btnCancelar.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            btnCancelar.Location = new Point(408, 479);
+            btnCancelar.Location = new Point(408, 488);
             btnCancelar.Margin = new Padding(3, 4, 3, 4);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(112, 56);
@@ -166,7 +166,7 @@
             btnGravar.FlatAppearance.BorderSize = 0;
             btnGravar.FlatAppearance.MouseDownBackColor = Color.Lavender;
             btnGravar.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            btnGravar.Location = new Point(281, 479);
+            btnGravar.Location = new Point(281, 488);
             btnGravar.Margin = new Padding(3, 4, 3, 4);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(112, 56);
@@ -182,14 +182,14 @@
             label5.Location = new Point(378, 11);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(43, 20);
+            label5.Size = new Size(55, 25);
             label5.TabIndex = 31;
             label5.Text = "Ano :";
             // 
             // btnRemover
             // 
             btnRemover.Anchor = AnchorStyles.None;
-            btnRemover.BackColor = SystemColors.GradientInactiveCaption;
+            btnRemover.BackColor = Color.LightSteelBlue;
             btnRemover.Cursor = Cursors.Hand;
             btnRemover.FlatAppearance.BorderSize = 0;
             btnRemover.FlatAppearance.MouseDownBackColor = Color.Lavender;
@@ -206,7 +206,7 @@
             // btnAdicionar
             // 
             btnAdicionar.Anchor = AnchorStyles.None;
-            btnAdicionar.BackColor = SystemColors.GradientInactiveCaption;
+            btnAdicionar.BackColor = Color.LightSteelBlue;
             btnAdicionar.Cursor = Cursors.Hand;
             btnAdicionar.FlatAppearance.BorderSize = 0;
             btnAdicionar.FlatAppearance.MouseDownBackColor = Color.Lavender;
@@ -243,16 +243,16 @@
             txtAno.Margin = new Padding(4, 5, 4, 5);
             txtAno.Name = "txtAno";
             txtAno.ReadOnly = true;
-            txtAno.Size = new Size(136, 27);
+            txtAno.Size = new Size(136, 32);
             txtAno.TabIndex = 36;
             // 
             // TelaQuestaoForm
             // 
             AcceptButton = btnGravar;
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
-            ClientSize = new Size(727, 547);
+            ClientSize = new Size(727, 557);
             Controls.Add(txtAno);
             Controls.Add(chListAlternativas);
             Controls.Add(txtResposta);
