@@ -39,12 +39,13 @@
             label1 = new Label();
             txtTítulo = new TextBox();
             label3 = new Label();
-            txtQnt = new TextBox();
             label4 = new Label();
             listQuestoes = new ListBox();
             cbDisciplina = new ComboBox();
             label6 = new Label();
             chbRecuperacao = new CheckBox();
+            txtQnt = new NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)txtQnt).BeginInit();
             SuspendLayout();
             // 
             // txtAno
@@ -56,7 +57,7 @@
             txtAno.Margin = new Padding(4, 5, 4, 5);
             txtAno.Name = "txtAno";
             txtAno.ReadOnly = true;
-            txtAno.Size = new Size(161, 32);
+            txtAno.Size = new Size(195, 32);
             txtAno.TabIndex = 51;
             // 
             // btnSortearQuestoes
@@ -128,10 +129,10 @@
             cbMateria.DropDownStyle = ComboBoxStyle.DropDownList;
             cbMateria.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             cbMateria.FormattingEnabled = true;
-            cbMateria.Location = new Point(416, 115);
+            cbMateria.Location = new Point(446, 115);
             cbMateria.Margin = new Padding(4, 5, 4, 5);
             cbMateria.Name = "cbMateria";
-            cbMateria.Size = new Size(210, 33);
+            cbMateria.Size = new Size(180, 33);
             cbMateria.TabIndex = 41;
             cbMateria.SelectedIndexChanged += cbMateria_SelectedIndexChanged;
             // 
@@ -139,7 +140,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(322, 119);
+            label2.Location = new Point(356, 119);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(86, 25);
@@ -191,22 +192,11 @@
             label3.TabIndex = 52;
             label3.Text = "Título :";
             // 
-            // txtQnt
-            // 
-            txtQnt.BackColor = Color.Snow;
-            txtQnt.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            txtQnt.Location = new Point(416, 167);
-            txtQnt.Margin = new Padding(4, 5, 4, 5);
-            txtQnt.Name = "txtQnt";
-            txtQnt.PlaceholderText = "10";
-            txtQnt.Size = new Size(210, 32);
-            txtQnt.TabIndex = 55;
-            // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(288, 171);
+            label4.Location = new Point(322, 171);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.Size = new Size(120, 25);
@@ -258,6 +248,13 @@
             chbRecuperacao.Text = "?É prova de recuperação";
             chbRecuperacao.UseVisualStyleBackColor = false;
             // 
+            // txtQnt
+            // 
+            txtQnt.Location = new Point(446, 167);
+            txtQnt.Name = "txtQnt";
+            txtQnt.Size = new Size(180, 32);
+            txtQnt.TabIndex = 61;
+            // 
             // TelaTesteForm
             // 
             AcceptButton = btnGravar;
@@ -265,11 +262,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(689, 575);
+            Controls.Add(txtQnt);
             Controls.Add(listQuestoes);
             Controls.Add(chbRecuperacao);
             Controls.Add(cbDisciplina);
             Controls.Add(label6);
-            Controls.Add(txtQnt);
             Controls.Add(label4);
             Controls.Add(txtTítulo);
             Controls.Add(label3);
@@ -287,6 +284,7 @@
             Name = "TelaTesteForm";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
+            ((System.ComponentModel.ISupportInitialize)txtQnt).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -304,11 +302,11 @@
         private Label label1;
         private TextBox txtTítulo;
         private Label label3;
-        private TextBox txtQnt;
         private Label label4;
         private ListBox listQuestoes;
         private ComboBox cbDisciplina;
         private Label label6;
         private CheckBox chbRecuperacao;
+        private NumericUpDown txtQnt;
     }
 }
