@@ -20,11 +20,6 @@ namespace ListaExerciciosMariana.Dominio.ModuloDisciplina
             this.ListMaterias = registroAtualizado.ListMaterias;
         }
 
-        public void AdicionarMateria(Materia materia)
-        {
-            ListMaterias.Add(materia);
-        }
-
         public override string[] Validar()
         {
             List<string> erros = new List<string>();

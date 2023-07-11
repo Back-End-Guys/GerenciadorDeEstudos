@@ -28,7 +28,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ListaExercicioMariana.Infra.Memoria\ListaExercicioMariana.Infra.Memoria.csproj" />
     <ProjectReference Include="..\ListaExerciciosMariana.Dominio\ListaExerciciosMariana.Dominio.csproj" />
     <ProjectReference Include="..\ListaExerciciosMariana.Infra\ListaExerciciosMariana.Infra.csproj" />
   </ItemGroup>

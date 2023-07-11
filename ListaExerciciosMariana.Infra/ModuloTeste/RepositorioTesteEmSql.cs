@@ -276,8 +276,6 @@ namespace ListaExerciciosMariana.Infra.ModuloTeste
             List<Teste> testes = base.SelecionarTodos();
 
             return testes;
-        }
-
-        
+        }        
     }
 }

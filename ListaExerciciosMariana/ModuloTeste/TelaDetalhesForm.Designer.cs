@@ -259,7 +259,6 @@
             Name = "TelaDetalhesForm";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
-            Load += TelaDetalhesForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }

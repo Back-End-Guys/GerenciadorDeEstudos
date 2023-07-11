@@ -2,15 +2,12 @@
 using iTextSharp.text.pdf;
 using ListaExerciciosMariana.Dominio.ModuloQuestao;
 using ListaExerciciosMariana.Dominio.ModuloTeste;
-using System;
 
 namespace ListaExerciciosMariana.WinForm.ModuloPdf
 {
     public partial class TelaGerarPdfForm : Form
     {
         private Teste _testeSelecionado;
-        private Questao _questao;
-        private Alternativa _alternativa;
         private IRepositorioQuestao _repositorioQuestao;
 
         public TelaGerarPdfForm(Teste testeSelecionado, IRepositorioQuestao repositorioQuestao)

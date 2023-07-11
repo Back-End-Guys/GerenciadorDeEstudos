@@ -207,18 +207,14 @@ namespace ListaExerciciosMariana.Infra.ModuloQuestao
 
         public override Questao SelecionarPorId(int id)
         {
-            //obter a conexão com o banco e abrir ela
             SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
             conexaoComBanco.Open();
 
-            //cria um comando e relaciona com a conexão aberta
             SqlCommand comandoSelecionarPorId = conexaoComBanco.CreateCommand();
             comandoSelecionarPorId.CommandText = sqlSelecionarPorId;
 
-            //adicionar parametro
             comandoSelecionarPorId.Parameters.AddWithValue("ID", id);
 
-            //executa o comando
             SqlDataReader leitorTemas = comandoSelecionarPorId.ExecuteReader();
 
             Questao questao = null;
@@ -229,8 +225,6 @@ namespace ListaExerciciosMariana.Infra.ModuloQuestao
                 questao = mapeador.ConverterRegistro(leitorTemas);
             }
 
-
-            //encerra a conexão
             conexaoComBanco.Close();
 
             if (questao != null)
@@ -239,34 +233,6 @@ namespace ListaExerciciosMariana.Infra.ModuloQuestao
             }
 
             return questao;
-        }
-
-        public List<Questao> SelecionarTodos(bool carregarItens = false, bool carregarAlugueis = false)
-        {
-            SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
-            conexaoComBanco.Open();
-
-            SqlCommand comandoSelecionarTodos = conexaoComBanco.CreateCommand();
-            comandoSelecionarTodos.CommandText = sqlSelecionarTodos;
-
-            SqlDataReader leitorTemas = comandoSelecionarTodos.ExecuteReader();
-
-            List<Questao> questoes = new List<Questao>();
-
-            while (leitorTemas.Read())
-            {
-                MapeadorQuestao mapeador = new MapeadorQuestao();
-                Questao questao = mapeador.ConverterRegistro(leitorTemas);
-
-                if (carregarItens)
-                    CarregarAlternativas(questao);
-
-                questoes.Add(questao);
-            }
-
-            conexaoComBanco.Close();
-
-            return questoes;
         }
 
         private void AdicionarAlternativa(Alternativa alternativa, Questao questao)
@@ -325,7 +291,5 @@ namespace ListaExerciciosMariana.Infra.ModuloQuestao
 
             conexaoComBanco.Close();
         }
-
-
     }
 }

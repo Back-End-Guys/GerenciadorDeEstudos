@@ -68,7 +68,6 @@ namespace ListaExerciciosMariana.WinForm.ModuloMateria
             CarregarMaterias();
         }
 
-
         public override void Excluir()
         {
             Materia materiaSelecionada = ObterMateriaSelecionada();

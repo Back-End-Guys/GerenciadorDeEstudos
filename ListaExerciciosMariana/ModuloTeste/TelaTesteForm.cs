@@ -108,7 +108,6 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
 
         }
 
-
         private List<Questao> SortearQuestoes(List<Questao> questoesDisponiveis, int quantidade)
         {
             List<Questao> questoesSorteadas = new List<Questao>();

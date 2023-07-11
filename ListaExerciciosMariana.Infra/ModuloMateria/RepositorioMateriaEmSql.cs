@@ -97,13 +97,9 @@ namespace ListaExerciciosMariana.Infra.ModuloMateria
                 materias.Add(materia);
             }
 
-
-
             conexaoComBanco.Close();
 
             return materias;
         }
-
-
     }
 }

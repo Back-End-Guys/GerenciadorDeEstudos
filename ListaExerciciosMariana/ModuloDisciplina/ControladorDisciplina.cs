@@ -1,5 +1,4 @@
 ﻿using ListaExerciciosMariana.Dominio.ModuloDisciplina;
-using ListaExerciciosMariana.Dominio.ModuloMateria;
 
 namespace ListaExerciciosMariana.WinForm.ModuloDisciplina
 {

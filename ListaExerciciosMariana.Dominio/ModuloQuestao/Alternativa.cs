@@ -7,8 +7,6 @@
 
         public Questao Questao { get; set; }
 
-        public Alternativa() { }
-
         public Alternativa(Questao questao, string resposta, bool verdadeiro)
         {
             Verdadeiro = verdadeiro;

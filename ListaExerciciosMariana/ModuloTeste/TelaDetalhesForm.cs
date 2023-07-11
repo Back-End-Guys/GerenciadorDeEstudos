@@ -28,10 +28,5 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
             txtAno.Text = testeSelecionado.Materia.Ano.ToString();
             txtQnt.Text = testeSelecionado.QuantidadeQuestoes.ToString();
         }
-
-        private void TelaDetalhesForm_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -53,6 +53,5 @@ namespace ListaExerciciosMariana.Infra.ModuloDisciplina
 
             return disciplinas;
         }
-
     }
 }
