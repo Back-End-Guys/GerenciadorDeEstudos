@@ -19,8 +19,6 @@
                     {
                         button.BackColor = Color.FromArgb(94, 134, 177);
                         button.ForeColor = Color.Snow;
-                        //button.ForeColor = Color.Snow;
-                        //SystemColors.GradientInactiveCaption;
                     };
 
                     button.MouseLeave += (sender, e) =>
