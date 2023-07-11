@@ -53,11 +53,11 @@ namespace ListaExerciciosMariana.Infra.ModuloTeste
                                                            ,D.[NOME]                DISCIPLINA_NOME
 
                                                         FROM 
-	                                                        [TBTESTE] AS T
-                                                        INNER JOIN [TBMATERIA] AS M
-                                                                ON T.[MATERIA_ID] = M.ID
-                                                        INNER JOIN [DISCIPLINA] AS D
-                                                                ON M.[DISCIPLINA_ID] = D.ID";
+                                                           [TBTESTE] AS T
+                                                       LEFT JOIN [DISCIPLINA] AS D
+                                                           ON T.DISCIPLINA_ID = D.ID
+                                                       LEFT JOIN [TBMATERIA] AS M
+                                                           ON T.MATERIA_ID = M.ID";
 
         protected override string sqlSelecionarPorId => @"SELECT 
 	                                                        T.[ID]                  TESTE_ID 
@@ -72,12 +72,12 @@ namespace ListaExerciciosMariana.Infra.ModuloTeste
                                                            ,M.[DISCIPLINA_ID]       DISCIPLINA_ID
                                                            ,D.[ID]                  DISCIPLINA_ID
                                                            ,D.[NOME]                DISCIPLINA_NOME
-                                                    FROM 
-	                                                        [TBTESTE] AS T
-                                                        INNER JOIN [TBMATERIA] AS M
-                                                                ON T.[MATERIA_ID] = M.ID
-                                                        INNER JOIN [DISCIPLINA] AS D
-                                                                ON M.[DISCIPLINA_ID] = D.ID
+                                                        FROM 
+                                                           [TBTESTE] AS T
+                                                       LEFT JOIN [DISCIPLINA] AS D
+                                                           ON T.DISCIPLINA_ID = D.ID
+                                                       LEFT JOIN [TBMATERIA] AS M
+                                                           ON T.MATERIA_ID = M.ID
                                                     WHERE 
                                                         T.[ID] = @ID";
 

@@ -50,9 +50,6 @@ namespace ListaExerciciosMariana.Dominio.ModuloTeste
             if (Disciplina == null)
                 erros.Add("O campo \"Disciplina\" é obrigatório");
 
-            if (Materia == null)
-                erros.Add("O campo \"Título\" é obrigatório");
-
             return erros.ToArray();
         }
     }

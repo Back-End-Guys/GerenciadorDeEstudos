@@ -14,9 +14,14 @@ namespace ListaExerciciosMariana.Infra.ModuloTeste
             comando.Parameters.AddWithValue("@ID", registro.id);
             comando.Parameters.AddWithValue("@TITULO", registro.Titulo);
             comando.Parameters.AddWithValue("@DISCIPLINA_ID", registro.Disciplina.id);
-            comando.Parameters.AddWithValue("@MATERIA_ID", registro.Materia.id);
+            //comando.Parameters.AddWithValue("@MATERIA_ID", registro.Materia.id);
             comando.Parameters.AddWithValue("@QUANTIDADEQUESTOES", registro.QuantidadeQuestoes);
             comando.Parameters.AddWithValue("@PROVARECUPERACAO", registro.ProvaRecuperacao);
+
+            if (registro.Materia == null)
+                comando.Parameters.AddWithValue("@MATERIA_ID", DBNull.Value);
+            else
+                comando.Parameters.AddWithValue("@MATERIA_ID", registro.Materia.id);
         }
 
         public override Teste ConverterRegistro(SqlDataReader leitorRegistros)
@@ -28,7 +33,12 @@ namespace ListaExerciciosMariana.Infra.ModuloTeste
 
             Disciplina disciplina = new MapeadorDisciplina().ConverterRegistro(leitorRegistros);
 
-            Materia materia = new MapeadorMateria().ConverterRegistro(leitorRegistros);
+            Materia materia = null;
+
+            if (leitorRegistros["MATERIA_ID"] != DBNull.Value)
+            {
+                materia = new MapeadorMateria().ConverterRegistro(leitorRegistros);
+            }
 
             return new Teste(id, titulo, disciplina, materia, quantidadeQuestoes, provaRecuperacao);
         }

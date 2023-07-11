@@ -9,6 +9,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
     {
         private List<Teste> _testes;
         private List<Questao> _questoesDisponiveis;
+        private List<Questao> _questoesSorteadas = new List<Questao>();
         private IRepositorioMateria _repositorioMateria;
         private bool _duplicar;
 
@@ -25,6 +26,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
             ConfigurarComboBoxMateria(materias);
             this._testes = testes;
             this._repositorioMateria = repositorioMateria;
+
         }
 
         public Teste ObterTeste()
@@ -74,59 +76,70 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
 
         private void btnSortearQuestoes_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtQnt.Text))
+            int quantidade = (int)txtQnt.Value;
+            Materia materiaSelecionada = (Materia)cbMateria.SelectedItem;
+            Disciplina disciplina = (Disciplina)cbDisciplina.SelectedItem;
+
+            if (cbMateria.SelectedItem == null)
             {
-                TelaPrincipalForm.Instancia.AtualizarRodape("Informe a quantidade de questões a serem sorteadas");
+                TelaPrincipalForm.Instancia.AtualizarRodape("É necessário selecionar uma Matéria");
+                DialogResult = DialogResult.None;
                 return;
             }
 
-            int quantidade = int.Parse(txtQnt.Text);
-
-            if (cbMateria.SelectedItem != null)
+            if (quantidade < 0)
             {
-                if (quantidade > 0)
-                {
-                    Materia materiaSelecionada = (Materia)cbMateria.SelectedItem;
-
-                    if (_questoesDisponiveis.Count >= quantidade)
-                    {
-                        List<Questao> questoesSorteadas = SortearQuestoes(_questoesDisponiveis, quantidade);
-
-                        questoesSorteadas.ForEach(q => listQuestoes.Items.Add(q));
-                    }
-
-                    else
-                        MessageBox.Show("Não há questões suficientes para a quantidade solicitada!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-
-                else
-                    MessageBox.Show("Digite uma quantidade válida!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Digite uma quantidade válida!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
 
-            else
-                MessageBox.Show("Selecione uma matéria!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            List<Questao> questoesParaSortear;
 
+            if (chbRecuperacao.Checked == false)
+            {
+                questoesParaSortear = _questoesDisponiveis.FindAll(x => x.id == materiaSelecionada.id);
+            }
+            else
+            {
+                questoesParaSortear = _questoesDisponiveis.FindAll(q => q.Materia.Disciplina.id == disciplina.id);
+            }
+
+            if (questoesParaSortear.Count < quantidade)
+            {
+                MessageBox.Show("Não há questões suficientes para a quantidade solicitada!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            _questoesSorteadas = SortearQuestoes(_questoesDisponiveis, quantidade);
+
+            _questoesSorteadas.ForEach(q => listQuestoes.Items.Add(q));
         }
 
         private List<Questao> SortearQuestoes(List<Questao> questoesDisponiveis, int quantidade)
         {
-            List<Questao> questoesSorteadas = new List<Questao>();
             Random random = new Random();
             Materia materia = (Materia)cbMateria.SelectedItem;
+            Disciplina disciplina = (Disciplina)cbDisciplina.SelectedItem;
 
-            List<Questao> questoesFiltradas = questoesDisponiveis.FindAll(x => x.Materia.id == materia.id);
+            List<Questao> questoesDaMateria;
 
-            for (int i = 0; i < quantidade; i++)
+            if (chbRecuperacao.Checked == false)
             {
-                if (questoesFiltradas.Count == 0)
-                    break;
-
-                int index = random.Next(questoesFiltradas.Count);
-                questoesSorteadas.Add(questoesFiltradas[index]);
-                questoesFiltradas.RemoveAt(index);
+                questoesDaMateria = _questoesDisponiveis.FindAll(x => x.Materia.id == materia.id);
+            }
+            else
+            {
+                questoesDaMateria = _questoesDisponiveis.FindAll(q => q.Materia.Disciplina.id == disciplina.id);
             }
 
-            return questoesSorteadas;
+            while (_questoesSorteadas.Count < quantidade)
+            {
+                int index = random.Next(questoesDaMateria.Count);
+                _questoesSorteadas.Add(questoesDaMateria[index]);
+                questoesDaMateria.RemoveAt(index);
+            }
+
+            return _questoesSorteadas;
         }
 
         private void btnGravar_Click(object sender, EventArgs e)
@@ -134,6 +147,8 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
             Teste teste = ObterTeste();
 
             string[] erros = teste.Validar();
+
+            
 
             if (erros.Length > 0)
             {
