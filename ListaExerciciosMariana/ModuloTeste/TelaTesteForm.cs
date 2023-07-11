@@ -142,6 +142,13 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
                 return;
             }
 
+            if (listQuestoes.Items.Count == 0)
+            {
+                TelaPrincipalForm.Instancia.AtualizarRodape("É necessário sortear questões para o teste");
+                DialogResult = DialogResult.None;
+                return;
+            }
+
             foreach (Teste t in _testes)
             {
                 if (teste.Titulo.ToUpper() == t.Titulo.ToUpper() && teste.id != t.id)
