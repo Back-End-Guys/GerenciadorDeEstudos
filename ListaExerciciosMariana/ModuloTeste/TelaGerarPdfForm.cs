@@ -115,7 +115,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloPdf
             titulo.Alignment = Element.ALIGN_CENTER;
             doc.Add(titulo);
 
-            doc.Add(new Paragraph(" "));                    
+            doc.Add(new Paragraph(" "));
 
             _testeSelecionado.ListQuestoes.ForEach(q =>
             {

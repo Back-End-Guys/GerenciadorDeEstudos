@@ -52,6 +52,7 @@
             // txtId
             // 
             txtId.BackColor = SystemColors.GradientActiveCaption;
+            txtId.Enabled = false;
             txtId.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             txtId.Location = new Point(118, 25);
             txtId.Name = "txtId";

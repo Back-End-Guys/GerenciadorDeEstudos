@@ -45,6 +45,7 @@
             // rbQuestoes
             // 
             rbQuestoes.AutoSize = true;
+            rbQuestoes.Cursor = Cursors.Hand;
             rbQuestoes.Location = new Point(15, 49);
             rbQuestoes.Name = "rbQuestoes";
             rbQuestoes.Size = new Size(175, 29);
@@ -69,7 +70,8 @@
             // rbGabarito
             // 
             rbGabarito.AutoSize = true;
-            rbGabarito.Location = new Point(196, 49);
+            rbGabarito.Cursor = Cursors.Hand;
+            rbGabarito.Location = new Point(208, 49);
             rbGabarito.Name = "rbGabarito";
             rbGabarito.Size = new Size(228, 29);
             rbGabarito.TabIndex = 1;
@@ -169,13 +171,13 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(17, 21);
+            label2.Location = new Point(17, 20);
             label2.Name = "label2";
             label2.Size = new Size(104, 25);
             label2.TabIndex = 13;
             label2.Text = "Estudante :";
             // 
-            // TelaEscolhaPdfForm
+            // TelaGerarPdfForm
             // 
             AcceptButton = btnGerar;
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -185,7 +187,7 @@
             Controls.Add(panel1);
             Controls.Add(btnCancelar);
             Controls.Add(btnGerar);
-            Name = "TelaEscolhaPdfForm";
+            Name = "TelaGerarPdfForm";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Gerar pdf";

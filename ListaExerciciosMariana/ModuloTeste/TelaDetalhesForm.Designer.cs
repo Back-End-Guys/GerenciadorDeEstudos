@@ -49,6 +49,7 @@
             // 
             chbRecuperacao.AutoSize = true;
             chbRecuperacao.BackColor = SystemColors.GradientInactiveCaption;
+            chbRecuperacao.Enabled = false;
             chbRecuperacao.Location = new Point(387, 33);
             chbRecuperacao.Name = "chbRecuperacao";
             chbRecuperacao.RightToLeft = RightToLeft.Yes;
@@ -73,19 +74,19 @@
             txtQnt.BackColor = SystemColors.GradientInactiveCaption;
             txtQnt.Enabled = false;
             txtQnt.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            txtQnt.Location = new Point(422, 200);
+            txtQnt.Location = new Point(456, 200);
             txtQnt.Margin = new Padding(4, 5, 4, 5);
             txtQnt.Name = "txtQnt";
             txtQnt.PlaceholderText = "10";
             txtQnt.ReadOnly = true;
-            txtQnt.Size = new Size(210, 32);
+            txtQnt.Size = new Size(176, 32);
             txtQnt.TabIndex = 70;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(294, 204);
+            label4.Location = new Point(328, 204);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.Size = new Size(120, 25);
@@ -124,7 +125,7 @@
             txtAno.Margin = new Padding(4, 5, 4, 5);
             txtAno.Name = "txtAno";
             txtAno.ReadOnly = true;
-            txtAno.Size = new Size(161, 32);
+            txtAno.Size = new Size(195, 32);
             txtAno.TabIndex = 66;
             // 
             // label5
@@ -142,7 +143,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(328, 144);
+            label2.Location = new Point(362, 144);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(86, 25);
@@ -207,11 +208,11 @@
             txtMateria.BackColor = SystemColors.GradientInactiveCaption;
             txtMateria.Enabled = false;
             txtMateria.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            txtMateria.Location = new Point(422, 141);
+            txtMateria.Location = new Point(456, 141);
             txtMateria.Margin = new Padding(4, 5, 4, 5);
             txtMateria.Name = "txtMateria";
             txtMateria.ReadOnly = true;
-            txtMateria.Size = new Size(210, 32);
+            txtMateria.Size = new Size(176, 32);
             txtMateria.TabIndex = 76;
             // 
             // btnGabarito
