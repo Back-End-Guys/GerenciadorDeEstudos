@@ -72,6 +72,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
         {
             return listQuestoes.Items.Cast<Questao>().ToList();
         }
+
         private void btnSortearQuestoes_Click(object sender, EventArgs e)
         {
             int quantidade = int.Parse(txtQnt.Text);
