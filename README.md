@@ -21,6 +21,7 @@ Aplicação projetada para fornecer um maior controle parental de testes escolar
 - Avisa incoerências pelo rodapé ou por caixas de mensagens
 - Contém a visualização das informações em forma de tabelas
 - Guarda as informações cadastradas em repositórios SQL
+- Todas as telas de cadastros tem o Enter como opção de confirmação e botões com hover
 
 <br>
 
