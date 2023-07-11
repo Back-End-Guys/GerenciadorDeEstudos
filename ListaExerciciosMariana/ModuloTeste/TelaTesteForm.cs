@@ -35,7 +35,6 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
             Materia materia = (Materia)cbMateria.SelectedItem;
             int qtdQuestoes = int.Parse(txtQnt.Text);
             bool recuperacao = chbRecuperacao.Checked;
-            //List<Questao> questoes = listQuestoes.Items.Cast<Questao>().ToList();
 
             Teste teste = new Teste(id, titulo, disciplina, materia, qtdQuestoes, recuperacao);
             teste.id = id;
@@ -72,8 +71,15 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
         {
             return listQuestoes.Items.Cast<Questao>().ToList();
         }
+
         private void btnSortearQuestoes_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtQnt.Text))
+            {
+                TelaPrincipalForm.Instancia.AtualizarRodape("Informe a quantidade de questões a serem sorteadas");
+                return;
+            }
+
             int quantidade = int.Parse(txtQnt.Text);
 
             if (cbMateria.SelectedItem != null)
@@ -178,37 +184,20 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
             }
         }
 
-        //private void cbMateria_SelectedValueChanged(object sender, EventArgs e)
-        //{
-        //    ExibirAnoMateriaSelecionada();
-        //    AtualizarQuestoesDisponiveis();
-        //}
+        private void ExibirAnoMateriaSelecionada()
+        {
+            if (cbMateria.SelectedItem != null)
+            {
+                Materia materiaSelecionada = (Materia)cbMateria.SelectedItem;
+                txtAno.Text = materiaSelecionada.Ano.ToString();
+            }
 
-        //private void ExibirAnoMateriaSelecionada()
-        //{
-        //    if (cbMateria.SelectedItem != null)
-        //    {
-        //        Materia materiaSelecionada = (Materia)cbMateria.SelectedItem;
-        //        txtAno.Text = materiaSelecionada.Ano.ToString();
-        //    }
+            else txtAno.Text = string.Empty;
+        }
 
-        //    else txtAno.Text = string.Empty;
-        //}
-
-        //private void AtualizarQuestoesDisponiveis()
-        //{
-        //    listQuestoes.Items.Clear();
-
-        //    Materia materiaSelecionada = (Materia)cbMateria.SelectedItem;
-
-        //    if (materiaSelecionada != null)
-        //    {
-        //        List<Questao> questoesFiltradas = _questoesDisponiveis
-        //            .Where(q => q.Materia == materiaSelecionada)
-        //            .ToList();
-
-        //        questoesFiltradas.ForEach(q => listQuestoes.Items.Add($" → {q.Enunciado}\n"));
-        //    }
-        //}
+        private void cbMateria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ExibirAnoMateriaSelecionada();
+        }
     }
 }

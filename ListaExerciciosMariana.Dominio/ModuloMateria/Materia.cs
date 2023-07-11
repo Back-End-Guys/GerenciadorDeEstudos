@@ -4,8 +4,6 @@ namespace ListaExerciciosMariana.Dominio.ModuloMateria
 {
     public class Materia : EntidadeBase<Materia>
     {
-        private object ano;
-
         public string Nome { get; set; }
         public Disciplina Disciplina { get; set; }
         public string Ano { get; set; }
@@ -18,11 +16,11 @@ namespace ListaExerciciosMariana.Dominio.ModuloMateria
             Ano = ano;
         }
 
-        public Materia(int id, string? nome, object ano)
+        public Materia(int id, string? nome, string ano)
         {
             this.id = id;
             Nome = nome;
-            this.ano = ano;
+            this.Ano = ano;
         }
 
         public override void AtualizarInformacoes(Materia registroAtualizado)

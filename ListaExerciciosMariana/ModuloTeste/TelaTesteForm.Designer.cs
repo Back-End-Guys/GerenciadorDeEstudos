@@ -56,7 +56,7 @@
             txtAno.Margin = new Padding(4, 5, 4, 5);
             txtAno.Name = "txtAno";
             txtAno.ReadOnly = true;
-            txtAno.Size = new Size(161, 27);
+            txtAno.Size = new Size(161, 32);
             txtAno.TabIndex = 51;
             // 
             // btnSortearQuestoes
@@ -83,7 +83,7 @@
             label5.Location = new Point(55, 171);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(43, 20);
+            label5.Size = new Size(55, 25);
             label5.TabIndex = 47;
             label5.Text = "Ano :";
             // 
@@ -131,8 +131,9 @@
             cbMateria.Location = new Point(416, 115);
             cbMateria.Margin = new Padding(4, 5, 4, 5);
             cbMateria.Name = "cbMateria";
-            cbMateria.Size = new Size(210, 28);
+            cbMateria.Size = new Size(210, 33);
             cbMateria.TabIndex = 41;
+            cbMateria.SelectedIndexChanged += cbMateria_SelectedIndexChanged;
             // 
             // label2
             // 
@@ -141,7 +142,7 @@
             label2.Location = new Point(322, 119);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(67, 20);
+            label2.Size = new Size(86, 25);
             label2.TabIndex = 40;
             label2.Text = "Matéria :";
             // 
@@ -154,7 +155,7 @@
             txtId.Margin = new Padding(4, 5, 4, 5);
             txtId.Name = "txtId";
             txtId.ReadOnly = true;
-            txtId.Size = new Size(244, 27);
+            txtId.Size = new Size(244, 32);
             txtId.TabIndex = 39;
             txtId.Text = "0";
             // 
@@ -165,7 +166,7 @@
             label1.Location = new Point(71, 17);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(31, 20);
+            label1.Size = new Size(39, 25);
             label1.TabIndex = 38;
             label1.Text = "ID :";
             // 
@@ -177,7 +178,7 @@
             txtTítulo.Margin = new Padding(3, 4, 3, 4);
             txtTítulo.Name = "txtTítulo";
             txtTítulo.PlaceholderText = "Teste de...";
-            txtTítulo.Size = new Size(508, 27);
+            txtTítulo.Size = new Size(508, 32);
             txtTítulo.TabIndex = 53;
             // 
             // label3
@@ -186,7 +187,7 @@
             label3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             label3.Location = new Point(41, 68);
             label3.Name = "label3";
-            label3.Size = new Size(54, 20);
+            label3.Size = new Size(69, 25);
             label3.TabIndex = 52;
             label3.Text = "Título :";
             // 
@@ -198,7 +199,7 @@
             txtQnt.Margin = new Padding(4, 5, 4, 5);
             txtQnt.Name = "txtQnt";
             txtQnt.PlaceholderText = "10";
-            txtQnt.Size = new Size(210, 27);
+            txtQnt.Size = new Size(210, 32);
             txtQnt.TabIndex = 55;
             // 
             // label4
@@ -208,17 +209,17 @@
             label4.Location = new Point(288, 171);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(94, 20);
+            label4.Size = new Size(120, 25);
             label4.TabIndex = 54;
             label4.Text = "Quantidade :";
             // 
             // listQuestoes
             // 
             listQuestoes.FormattingEnabled = true;
-            listQuestoes.ItemHeight = 20;
+            listQuestoes.ItemHeight = 25;
             listQuestoes.Location = new Point(122, 267);
             listQuestoes.Name = "listQuestoes";
-            listQuestoes.Size = new Size(507, 224);
+            listQuestoes.Size = new Size(507, 204);
             listQuestoes.TabIndex = 56;
             // 
             // cbDisciplina
@@ -230,7 +231,7 @@
             cbDisciplina.Location = new Point(118, 115);
             cbDisciplina.Margin = new Padding(4, 5, 4, 5);
             cbDisciplina.Name = "cbDisciplina";
-            cbDisciplina.Size = new Size(196, 28);
+            cbDisciplina.Size = new Size(196, 33);
             cbDisciplina.TabIndex = 59;
             cbDisciplina.SelectedIndexChanged += cbDisciplina_SelectedIndexChanged;
             // 
@@ -241,7 +242,7 @@
             label6.Location = new Point(7, 119);
             label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
-            label6.Size = new Size(81, 20);
+            label6.Size = new Size(103, 25);
             label6.TabIndex = 58;
             label6.Text = "Disciplina :";
             // 
@@ -252,7 +253,7 @@
             chbRecuperacao.Location = new Point(381, 17);
             chbRecuperacao.Name = "chbRecuperacao";
             chbRecuperacao.RightToLeft = RightToLeft.Yes;
-            chbRecuperacao.Size = new Size(192, 24);
+            chbRecuperacao.Size = new Size(242, 29);
             chbRecuperacao.TabIndex = 60;
             chbRecuperacao.Text = "?É prova de recuperação";
             chbRecuperacao.UseVisualStyleBackColor = false;
@@ -260,7 +261,7 @@
             // TelaTesteForm
             // 
             AcceptButton = btnGravar;
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(689, 575);
