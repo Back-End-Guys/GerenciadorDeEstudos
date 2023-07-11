@@ -63,7 +63,7 @@
             // btnSortearQuestoes
             // 
             btnSortearQuestoes.Anchor = AnchorStyles.None;
-            btnSortearQuestoes.BackColor = SystemColors.GradientInactiveCaption;
+            btnSortearQuestoes.BackColor = Color.LightSteelBlue;
             btnSortearQuestoes.Cursor = Cursors.Hand;
             btnSortearQuestoes.FlatAppearance.BorderSize = 0;
             btnSortearQuestoes.FlatAppearance.MouseDownBackColor = Color.Lavender;
@@ -209,7 +209,7 @@
             listQuestoes.ItemHeight = 25;
             listQuestoes.Location = new Point(122, 267);
             listQuestoes.Name = "listQuestoes";
-            listQuestoes.Size = new Size(507, 204);
+            listQuestoes.Size = new Size(507, 229);
             listQuestoes.TabIndex = 56;
             // 
             // cbDisciplina

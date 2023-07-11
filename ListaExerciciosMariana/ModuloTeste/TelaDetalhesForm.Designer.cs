@@ -218,7 +218,7 @@
             // btnGabarito
             // 
             btnGabarito.Anchor = AnchorStyles.None;
-            btnGabarito.BackColor = SystemColors.GradientInactiveCaption;
+            btnGabarito.BackColor = Color.LightSteelBlue;
             btnGabarito.Cursor = Cursors.Hand;
             btnGabarito.DialogResult = DialogResult.OK;
             btnGabarito.FlatAppearance.BorderSize = 0;

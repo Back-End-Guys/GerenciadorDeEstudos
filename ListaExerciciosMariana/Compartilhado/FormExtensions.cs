@@ -10,6 +10,24 @@
             form.ShowInTaskbar = false;
             form.FormBorderStyle = FormBorderStyle.FixedDialog;
             form.StartPosition = FormStartPosition.CenterScreen;
+
+            foreach (Control control in form.Controls)
+            {
+                if (control is Button button)
+                {
+                    button.MouseEnter += (sender, e) =>
+                    {
+                        button.BackColor = Color.FromArgb(94, 134, 177);
+                        button.ForeColor = Color.Snow;
+                    };
+
+                    button.MouseLeave += (sender, e) =>
+                    {
+                        button.BackColor = Color.LightSteelBlue;
+                        button.ForeColor = Color.Black;
+                    };
+                }
+            }
         }
     }
 }

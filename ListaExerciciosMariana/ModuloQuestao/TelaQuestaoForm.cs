@@ -87,7 +87,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
                     }
 
                 }
-                    i++;
+                i++;
             }
         }
 
@@ -185,6 +185,6 @@ namespace ListaExerciciosMariana.WinForm.ModuloQuestao
                     DialogResult = DialogResult.None;
                 }
             }
-        }   
+        }
     }
 }

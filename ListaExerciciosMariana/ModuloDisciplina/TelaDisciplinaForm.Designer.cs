@@ -95,6 +95,7 @@
             btnGravar.DialogResult = DialogResult.OK;
             btnGravar.FlatAppearance.BorderSize = 0;
             btnGravar.FlatAppearance.MouseDownBackColor = Color.Lavender;
+            btnGravar.FlatAppearance.MouseOverBackColor = Color.Lavender;
             btnGravar.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             btnGravar.Location = new Point(96, 176);
             btnGravar.Margin = new Padding(3, 4, 3, 4);

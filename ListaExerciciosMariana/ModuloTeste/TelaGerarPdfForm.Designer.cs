@@ -34,10 +34,10 @@
             txtDiretorio = new TextBox();
             btnCancelar = new Button();
             btnGerar = new Button();
-            btnDiretorio = new Button();
             panel1 = new Panel();
             txtNome = new TextBox();
             label2 = new Label();
+            btnDiretorio = new Button();
             groupBox1.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -127,34 +127,15 @@
             btnGerar.UseVisualStyleBackColor = false;
             btnGerar.Click += btnGerar_Click;
             // 
-            // btnDiretorio
-            // 
-            btnDiretorio.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnDiretorio.BackColor = SystemColors.GradientInactiveCaption;
-            btnDiretorio.Cursor = Cursors.Hand;
-            btnDiretorio.DialogResult = DialogResult.OK;
-            btnDiretorio.FlatAppearance.BorderSize = 0;
-            btnDiretorio.FlatAppearance.MouseDownBackColor = Color.Lavender;
-            btnDiretorio.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            btnDiretorio.Location = new Point(17, 248);
-            btnDiretorio.Margin = new Padding(3, 4, 3, 4);
-            btnDiretorio.Name = "btnDiretorio";
-            btnDiretorio.Size = new Size(453, 56);
-            btnDiretorio.TabIndex = 11;
-            btnDiretorio.Text = "Buscar diretório";
-            btnDiretorio.UseVisualStyleBackColor = false;
-            btnDiretorio.Click += btnDiretorio_Click;
-            // 
             // panel1
             // 
             panel1.Controls.Add(txtNome);
             panel1.Controls.Add(label2);
-            panel1.Controls.Add(btnDiretorio);
             panel1.Controls.Add(txtDiretorio);
             panel1.Controls.Add(groupBox1);
             panel1.Location = new Point(33, 23);
             panel1.Name = "panel1";
-            panel1.Size = new Size(494, 321);
+            panel1.Size = new Size(494, 236);
             panel1.TabIndex = 12;
             // 
             // txtNome
@@ -177,6 +158,24 @@
             label2.TabIndex = 13;
             label2.Text = "Estudante :";
             // 
+            // btnDiretorio
+            // 
+            btnDiretorio.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnDiretorio.BackColor = Color.LightSteelBlue;
+            btnDiretorio.Cursor = Cursors.Hand;
+            btnDiretorio.DialogResult = DialogResult.OK;
+            btnDiretorio.FlatAppearance.BorderSize = 0;
+            btnDiretorio.FlatAppearance.MouseDownBackColor = Color.Lavender;
+            btnDiretorio.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            btnDiretorio.Location = new Point(50, 277);
+            btnDiretorio.Margin = new Padding(3, 4, 3, 4);
+            btnDiretorio.Name = "btnDiretorio";
+            btnDiretorio.Size = new Size(453, 56);
+            btnDiretorio.TabIndex = 11;
+            btnDiretorio.Text = "Buscar diretório";
+            btnDiretorio.UseVisualStyleBackColor = false;
+            btnDiretorio.Click += btnDiretorio_Click;
+            // 
             // TelaGerarPdfForm
             // 
             AcceptButton = btnGerar;
@@ -186,6 +185,7 @@
             ClientSize = new Size(560, 431);
             Controls.Add(panel1);
             Controls.Add(btnCancelar);
+            Controls.Add(btnDiretorio);
             Controls.Add(btnGerar);
             Name = "TelaGerarPdfForm";
             ShowIcon = false;
@@ -206,9 +206,9 @@
         private Button btnCancelar;
         private Button btnGerar;
         private TextBox txtDiretorio;
-        private Button btnDiretorio;
         private Panel panel1;
         private TextBox txtNome;
         private Label label2;
+        private Button btnDiretorio;
     }
 }
