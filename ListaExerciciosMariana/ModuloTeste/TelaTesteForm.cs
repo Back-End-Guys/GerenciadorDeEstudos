@@ -97,7 +97,7 @@ namespace ListaExerciciosMariana.WinForm.ModuloTeste
 
             if (chbRecuperacao.Checked == false)
             {
-                questoesParaSortear = _questoesDisponiveis.FindAll(x => x.id == materiaSelecionada.id);
+                questoesParaSortear = _questoesDisponiveis.FindAll(x => x.Materia.id == materiaSelecionada.id);
             }
             else
             {
